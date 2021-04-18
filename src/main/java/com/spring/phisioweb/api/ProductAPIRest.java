@@ -29,6 +29,16 @@ public class ProductAPIRest {
         return ResponseEntity.status(HttpStatus.OK).body(newListProduct);
     }
 
+    @GetMapping("/products/services/all")
+    public ResponseEntity<List<Product>> findAllServices() {
+        List<Product> newListProduct = productService.findAllServices();
+        if(newListProduct.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(newListProduct);
+    }
+
     @GetMapping("/products/id/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable("id") Integer id) {
         Product newProduct = productService.findProductById(id);
@@ -47,5 +57,15 @@ public class ProductAPIRest {
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(newListProductType);
+    }
+
+    @GetMapping("/products/services/webname/{product_webname}")
+    public ResponseEntity <Product> findProductByWebname(@PathVariable("product_webname") String product_webname) {
+        Product newProduct = productService.findServiceByWebname(product_webname);
+        if(newProduct == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(newProduct);
     }
 }

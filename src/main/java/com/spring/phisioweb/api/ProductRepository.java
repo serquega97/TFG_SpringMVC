@@ -11,25 +11,36 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository <Product, Integer> {
     
-    /*******************Product querys*************************/
-    //Return a list of products filtered by product_type
+    //Returns a list of products filtered by product_type
     @Query(value = "SELECT p FROM Product p WHERE p.product_type = ?1")
     public List<Product> findProductByType(String product_type);
 
+    //Returns all services stored in database
+    @Query(value = "SELECT p FROM Product p WHERE p.product_type = 'Servicio'")
+    public List<Product> findAllServices();
+
+    //Returns all products stored in database
+    @Query(value = "SELECT p FROM Product p WHERE p.product_type != 'Servicio'")
+    public List<Product> findAllProducts();
+
+    //Returns the service filtered by their webname
+    @Query(value = "SELECT p FROM Product p WHERE p.product_webname = ?1")
+    public Product findServiceByWebname(String product_webname);
+
     /******** Methods and querys to make the filtering *********/
-    //Return a list of product ordered by price desc
-    @Query(value = "SELECT p FROM Product p ORDER BY p.product_price DESC")
+    //Returns a list of product ordered by price desc
+    @Query(value = "SELECT p FROM Product p WHERE p.product_type != 'Servicios' ORDER BY p.product_price DESC")
     public List<Product> filterByPriceDesc();
 
-    //Return a list of product ordered by price asc
-    @Query(value = "SELECT p FROM Product p ORDER BY p.product_price ASC")
+    //Returns a list of product ordered by price asc
+    @Query(value = "SELECT p FROM Product p WHERE p.product_type != 'Servicios' ORDER BY p.product_price ASC")
     public List<Product> filterByPriceAsc();
 
-    //Return a list of products ordered by name desc
+    //Returns a list of products ordered by name desc
     @Query(value = "SELECT p FROM Product p ORDER BY p.product_name DESC")
     public List<Product> filterByNameDesc();
 
-    //Return a list of product ordered by name asc
+    //Returns a list of product ordered by name asc
     @Query(value = "SELECT p FROM Product p ORDER BY p.product_name ASC")
     public List<Product> filterByNameAsc();
 }

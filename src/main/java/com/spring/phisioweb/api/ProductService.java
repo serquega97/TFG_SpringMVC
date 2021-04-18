@@ -15,9 +15,24 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    //Returns a list of all products and services
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
+
     //Returns a list of all products
     public List<Product> findAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findAllProducts();
+    }
+
+    //Returns a list of all services
+    public List<Product> findAllServices() {
+        return productRepository.findAllServices();
+    }
+
+    //Returns the service by its webname
+    public Product findServiceByWebname(String product_webname) {
+        return productRepository.findServiceByWebname(product_webname);
     }
 
     //Return a single product by his ID

@@ -1,8 +1,9 @@
-package com.spring.phisioweb.api.product;
+package com.spring.phisioweb.api;
 
 import java.util.List;
 
 import com.spring.phisioweb.model.Product;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository <Product, Integer> {
     
+    /*******************Product querys*************************/
     //Return a list of products filtered by product_type
     @Query(value = "SELECT p FROM Product p WHERE p.product_type = ?1")
     public List<Product> findProductByType(String product_type);

@@ -3,7 +3,7 @@ package com.spring.phisioweb.controllers;
 import java.util.List;
 
 import com.spring.phisioweb.model.Product;
-import com.spring.phisioweb.api.product.ProductAPIRest;
+import com.spring.phisioweb.api.ProductAPIRest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

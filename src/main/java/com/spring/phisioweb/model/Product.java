@@ -49,6 +49,10 @@ public class Product implements Serializable {
     private String product_desc5;
     @Column(nullable = false)
     private String url_photo;
+    @Column(nullable = false)
+    private Integer product_duration;
+    @Column(nullable = false)
+    private String product_webname;
     
     //Constructors
     public Product() {
@@ -60,7 +64,7 @@ public class Product implements Serializable {
     }
     
     public Product(String name, Float weight, Float price, String product_type, String desc1, 
-        String desc2, String desc3, String desc4, String desc5, String photo) {
+        String desc2, String desc3, String desc4, String desc5, String photo, Integer duration, String webname) {
         this.product_name = name;
         this.product_weight = weight;
         this.product_price = price;
@@ -71,5 +75,7 @@ public class Product implements Serializable {
         this.product_desc1 = desc5;
         this.url_photo = photo;
         this.product_type = product_type;
+        this.product_duration = duration;
+        this.product_webname = webname;
     }
 }

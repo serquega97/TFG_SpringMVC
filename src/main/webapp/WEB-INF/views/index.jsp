@@ -116,97 +116,37 @@
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <h3 class="mb-3">Qué ofrecemos?</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia rerum, aliquid velit minima inventore ad consequatur accusamus dolor.</p>
-            <p><a href="#" class="d-inline-flex align-items-center block-service-1-more"><span>Ver todos los servicios</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+            <p><a href="/products/service/all" class="d-inline-flex align-items-center block-service-1-more"><span>Ver todos los servicios</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
           </div>
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <div class="block-service-1-card">
-              <a href="#" class="thumbnail-link d-block mb-4"><img src="resources/images/PuncioSeca.JPG" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3"><a href="#">Punción seca</a></h3>
+              <a href="/products/service/Puncion" class="thumbnail-link d-block mb-4"><img src="resources/images/PuncioSeca.JPG" alt="Image" class="img-fluid"></a>
+              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Puncion">Punción seca</a></h3>
               <div class="block-service-1-excerpt"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim odit molestias inventore, id sed, in harum tenetur earum.</p></div>
-              <p><a href="#" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
-            </div>
-          </div>
-          <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
-            <div class="block-service-1-card">
-              <a href="#" class="thumbnail-link d-block mb-4"><img src="resources/images/ReadaptacioEsportiva.JPG" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3"><a href="#">Readaptación deportiva</a></h3>
-              <div class="block-service-1-excerpt"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim odit molestias inventore, id sed, in harum tenetur earum.</p></div>
-              <p><a href="#" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+              <p><a href="/products/service/Puncion" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <div class="block-service-1-card">
-              <a href="#" class="thumbnail-link d-block mb-4"><img src="resources/images/VendatgeNeuromuscular.JPG" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3"><a href="#">Vendaje neuromuscular</a></h3>
+              <a href="/products/service/Readaptacion" class="thumbnail-link d-block mb-4"><img src="resources/images/ReadaptacioEsportiva.JPG" alt="Image" class="img-fluid"></a>
+              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Readaptacion">Readaptación deportiva</a></h3>
               <div class="block-service-1-excerpt"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim odit molestias inventore, id sed, in harum tenetur earum.</p></div>
-              <p><a href="#" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+              <p><a href="/products/service/Readaptacion" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+            </div>
+          </div>
+          <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
+            <div class="block-service-1-card">
+              <a href="/products/service/Kinesio" class="thumbnail-link d-block mb-4"><img src="resources/images/VendatgeNeuromuscular.JPG" alt="Image" class="img-fluid"></a>
+              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Kinesio">Vendaje neuromuscular</a></h3>
+              <div class="block-service-1-excerpt"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim odit molestias inventore, id sed, in harum tenetur earum.</p></div>
+              <p><a href="/products/service/Kinesio" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="block-half-content-1 d-block d-lg-flex mt-5">
-      <div class="block-half-content-img" style="background-image: url('images/hero_bg_1.jpg')">
-        
-      </div>
-      <div class="block-half-content-text bg-primary">
-        <div class="block-half-content-text-inner">
-          <h2 class="block-half-content-heading mb-4">Why Choose Us</h2>
-          <div class="block-half-content-excerpt">
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut tenetur possimus nam totam, repellat expedita ullam amet velit.</p>
-          </div>
-        </div>
-
-        <div class="block-counter-1 section-counter">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="counter">
-                <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="3">0</span><span class="append">K</span>
-                </div>
-                <span class="block-counter-1-caption">Happy Customers</span>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="counter">
-                <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="7">0</span><span class="append
-"></span>
-                </div>
-                <span class="block-counter-1-caption">Years of Experience</span>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="counter">
-                <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="100">0</span><span class="append">%</span>
-                </div>
-                <span class="block-counter-1-caption">Satisfaction</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mt-5 block-cta-1 primary-overlay" style="background-image: url('images/hero_bg_2.jpg')">
-      <div class="container">
-        <div class="row align-items-center justify-content-between">
-          <div class="col-lg-7 mb-4 mb-lg-0">
-            <h2 class="mb-3 mt-0 text-white">Upto 30% Discount for The First Commers</h2>
-            <p class="mb-0 text-white lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-          <div class="col-lg-4">
-            <p class="mb-0"><a href="contact.html" class="btn btn-outline-white text-white btn-md btn-pill px-5 font-weight-bold btn-block">Contact Us</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <%@ include file = "footer.jsp" %>
-    
+    </div>    
+    <%@ include file = "footer.jsp" %>   
   </div>
-
   <script src="resources/js/jquery-3.3.1.min.js"></script>
   <script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="resources/js/jquery-ui.js"></script>

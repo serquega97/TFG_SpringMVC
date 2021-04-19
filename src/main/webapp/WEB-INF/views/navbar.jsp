@@ -17,10 +17,11 @@
               <li class="has-children">
                 <a><span id="servicios">Servicios</span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/services/puncion">Punción seca</a></li>
-                  <li><a href="/services/readaptacion">Readaptación deportiva</a></li>
-                  <li><a href="/services/electroterapia">Electroterapia</a></li>
-                  <li><a href="/services/masaje">Masaje terapéutico</a></li>
+                  <li><a href="/products/service/Puncion">Punción seca</a></li>
+                  <li><a href="/products/service/Readaptacion">Readaptación deportiva</a></li>
+                  <li><a href="/products/service/Electroterapia">Electroterapia</a></li>
+                  <li><a href="/products/service/Masoterapia">Masaje terapéutico</a></li>
+                  <li><a href="/products/service/Kinesio">Vendaje neuromuscular</a></li>
                 </ul>
               </li>
               <li class="has-children">
@@ -37,7 +38,7 @@
                   </ul>
                 </li>
               <li><a href="blog.html"><span>Sobre nosotros</span></a></li>
-              <li><a href="contact.html"><span>Blog</span></a></li>
+              <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
             </ul>
           </nav>
         </div>

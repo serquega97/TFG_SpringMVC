@@ -42,8 +42,10 @@
       </div>
       <%@ include file = "navbar.jsp" %>
       
-      <div id="nav" style="margin-top: 4cm; margin-left: 3cm;"></div>
-      <div id="dp" style="margin-top: 4cm;" style="height: 7cm;" style="height: 5cm;"></div>
+      <div class="row">
+        <div id="nav" style="margin-top: 4cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
+        <div id="dp" style="margin-top: 4cm; width: 900px; height: 120px;"></div>
+      </div>
 
       <%@ include file = "footer.jsp" %>
     </div>

@@ -79,7 +79,7 @@
               </c:if>
               <c:if test = "${newProduct.product_type != 'Servicio'}">
                 <div class="pt-5">
-                  <h3 class="mb-5">Peso: ${newProduct.product_weight}€</h3>
+                  <h3 class="mb-5">Peso: ${newProduct.product_weight}kg</h3>
                   <h3 class="mb-5" id = "funds">Precio: ${newProduct.product_price}€</h3>
                   <div id="paypal-button-container"></div>
                 </div>

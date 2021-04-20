@@ -39,6 +39,7 @@
                 </li>
               <li><a href="blog.html"><span>Sobre nosotros</span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
+              <li><a href="/book/calendar"><span>Calendario de citas</span></a></li>
             </ul>
           </nav>
         </div>

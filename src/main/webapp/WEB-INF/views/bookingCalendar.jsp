@@ -46,7 +46,8 @@
       <div class="row">
         <div id="nav" style="margin-top: 1cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
         <div id="dp" style="margin-top: 1cm; width: 900px; height: 120px;"></div>
-      </div>
+        <div id="dc"></div>
+    </div>
 
       <%@ include file = "footer.jsp" %>
     </div>
@@ -75,14 +76,17 @@
         nav.onTimeRangeSelected = function(args) {
             dp.startDate = args.day;
             dp.update();
-            dp.events.load("api/events");
+            dp.events.load("/api/events");
         };
         nav.init();
 
         var dp = new DayPilot.Month("dp");
         dp.eventEndSpec = "date";
+        dp.locale = "es-es";
         dp.onTimeRangeSelected = function(args) {
-            DayPilot.Modal.prompt("Concertar nueva cita", "Cita").then(function(modal) {
+            var dc = new DayPilot.Calendar("dc");
+            dc.init();
+            DayPilot.Modal.prompt("Introduzca su nombre", "").then(function(modal) {
                 dp.clearSelection();
                 if(!modal.result) {
                     return;
@@ -104,6 +108,29 @@
                 })
             });
         };
+
+        //Insert option in the events and execute a job when option is clicked
+        dp.contextMenu = new DayPilot.Menu({
+            items: [
+                {
+                    text: "Delete",
+                    onClick: function(args) {
+                        var e = args.source;
+                        var params = {
+                            id: e.id()
+                        };
+                        DayPilot.Http.ajax({
+                            url: '/api/events/delete',
+                            data: params,
+                            success: function(ajax) {
+                                dp.events.remove(e);
+                                dp.message("Cita borrada");
+                            },
+                        });
+                    }
+                }
+            ]
+        });
         //Init month calendar
         dp.init();
         //Get events

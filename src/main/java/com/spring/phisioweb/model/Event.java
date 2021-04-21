@@ -28,11 +28,11 @@ public class Event {
 
     }
 
-    public Event(Integer id) {
+    public Event(Long id) {
         this.id = id;
     }
 
-    public Event(Integer id, String text, LocalDateTime start, LocalDateTime end, String color) {
+    public Event(Long id, String text, LocalDateTime start, LocalDateTime end, String color) {
         this.id = id;
         this.text = text;
         this.start = start;

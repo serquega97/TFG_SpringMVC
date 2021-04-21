@@ -42,9 +42,10 @@
       </div>
       <%@ include file = "navbar.jsp" %>
       
+      <label><input type="checkbox" id="weekends" checked="checked" style="margin-top: 4cm; margin-left: 9cm">Mostrar fines de semana</label>
       <div class="row">
-        <div id="nav" style="margin-top: 4cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
-        <div id="dp" style="margin-top: 4cm; width: 900px; height: 120px;"></div>
+        <div id="nav" style="margin-top: 1cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
+        <div id="dp" style="margin-top: 1cm; width: 900px; height: 120px;"></div>
       </div>
 
       <%@ include file = "footer.jsp" %>
@@ -69,21 +70,52 @@
         var nav = new DayPilot.Navigator("nav");
         nav.showMonths = 3;
         nav.skipMonths = 3;
-        nav.selectMode = "week";
+        nav.selectMode = "month";
         //Update calendar according nav selection
         nav.onTimeRangeSelected = function(args) {
             dp.startDate = args.day;
             dp.update();
+            dp.events.load("api/events");
         };
         nav.init();
-    </script>
-    <script>
-        var dp = new DayPilot.Calendar("dp");
-        dp.theme = "scheduler_8";
-        dp.viewType = "Week";
-        dp.locale = "es-es";
-        dp.headerDateFormat = "dd MMMM yyyy";
+
+        var dp = new DayPilot.Month("dp");
+        dp.eventEndSpec = "date";
+        dp.onTimeRangeSelected = function(args) {
+            DayPilot.Modal.prompt("Concertar nueva cita", "Cita").then(function(modal) {
+                dp.clearSelection();
+                if(!modal.result) {
+                    return;
+                }
+                var params = {
+                    start: args.start.toString(),
+                    end: args.end.toString(),
+                    text: modal.result,
+                    resource: args.resource
+                };
+                DayPilot.Http.ajax({
+                    url: '/api/events/create',
+                    data: params,
+                    success: function(ajax) {
+                        var data = ajax.data;
+                        dp.events.add(data);
+                        dp.message("Cita creada correctamente");
+                    },
+                })
+            });
+        };
+        //Init month calendar
         dp.init();
+        //Get events
+        dp.events.load("/api/events");
+
+        var elements = {
+            weekends : document.querySelector("#weekends")
+        };
+        elements.weekends.addEventListener("click", function() {
+            dp.showWeekend = elements.weekends.checked;
+            dp.update();
+        });
     </script>
   </body>
 </html>

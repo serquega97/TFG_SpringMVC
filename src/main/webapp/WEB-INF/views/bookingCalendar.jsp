@@ -80,33 +80,31 @@
         };
         nav.init();
 
-        var dp = new DayPilot.Month("dp");
-        dp.eventEndSpec = "date";
-        dp.locale = "es-es";
+        var dp = new DayPilot.Calendar("dp");
+        dp.headerDateFormat = "d/M/yyyy";
         dp.onTimeRangeSelected = function(args) {
-            var dc = new DayPilot.Calendar("dc");
-            dc.init();
-            DayPilot.Modal.prompt("Introduzca su nombre", "").then(function(modal) {
-                dp.clearSelection();
-                if(!modal.result) {
-                    return;
-                }
-                var params = {
-                    start: args.start.toString(),
-                    end: args.end.toString(),
-                    text: modal.result,
-                    resource: args.resource
-                };
-                DayPilot.Http.ajax({
-                    url: '/api/events/create',
-                    data: params,
-                    success: function(ajax) {
-                        var data = ajax.data;
-                        dp.events.add(data);
-                        dp.message("Cita creada correctamente");
-                    },
-                })
-            });
+            var name = prompt("Introduzca su nombre", "");
+            dp.clearSelection();
+            if (!name) {
+                return;
+            } 
+            var params = {
+                start: args.start.toString(),
+                end: args.end.toString(),
+                text: name,
+                resource: args.resource
+            };
+            DayPilot.Http.ajax({
+                url: '/api/events/create',
+                data: params,
+                success: function(ajax) {
+                    var data = ajax.data;
+                    dp.events.add(data);
+                    dp.message("Cita creada correctamente");
+                },
+            })
+            //dp.events.add(e);
+            dp.message("Created");
         };
 
         //Insert option in the events and execute a job when option is clicked

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/icomoon/style.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/calendar_traditional.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.css">
@@ -82,29 +82,67 @@
 
         var dp = new DayPilot.Calendar("dp");
         dp.headerDateFormat = "d/M/yyyy";
+        //Include calendar_traditonal css file for theme
+        dp.theme = "calendar_traditional";
         dp.onTimeRangeSelected = function(args) {
-            var name = prompt("Introduzca su nombre", "");
-            dp.clearSelection();
-            if (!name) {
-                return;
-            } 
-            var params = {
-                start: args.start.toString(),
-                end: args.end.toString(),
-                text: name,
-                resource: args.resource
-            };
-            DayPilot.Http.ajax({
-                url: '/api/events/create',
-                data: params,
-                success: function(ajax) {
-                    var data = ajax.data;
-                    dp.events.add(data);
-                    dp.message("Cita creada correctamente");
+            //Adding modal form fields
+            var form = [
+                {
+                    name: "Introduce tu nombre:", 
+                    id: "name",
+                    type: "text",
                 },
-            })
-            //dp.events.add(e);
-            dp.message("Created");
+                {
+                    type: "searchable",
+                    id: "service",
+                    name: "Selecciona tu servicio:",
+                    options: [
+                        {
+                            name: "Electroterapia",
+                            id: "electroterapia",
+                        },
+                        {
+                            name: "Punción seca",
+                            id: "puncion",
+                        },
+                        {
+                            name: "Readaptación deportiva",
+                            id: "readaptacion",
+                        },
+                        {
+                            name: "Masoterapia",
+                            id: "masoterapia",
+                        },
+                        {
+                            name: "Vendaje neuromuscular",
+                            id: "kinesio",
+                        },
+                    ],
+                },
+            ];
+
+            var data = {};
+
+            DayPilot.Modal.form(form, data, /*{theme: "modal_rounded"}*/).then(function(margs) {
+                //If user click OK on the form
+                if (!margs.canceled) {
+                    var params = {
+                        start: args.start.toString(),
+                        end: args.end.toString(),
+                        text: margs.result.name,
+                        resource: args.resource
+                    };
+                    DayPilot.Http.ajax({
+                        url: '/api/events/create',
+                        data: params,
+                        success: function(ajax) {
+                            var data = ajax.data;
+                            dp.events.add(data);
+                            dp.message("Cita creada correctamente");
+                        },
+                    })
+                }
+            });
         };
 
         //Insert option in the events and execute a job when option is clicked
@@ -129,7 +167,7 @@
                 }
             ]
         });
-        //Init month calendar
+        //Init calendar
         dp.init();
         //Get events
         dp.events.load("/api/events");

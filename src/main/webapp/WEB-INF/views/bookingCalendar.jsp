@@ -81,8 +81,9 @@
                 args.cell.cssClass = "navigator-disabled-cell";
             }
         };
+
         nav.onTimeRangeSelect = function(args) {
-            if(args.day < DayPilot.Date.today() | args.day.getDayOfWeek() === 0) {
+            if(args.day < DayPilot.Date.today() || args.day.getDayOfWeek() === 0) {
                 args.preventDefault();
                 nav.select(lastDate, {dontNotify: true, dontFocus: true});
             }
@@ -101,18 +102,24 @@
 
         var dp = new DayPilot.Calendar("dp");
         dp.headerDateFormat = "d/M/yyyy";
-        //dp.businessBeginsHour = 9;
-        //dp.businessEndsHour = 18;
         //Include calendar_traditonal css file for theme
         dp.theme = "calendar_traditional";
 
         //Disable non-working time ranges
-        //Disable previous day than today
         dp.onBeforeCellRender = function(args) {
-            //If it is a previous day
-            if(args.cell.start.getHours() < 9 && args.cell.start.getHours() > 18) {
-                args.cell.disabled = true;
-                args.cell.backColor = "#eee";
+            //From Monday to Friday
+            if(args.cell.start.getDayOfWeek() != 6 && args.cell.start.getDayOfWeek() != 0) {
+                if(args.cell.start.getHours() < 9 || (args.cell.start.getHours() > 13) && (args.cell.start.getHours() < 16) || 
+                    args.cell.start.getHours() >= 20) {
+                    args.cell.disabled = true;
+                    args.cell.backColor = "silver";
+                }
+            //Saturdays
+            }else if(args.cell.start.getDayOfWeek() === 6) {
+                if(args.cell.start.getHours() < 9 || args.cell.start.getHours() >= 14) {
+                    args.cell.disabled = true;
+                    args.cell.backColor = "silver";
+                }
             }
         };
 
@@ -219,14 +226,6 @@
         dp.init();
         //Get events
         dp.events.load("/api/events");
-
-        var elements = {
-            weekends : document.querySelector("#weekends")
-        };
-        elements.weekends.addEventListener("click", function() {
-            dp.showWeekend = elements.weekends.checked;
-            dp.update();
-        });
     </script>
   </body>
 </html>

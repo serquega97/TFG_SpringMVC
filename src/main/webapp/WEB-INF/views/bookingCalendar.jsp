@@ -9,8 +9,8 @@
   
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/disable_cell.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/calendar_traditional.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
@@ -42,11 +42,10 @@
       </div>
       <%@ include file = "navbar.jsp" %>
       
-      <label><input type="checkbox" id="weekends" checked="checked" style="margin-top: 4cm; margin-left: 9cm">Mostrar fines de semana</label>
+      <!--<label><input type="checkbox" id="weekends" checked="checked" style="margin-top: 4cm; margin-left: 9cm">Mostrar fines de semana</label> -->
       <div class="row">
-        <div id="nav" style="margin-top: 1cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
-        <div id="dp" style="margin-top: 1cm; width: 900px; height: 120px;"></div>
-        <div id="dc"></div>
+        <div id="nav" style="margin-top: 5cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
+        <div id="dp" style="margin-top: 5cm; width: 900px; height: 120px;"></div>
     </div>
 
       <%@ include file = "footer.jsp" %>
@@ -68,10 +67,30 @@
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
     <script src="${pageContext.request.contextPath}/resources/js/daypilot-all.min.js"></script> 
     <script>
+        var lastDate = null;
         var nav = new DayPilot.Navigator("nav");
+        nav.weekStarts = 1;             //Week starts on Monday
+        nav.locale = "es-es";
         nav.showMonths = 3;
         nav.skipMonths = 3;
         nav.selectMode = "month";
+
+        //Disable previous day than today and Sundays
+        nav.onBeforeCellRender = function(args) {
+            if(args.cell.day < DayPilot.Date.today() || args.cell.day.getDayOfWeek() === 0) {
+                args.cell.cssClass = "navigator-disabled-cell";
+            }
+        };
+        nav.onTimeRangeSelect = function(args) {
+            if(args.day < DayPilot.Date.today() | args.day.getDayOfWeek() === 0) {
+                args.preventDefault();
+                nav.select(lastDate, {dontNotify: true, dontFocus: true});
+            }
+            else {
+                lastDate = args.start;
+            }
+        };
+
         //Update calendar according nav selection
         nav.onTimeRangeSelected = function(args) {
             dp.startDate = args.day;
@@ -82,8 +101,22 @@
 
         var dp = new DayPilot.Calendar("dp");
         dp.headerDateFormat = "d/M/yyyy";
+        //dp.businessBeginsHour = 9;
+        //dp.businessEndsHour = 18;
         //Include calendar_traditonal css file for theme
         dp.theme = "calendar_traditional";
+
+        //Disable non-working time ranges
+        //Disable previous day than today
+        dp.onBeforeCellRender = function(args) {
+            //If it is a previous day
+            if(args.cell.start.getHours() < 9 && args.cell.start.getHours() > 18) {
+                args.cell.disabled = true;
+                args.cell.backColor = "#eee";
+            }
+        };
+
+        //Handling time range event
         dp.onTimeRangeSelected = function(args) {
             //Adding modal form fields
             var form = [
@@ -125,13 +158,28 @@
 
             DayPilot.Modal.form(form, data, /*{theme: "modal_rounded"}*/).then(function(margs) {
                 //If user click OK on the form
-                if (!margs.canceled) {
+                if(!margs.canceled) {
+                    var param = {
+                        product_name: margs.result.service
+                    };
+
+                    DayPilot.Http.ajax({
+                        url: 'products/services/name',
+                        data: param,
+                        success: function(ajax) {
+                            var product = ajax.data;
+                        },
+                    });
+
+                    //Generate params for the request to the calendar API
                     var params = {
                         start: args.start.toString(),
                         end: args.end.toString(),
                         text: margs.result.name,
                         resource: args.resource
                     };
+
+                    //Save new event to DB and add it to the calendar
                     DayPilot.Http.ajax({
                         url: '/api/events/create',
                         data: params,
@@ -140,7 +188,7 @@
                             dp.events.add(data);
                             dp.message("Cita creada correctamente");
                         },
-                    })
+                    });
                 }
             });
         };

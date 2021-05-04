@@ -1,0 +1,16 @@
+.navigator_default_cell.navigator-disabled-cell {
+      background-color: #ddd !important;
+      color: #888;
+      cursor: not-allowed !important;
+    }
+
+    .main {
+      display: flex;
+    }
+
+    .col-left {
+      padding-right: 10px;
+    }
+    .col-main {
+      flex: 1;
+    }

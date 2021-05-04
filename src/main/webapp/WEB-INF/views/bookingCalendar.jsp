@@ -101,7 +101,10 @@
         nav.init();
 
         var dp = new DayPilot.Calendar("dp");
-        dp.headerDateFormat = "d/M/yyyy";
+        dp.headerDateFormat = "dddd dd/MM/yyyy";
+        dp.headerHeight = 50;
+        dp.viewType= "Week";
+        dp.weekStarts = 1;
         //Include calendar_traditonal css file for theme
         dp.theme = "calendar_traditional";
 
@@ -109,7 +112,7 @@
         dp.onBeforeCellRender = function(args) {
             //From Monday to Friday
             if(args.cell.start.getDayOfWeek() != 6 && args.cell.start.getDayOfWeek() != 0) {
-                if(args.cell.start.getHours() < 9 || (args.cell.start.getHours() > 13) && (args.cell.start.getHours() < 16) || 
+                if(args.cell.start.getHours() < 9 || (args.cell.start.getHours() >= 13) && (args.cell.start.getHours() < 16) || 
                     args.cell.start.getHours() >= 20) {
                     args.cell.disabled = true;
                     args.cell.backColor = "silver";
@@ -120,6 +123,10 @@
                     args.cell.disabled = true;
                     args.cell.backColor = "silver";
                 }
+            //Sundays
+            }else if(args.cell.start.getDayOfWeek() === 0) {
+                args.cell.disabled = true;
+                args.cell.backColor = "silver";
             }
         };
 

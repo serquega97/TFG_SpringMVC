@@ -35,7 +35,7 @@ public class CalendarAPIRest {
     Event createEvent(@RequestBody EventCreateParams params) {
         Event event = new Event();
         event.setStart(params.start);
-        event.setEnd(params.end);
+        event.setEnd(params.start.plusMinutes(params.servDuration));
         event.setText(params.text);
         eventRepo.save(event);
         return event;
@@ -56,6 +56,7 @@ public class CalendarAPIRest {
         public LocalDateTime start;
         public LocalDateTime end;
         public String text;
+        public Integer servDuration;
     }
 
     public static class EventDeleteParams {

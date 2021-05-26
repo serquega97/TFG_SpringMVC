@@ -41,7 +41,24 @@
         <div class="site-mobile-menu-body"></div>
       </div>
       <%@ include file = "navbar.jsp" %>
-      
+      <div class="site-blocks-cover overlay" style="background-image: url(${pageContext.request.contextPath}/resources/images/Portada.JPG);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+
+          <div class="col-md-10">
+            
+            <div class="row justify-content-center mb-4">
+              <div class="col-md-10 text-center">
+                <h1 data-aos="fade-up" class="mb-5">Tenemos la solución para tu <span class="typed-words"></span></h1>
+
+                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/new" class="btn btn-primary btn-pill">Concertar cita</a></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> 
       <!--<label><input type="checkbox" id="weekends" checked="checked" style="margin-top: 4cm; margin-left: 9cm">Mostrar fines de semana</label> -->
       <div class="row">
         <div id="nav" style="margin-top: 5cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
@@ -67,6 +84,33 @@
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
     <script src="${pageContext.request.contextPath}/resources/js/daypilot-all.min.js"></script> 
     <script>
+        function getWebnameByName(product_webname) {
+            var selected_option;
+            var serviceDuration;
+            switch(product_webname) {
+                case "Punción seca":
+                    selected_option = "Puncion";
+                    break;
+
+                case "Electroterapia":
+                    selected_option = "Electroterapia";
+                    break;
+
+                case "Readaptación deportiva":
+                    selected_option = "Readaptacion";
+                    break;
+
+                case "Masaje terapéutico (masoterapia)":
+                    selected_option = "Masoterapia";
+                    break;
+
+                case "Vendaje Neuromuscular (Kinesiotaping)":
+                    selected_option = "Kinesio";
+                    break;
+            }
+
+            return selected_option;
+        }
         var lastDate = null;
         var nav = new DayPilot.Navigator("nav");
         nav.weekStarts = 1;             //Week starts on Monday
@@ -132,6 +176,7 @@
 
         //Handling time range event
         dp.onTimeRangeSelected = function(args) {
+            dp.clearSelection();
             //Adding modal form fields
             var form = [
                 {
@@ -146,23 +191,23 @@
                     options: [
                         {
                             name: "Electroterapia",
-                            id: "electroterapia",
+                            id: "Electroterapia",
                         },
                         {
                             name: "Punción seca",
-                            id: "puncion",
+                            id: "Punción seca",
                         },
                         {
                             name: "Readaptación deportiva",
-                            id: "readaptacion",
+                            id: "Readaptación deportiva",
                         },
                         {
-                            name: "Masoterapia",
-                            id: "masoterapia",
+                            name: "Masaje terapéutico (masoterapia)",
+                            id: "Masaje terapéutico (masoterapia)",
                         },
                         {
-                            name: "Vendaje neuromuscular",
-                            id: "kinesio",
+                            name: "Vendaje Neuromuscular (Kinesiotaping)",
+                            id: "Vendaje Neuromuscular (Kinesiotaping)",
                         },
                     ],
                 },
@@ -173,35 +218,34 @@
             DayPilot.Modal.form(form, data, /*{theme: "modal_rounded"}*/).then(function(margs) {
                 //If user click OK on the form
                 if(!margs.canceled) {
-                    var param = {
-                        product_name: margs.result.service
-                    };
+                    var webname = getWebnameByName(margs.result.service);
 
-                    DayPilot.Http.ajax({
-                        url: 'products/services/name',
-                        data: param,
-                        success: function(ajax) {
-                            var product = ajax.data;
-                        },
-                    });
+                    $(document).ready(function() {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/api/v1/products/services/name/'+webname,
+                            success: function(data) {
+                                //Generate params for the request to the calendar API
+                                var params = {
+                                    start: args.start.toString(),
+                                    end: args.end.toString(),
+                                    text: margs.result.name,
+                                    resource: args.resource,
+                                    servDuration: data
+                                };
 
-                    //Generate params for the request to the calendar API
-                    var params = {
-                        start: args.start.toString(),
-                        end: args.end.toString(),
-                        text: margs.result.name,
-                        resource: args.resource
-                    };
-
-                    //Save new event to DB and add it to the calendar
-                    DayPilot.Http.ajax({
-                        url: '/api/events/create',
-                        data: params,
-                        success: function(ajax) {
-                            var data = ajax.data;
-                            dp.events.add(data);
-                            dp.message("Cita creada correctamente");
-                        },
+                                //Save new event to DB and add it to the calendar
+                                DayPilot.Http.ajax({
+                                    url: '/api/events/create',
+                                    data: params,
+                                    success: function(ajax) {
+                                        var data = ajax.data;
+                                        dp.events.add(data);
+                                        dp.message("Cita creada correctamente");
+                                    },
+                                });
+                            },
+                        });
                     });
                 }
             });

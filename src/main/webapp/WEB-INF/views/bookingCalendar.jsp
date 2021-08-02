@@ -180,6 +180,9 @@
             //Adding modal form fields
             var form = [
                 {
+                    name: "Registra tu cita"
+                },
+                {
                     name: "Introduce tu nombre:", 
                     id: "name",
                     type: "text",

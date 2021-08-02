@@ -7,12 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/book")
 public class BookController {
-    
-    @RequestMapping("/new")
-    public String bookingView() {
-
-        return "booking";
-    }
 
     @RequestMapping("/calendar")
     public ModelAndView calendarView() {

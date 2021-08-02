@@ -52,7 +52,7 @@
               <div class="col-md-10 text-center">
                 <h1 data-aos="fade-up" class="mb-5">Tenemos la solución para tu <span class="typed-words"></span></h1>
 
-                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/new" class="btn btn-primary btn-pill">Concertar cita</a></p>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill">Concertar cita</a></p>
               </div>
             </div>
 

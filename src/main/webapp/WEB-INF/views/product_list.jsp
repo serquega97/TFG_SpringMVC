@@ -71,8 +71,8 @@
                         <div class="block-service-1-card">
                             <a href="/products/id/${product.id}" class="thumbnail-link d-block mb-4"><img src="${pageContext.request.contextPath}/resources/images/${product.url_photo}" alt="Image" class="img-fluid" height="300px" width="100px"></a>
                             <h3 class="block-service-1-heading mb-3"><a>${product.product_name}</a></h3>
-                            <div class="block-service-1-excerpt"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim odit molestias inventore, id sed, in harum tenetur earum.</p></div>
-                            <p><a href="/products/id/${product.id}" class="d-inline-flex align-items-center block-service-1-more"><span>Find out more</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+                            <div class="block-service-1-excerpt"><p>${product.product_desc2}</p></div>
+                            <p><a href="/products/id/${product.id}" class="d-inline-flex align-items-center block-service-1-more"><span>Ver más</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
                         </div>
                     </div>
                 </c:forEach>
@@ -104,7 +104,7 @@
     
   
     <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
-              <script>
+    <script>
               var typed = new Typed('.typed-words', {
               strings: ["in touch with us"],
               typeSpeed: 80,
@@ -114,7 +114,7 @@
               loop: false,
               showCursor: true
               });
-              </script>
+    </script>
   
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
     </body>

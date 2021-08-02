@@ -7,19 +7,19 @@
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
               <h2 class="footer-heading mb-4">Envíos</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Envíos</a></li>
+                <li><a href="/politics/shipment">Envíos</a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
               <h2 class="footer-heading mb-4">Términos de servicio</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Términos de servicio</a></li>
+                <li><a href="/politics/terms-service">Términos de servicio</a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
               <h2 class="footer-heading mb-4">Política privacidad</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Política de privacidad</a></li>
+                <li><a href="/politics/privacy-policy">Política de privacidad</a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">

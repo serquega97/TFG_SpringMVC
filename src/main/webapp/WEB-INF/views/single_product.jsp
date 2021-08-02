@@ -80,7 +80,7 @@
               <c:if test = "${newProduct.product_type != 'Servicio'}">
                 <div class="pt-5">
                   <h3 class="mb-5">Peso: ${newProduct.product_weight}kg</h3>
-                  <h3 class="mb-5" id = "funds">Precio: ${newProduct.product_price}€</h3>
+                  <h3 id="pay" class="mb-5">Precio: ${newProduct.product_price}€</h3>
                   <div id="paypal-button-container"></div>
                 </div>
               </c:if>
@@ -104,7 +104,9 @@
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
     <script src="https://www.paypal.com/sdk/js?client-id=AY9KqyYgdsVGFZFdiBMtd5V9DFuuA5RHpQzRJq3utE4sSb3a564Z50jztvVZgc3hQdQhQTVS7wWOOyOE&currency=EUR"></script>
     <script>
-      var funds = document.getElementById("funds");
+      var funds = document.getElementById("pay").textContent;
+      //Get prices value: Precio: 21,0€ ---> 21,0
+      let realFunds = funds.substring(8, funds.length-1);
       paypal.Buttons({
         style: {
           layout: 'horizontal',
@@ -112,33 +114,24 @@
           shape: 'pill'
         },
         createOrder: function(data, actions) {
-          // This function sets up the details of the transaction, including the amount and line item details.
+          // This function sets up the details of the transaction, including the amount and line item details
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: funds
+                value: realFunds
               }
             }]
           });
         },
         onApprove: function(data, actions) {
-          // This function captures the funds from the transaction.
+          // This function captures the funds from the transaction
           return actions.order.capture().then(function(details) {
-            // This function shows a transaction success message to your buyer.
+            // This function shows a transaction success message to your buyer
             alert('Transaction completed by ' + details.payer.name.given_name);
-            //Call your server to save the transaction
-            return fetch('/api/paypal-transaction-complete', {
-                method: 'post',
-                headers: {
-                     'content-type': 'application/json'
-                },
-                 body: JSON.stringify({
-                    orderID: data.orderID
-               })
-            });
           });
         }
       }).render('#paypal-button-container');
+      //This function displays Smart Payment Buttons on your web page
     </script>
   </body>
 </html>

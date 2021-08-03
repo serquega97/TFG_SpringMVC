@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE HTML>
-<html lang="en">
+<html>
   <head>
     <title>Phisioweb Main</title>
     <meta charset="utf-8">
@@ -52,7 +53,7 @@
               <div class="col-md-10 text-center">
                 <h1 data-aos="fade-up" class="mb-5">Tenemos la solución para tu <span class="typed-words"></span></h1>
 
-                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill">Concertar cita</a></p>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill"><spring:message code="label.appointment" text="default text"/></a></p>
               </div>
             </div>
 

@@ -111,14 +111,23 @@
 
             return selected_option;
         }
+        //Check user's locale in the URL-> lang=es or lang=en
+        const queryString = window.location.search;
+        alert(window.location.search);
+        const urlParams = new URLSearchParams(queryString);
+        alert(urlParams.get('lang'));
         var lastDate = null;
         var nav = new DayPilot.Navigator("nav");
         nav.weekStarts = 1;             //Week starts on Monday
-        nav.locale = "es-es";
         nav.showMonths = 3;
         nav.skipMonths = 3;
         nav.selectMode = "month";
-
+        //Update navigator locale
+        if(urlParams.get('lang') === 'en') {
+            nav.locale = "en-gb";
+        }else {
+            nav.locale = "es-es";
+        }
         //Disable previous day than today and Sundays
         nav.onBeforeCellRender = function(args) {
             if(args.cell.day < DayPilot.Date.today() || args.cell.day.getDayOfWeek() === 0) {
@@ -151,7 +160,12 @@
         dp.weekStarts = 1;
         //Include calendar_traditonal css file for theme
         dp.theme = "calendar_traditional";
-
+        //Update calendar locale
+        if(urlParams.get('lang') === 'en') {
+            dp.locale = "en-gb";
+        }else {
+            dp.locale = "es-es";
+        }
         //Disable non-working time ranges
         dp.onBeforeCellRender = function(args) {
             //From Monday to Friday

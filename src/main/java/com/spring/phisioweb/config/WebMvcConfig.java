@@ -1,5 +1,7 @@
 package com.spring.phisioweb.config;
 
+import java.util.Locale;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,16 +11,16 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     
     @Bean(name = "localeResolver")
     public LocaleResolver getLocaleResolver() {
-        CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setCookieDomain("myAppLocaleCookie");
-        resolver.setCookieMaxAge(60*60);                                   //60 minutes
-        return resolver;
+        SessionLocaleResolver r = new SessionLocaleResolver();
+        r.setDefaultLocale(Locale.US);
+        return r;
     }
 
     @Bean(name = "messageSource")

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE HTML>
 <html>
   <head>
     <title>Phisioweb Main</title>
@@ -51,9 +51,15 @@
             
             <div class="row justify-content-center mb-4">
               <div class="col-md-10 text-center">
-                <h1 data-aos="fade-up" class="mb-5">Tenemos la solución para tu <span class="typed-words"></span></h1>
+                <c:set var="pain"><spring:message code="label.pain"/></c:set>
+                <input id="pain" type="hidden" value="${pain}">
+                <c:set var="stress"><spring:message code="label.stress"/></c:set>
+                <input id="stress" type="hidden" value="${stress}">
+                <c:set var="fatigue"><spring:message code="label.fatigue"/></c:set>
+                <input id="fatigue" type="hidden" value="${fatigue}">
+                <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
 
-                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill"><spring:message code="label.appointment" text="default text"/></a></p>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
               </div>
             </div>
 
@@ -72,7 +78,7 @@
               <div class="d-flex quick-info-2">
                 <span class="icon icon-home mr-3"></span>
                 <div class="text">
-                  <strong class="d-block heading">Visítanos</strong>
+                  <strong class="d-block heading"><spring:message code="label.visit"/></strong>
                   <span class="excerpt">2875  Beechwood Drive</span>
                 </div>
               </div>
@@ -81,7 +87,7 @@
               <div class="d-flex quick-info-2">
                 <span class="icon icon-phone mr-3"></span>
                 <div class="text">
-                  <strong class="d-block heading">Llámanos ahora</strong>
+                  <strong class="d-block heading"><spring:message code="label.call"/></strong>
                   <span class="excerpt"><a>+(34) 606 255 384</a></span>
                 </div>
               </div>
@@ -90,7 +96,7 @@
               <div class="d-flex quick-info-2">
                 <span class="icon icon-envelope mr-3"></span>
                 <div class="text">
-                  <strong class="d-block heading">Envíanos un mensaje</strong>
+                  <strong class="d-block heading"><spring:message code="label.message"/></strong>
                   <span class="excerpt"><a>infofisio@gmail.com</a></span>
                 </div>
               </div>
@@ -99,10 +105,10 @@
               <div class="d-flex quick-info-2">
                 <span class="icon icon-clock-o mr-3"></span>
                 <div class="text">
-                  <strong class="d-block heading">Horario de apertura</strong>
-                  <span class="excerpt">Lunes a viernes 9-13h<br/></span>
-                  <span class="excerpt" style="margin-left: 62px;">16-20h<br/></span>
-                  <span class="excerpt">Sábado 9-14h</span>
+                  <strong class="d-block heading"><spring:message code="label.opening"/></strong>
+                  <span class="excerpt"><spring:message code="label.monday"/><br/></span>
+                  <span class="excerpt" style="margin-left: 62px;">16h-20h<br/></span>
+                  <span class="excerpt"><spring:message code="label.saturday"/></span>
                 </div>
               </div>
             </div>
@@ -167,8 +173,11 @@
 
   <script src="resources/js/typed.js"></script>
             <script>
+            var pain = document.getElementById("pain").value;
+            var stress = document.getElementById("stress").value;
+            var fatigue = document.getElementById("fatigue").value;
             var typed = new Typed('.typed-words', {
-            strings: ["dolor"," estrés"," fatiga"],
+            strings: [pain, stress, fatigue],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,

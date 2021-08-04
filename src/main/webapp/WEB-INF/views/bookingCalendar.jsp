@@ -59,7 +59,6 @@
         </div>
       </div>
     </div> 
-      <!--<label><input type="checkbox" id="weekends" checked="checked" style="margin-top: 4cm; margin-left: 9cm">Mostrar fines de semana</label> -->
       <div class="row">
         <div id="nav" style="margin-top: 5cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
         <div id="dp" style="margin-top: 5cm; width: 900px; height: 120px;"></div>

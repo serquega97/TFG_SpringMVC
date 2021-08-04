@@ -16,7 +16,7 @@
               <li class="has-children">
                 <a><span id="servicios"><spring:message code="label.service" text="default text"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/products/service/Puncion">Punción seca</a></li>
+                  <li><a href="/products/service/Puncion"><spring:message code="label.puncion" text="default text"/></a></li>
                   <li><a href="/products/service/Readaptacion">Readaptación deportiva</a></li>
                   <li><a href="/products/service/Electroterapia">Electroterapia</a></li>
                   <li><a href="/products/service/Masoterapia">Masaje terapéutico</a></li>
@@ -36,9 +36,9 @@
                     <li><a href="/products/type/Masaje">Objetos de masaje</a></li>
                   </ul>
                 </li>
-              <li><a href="blog.html"><span>Sobre nosotros</span></a></li>
+              <li><a href="blog.html"><span><spring:message code="label.us" text="default text"/></span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
-              <li><a href="/book/calendar"><span>Citas</span></a></li>
+              <li><a href="/book/calendar"><span><spring:message code="label.appointments" text="default text"/></span></a></li>
             </ul>
           </nav>
         </div>

@@ -26,7 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         //Read i18n/message_XX.properties file
         messageSource.setBasename("classpath:i18n/messages");
-        messageSource.setCacheSeconds(5);                                  //Reload message every 5 seconds
+        messageSource.setCacheSeconds(10);                                  //Reload messages every 5 seconds
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource; 
     }

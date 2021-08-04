@@ -1,29 +1,30 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <footer class="site-footer">
     <div class="container">
       <div class="row">
         <div class="col-md-9">
           <div class="row">
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-              <h2 class="footer-heading mb-4">Envíos</h2>
+              <h2 class="footer-heading mb-4"><spring:message code="label.shipments"/></h2>
               <ul class="list-unstyled">
-                <li><a href="/politics/shipment">Envíos</a></li>
+                <li><a href="/politics/shipment"><spring:message code="label.shipments"/></a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-              <h2 class="footer-heading mb-4">Términos de servicio</h2>
+              <h2 class="footer-heading mb-4"><spring:message code="label.terms"/></h2>
               <ul class="list-unstyled">
-                <li><a href="/politics/terms-service">Términos de servicio</a></li>
+                <li><a href="/politics/terms-service"><spring:message code="label.terms"/></a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-              <h2 class="footer-heading mb-4">Política privacidad</h2>
+              <h2 class="footer-heading mb-4"><spring:message code="label.privacy"/></h2>
               <ul class="list-unstyled">
-                <li><a href="/politics/privacy-policy">Política de privacidad</a></li>
+                <li><a href="/politics/privacy-policy"><spring:message code="label.privacy"/></a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-              <h2 class="footer-heading mb-4">Síguenos</h2>
+              <h2 class="footer-heading mb-4"><spring:message code="label.follow"/></h2>
               <a href="https://www.facebook.com/adri.quevedogarreta.73/" class="pl-0 pr-3" target = "_blank"><span class="icon-facebook"></span></a>
               <a href="https://www.youtube.com/channel/UC-YHQVTWQ95YDhu6QKwneXg" class="pl-3 pr-3" target = "_blank"><span class="icon-youtube"></span></a>
               <a href="https://www.instagram.com/qfisioterapia/" class="pl-3 pr-3" target = "_blank"><span class="icon-instagram"></span></a>
@@ -32,12 +33,13 @@
           </div>
         </div>
         <div class="col-lg-3">
-          <h2 class="footer-heading mb-4">Subscríbete a nuestra newsletter!</h2>
-          <p>Quieres recibir las últimas novedades sobre nuestros productos? Suscríbete a nuestra newsletter!</p>
+          <h2 class="footer-heading mb-4"><spring:message code="label.newsletter"/></h2>
+          <p><spring:message code="label.newslettertext"/></p>
           <form action="#" method="post" class="subscription">
             <div class="input-group mb-3  d-flex align-items-stretch">
-              <input type="text" id = "sender" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-              <button class="btn btn-primary text-white" type="button" id="button-addon2" onclick="sendEmail()">Send</button>
+              <c:set var="placeValue"><spring:message code="label.placeholder"/></c:set>
+              <input type="text" id = "sender" class="form-control bg-transparent" placeholder="${placeValue}" aria-label="Enter Email" aria-describedby="button-addon2">
+              <button class="btn btn-primary text-white" type="button" id="button-addon2" onclick="sendEmail()"><spring:message code="label.send"/></button>
             </div>
           </form>
         </div>

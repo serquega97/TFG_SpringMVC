@@ -12,33 +12,33 @@
         <div class="col-12 col-md-8 d-none d-xl-block" style="float: right;">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li class="active"><a href="/"><span id="inicio"><spring:message code="label.home" text="default text"/></span></a></li>
+              <li class="active"><a href="/"><span id="inicio"><spring:message code="label.home"/></span></a></li>
               <li class="has-children">
-                <a><span id="servicios"><spring:message code="label.service" text="default text"/></span></a>
+                <a><span id="servicios"><spring:message code="label.service"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/products/service/Puncion"><spring:message code="label.puncion" text="default text"/></a></li>
-                  <li><a href="/products/service/Readaptacion">Readaptación deportiva</a></li>
-                  <li><a href="/products/service/Electroterapia">Electroterapia</a></li>
-                  <li><a href="/products/service/Masoterapia">Masaje terapéutico</a></li>
-                  <li><a href="/products/service/Kinesio">Vendaje neuromuscular</a></li>
+                  <li><a href="/products/service/Puncion"><spring:message code="label.puncion"/></a></li>
+                  <li><a href="/products/service/Readaptacion"><spring:message code="label.rehabilitation"/></a></li>
+                  <li><a href="/products/service/Electroterapia"><spring:message code="label.electrotherapy"/></a></li>
+                  <li><a href="/products/service/Masoterapia"><spring:message code="label.masotherapy"/></a></li>
+                  <li><a href="/products/service/Kinesio"><spring:message code="label.kinesio"/></a></li>
                 </ul>
               </li>
               <li class="has-children">
-                  <a><span><spring:message code="label.products" text="default text"/></span></a>
+                  <a><span><spring:message code="label.products"/></span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="/products/all" id="todos">Todos</a></li>
-                    <li><a href="/products/type/Electroterapia">Electroterapia</a></li>
-                    <li><a href="/products/type/Termoterapia">Termoterapia</a></li>
-                    <li><a href="/products/type/Crioterapia">Crioterapia</a></li>
-                    <li><a href="/products/type/Magnetoterapia">Magnetoterapia</a></li>
-                    <li><a href="/products/type/Aceite">Cremas y aceites</a></li>
-                    <li><a href="/products/type/Kinesiotape">Kinesiotape (K-Tape)</a></li>
-                    <li><a href="/products/type/Masaje">Objetos de masaje</a></li>
+                    <li><a href="/products/all"><spring:message code="label.all"/></a></li>
+                    <li><a href="/products/type/Electroterapia"><spring:message code="label.electrotherapy"/></a></li>
+                    <li><a href="/products/type/Termoterapia"><spring:message code="label.thermotherapy"/></a></li>
+                    <li><a href="/products/type/Crioterapia"><spring:message code="label.cryotherapy"/></a></li>
+                    <li><a href="/products/type/Magnetoterapia"><spring:message code="label.magnetotherapy"/></a></li>
+                    <li><a href="/products/type/Aceite"><spring:message code="label.oils"/></a></li>
+                    <li><a href="/products/type/Kinesiotape"><spring:message code="label.kinesio"/></a></li>
+                    <li><a href="/products/type/Masaje"><spring:message code="label.massage"/></a></li>
                   </ul>
                 </li>
-              <li><a href="blog.html"><span><spring:message code="label.us" text="default text"/></span></a></li>
+              <li><a href="blog.html"><span><spring:message code="label.us"/></span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
-              <li><a href="/book/calendar"><span><spring:message code="label.appointments" text="default text"/></span></a></li>
+              <li><a href="/book/calendar"><span><spring:message code="label.appointments"/></span></a></li>
             </ul>
           </nav>
         </div>

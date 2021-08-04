@@ -4,8 +4,8 @@
     <div class="container">
       <div class="row align-items-center">
         <div style="position: absolute; left: 10px; top: 5px; margin-left: 100px">
-          <a href="${pageContext.request.contextPath}/home?lang=en" class="site-navigation position-relative text-left"><img src="resources/flags/en.png" class="rev-slidebg" alt="" height="12px;"></a>
-          <a href="${pageContext.request.contextPath}/home?lang=es" class="site-navigation position-relative text-left"><img src="resources/flags/es.jpg" class="rev-slidebg" alt="" height="12px;"></a>
+          <a href="${pageContext.request.contextPath}/home?lang=en" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;"></a>
+          <a href="${pageContext.request.contextPath}/home?lang=es" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/es.jpg" class="rev-slidebg" alt="" height="12px;"></a>
         </div>
         <div class="col-11 col-xl-4">
         </div>

@@ -105,9 +105,18 @@
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
     <script src="https://www.paypal.com/sdk/js?client-id=AY9KqyYgdsVGFZFdiBMtd5V9DFuuA5RHpQzRJq3utE4sSb3a564Z50jztvVZgc3hQdQhQTVS7wWOOyOE&currency=EUR"></script>
     <script>
+      //Check user's locale in the URL-> lang=es or lang=en
+      var realFunds;
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
       var funds = document.getElementById("pay").textContent;
-      //Get prices value: Precio: 21,0€ ---> 21,0
-      let realFunds = funds.substring(8, funds.length-1);
+      if(urlParams.get('lang') === 'en') {
+        //Get price value: Price: 21,0€ ---> 21,0
+        realFunds = funds.substring(7, funds.length-1);
+      }else {
+        //Get price value: Precio: 21,0€ ---> 21,0
+        realFunds = funds.substring(8, funds.length-1);
+      }
       paypal.Buttons({
         style: {
           layout: 'horizontal',

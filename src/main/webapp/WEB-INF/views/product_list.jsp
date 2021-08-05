@@ -79,7 +79,7 @@
                             <a href="/products/id/${product.id}" class="thumbnail-link d-block mb-4"><img src="${pageContext.request.contextPath}/resources/images/${product.url_photo}" alt="Image" class="img-fluid" height="300px" width="100px"></a>
                             <h3 class="block-service-1-heading mb-3"><a>${product.product_name}</a></h3>
                             <div class="block-service-1-excerpt"><p>${product.product_desc2}</p></div>
-                            <p><a href="/products/id/${product.id}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+                            <p><a href="/products/id/${product.id}?lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
                         </div>
                     </div>
                 </c:forEach>

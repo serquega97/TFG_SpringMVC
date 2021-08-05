@@ -4,15 +4,15 @@
     <div class="container">
       <div class="row align-items-center">
         <div style="position: absolute; left: 10px; top: 5px; margin-left: 100px">
-          <a href="${requestScope['javax.servlet.forward.request_uri']}?lang=en" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;"></a>
-          <a href="${requestScope['javax.servlet.forward.request_uri']}?lang=es" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/es.jpg" class="rev-slidebg" alt="" height="12px;"></a>
+          <a href="/home?lang=en" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;"></a>
+          <a href="/home?lang=es" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/es.jpg" class="rev-slidebg" alt="" height="12px;"></a>
         </div>
         <div class="col-11 col-xl-4">
         </div>
         <div class="col-12 col-md-8 d-none d-xl-block" style="float: right;">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li class="active"><a href="/"><span id="inicio"><spring:message code="label.home"/></span></a></li>
+              <li class="active"><a href="/home?lang=${sessionScope.lang}"><span><spring:message code="label.home"/></span></a></li>
               <li class="has-children">
                 <a><span id="servicios"><spring:message code="label.service"/></span></a>
                 <ul class="dropdown arrow-top">
@@ -38,7 +38,7 @@
                 </li>
               <li><a href="blog.html"><span><spring:message code="label.us"/></span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
-              <li><a href="/book/calendar"><span><spring:message code="label.appointments"/></span></a></li>
+              <li><a href="/book/calendar?lang=${sessionScope.lang}"><span><spring:message code="label.appointments"/></span></a></li>
             </ul>
           </nav>
         </div>
@@ -50,5 +50,4 @@
 
       </div>
     </div>
-    
   </header>

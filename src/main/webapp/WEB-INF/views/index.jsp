@@ -59,7 +59,7 @@
                 <input id="fatigue" type="hidden" value="${fatigue}">
                 <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
 
-                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar?lang=${sessionScope.lang}" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
               </div>
             </div>
 

@@ -50,12 +50,6 @@
             
             <div class="row justify-content-center mb-4">
               <div class="col-md-10 text-center">
-                <c:set var="pain"><spring:message code="label.pain"/></c:set>
-                <input id="pain" type="hidden" value="${pain}">
-                <c:set var="stress"><spring:message code="label.stress"/></c:set>
-                <input id="stress" type="hidden" value="${stress}">
-                <c:set var="fatigue"><spring:message code="label.fatigue"/></c:set>
-                <input id="fatigue" type="hidden" value="${fatigue}">
                 <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
                 <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
               </div>
@@ -66,6 +60,12 @@
       </div>
     </div> 
       <div class="row">
+        <c:set var="register"><spring:message code="label.register"/></c:set>
+        <input id="register" type="hidden" value="${register}">
+        <c:set var="introduce"><spring:message code="label.introduce"/></c:set>
+        <input id="introduce" type="hidden" value="${introduce}">
+        <c:set var="select"><spring:message code="label.select"/></c:set>
+        <input id="select" type="hidden" value="${select}">
         <div id="nav" style="margin-top: 5cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
         <div id="dp" style="margin-top: 5cm; width: 900px; height: 120px;"></div>
     </div>
@@ -90,6 +90,18 @@
     <script src="${pageContext.request.contextPath}/resources/js/daypilot-all.min.js"></script> 
     <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
     <script>
+        function getMessageByAjaxCall(label_code) {
+            var result = "";
+            $.ajax({
+              url: '/get/message?message='+label_code,
+              async: false,  
+              success: function(data) {
+                 result = data; 
+              }
+           });
+           return result;
+        }
+
         function getWebnameByName(product_webname) {
             var selected_option;
             var serviceDuration;
@@ -195,39 +207,48 @@
         //Handling time range event
         dp.onTimeRangeSelected = function(args) {
             dp.clearSelection();
+            //Get translations
+            var register = getMessageByAjaxCall('label.register');
+            var introduce = getMessageByAjaxCall('label.introduce');
+            var select = getMessageByAjaxCall('label.select');
+            var electrotherapy = getMessageByAjaxCall('label.electrotherapy');
+            var puncion = getMessageByAjaxCall('label.puncion');
+            var rehabilitation = getMessageByAjaxCall('label.rehabilitation');
+            var masotherapy = getMessageByAjaxCall('label.masotherapy');
+            var kinesio = getMessageByAjaxCall('label.kinesio');
             //Adding modal form fields
             var form = [
                 {
-                    name: "Registra tu cita"
+                    name: register
                 },
                 {
-                    name: "Introduce tu nombre:", 
+                    name: introduce, 
                     id: "name",
                     type: "text",
                 },
                 {
                     type: "searchable",
                     id: "service",
-                    name: "Selecciona tu servicio:",
+                    name: select,
                     options: [
                         {
-                            name: "Electroterapia",
+                            name: electrotherapy,
                             id: "Electroterapia",
                         },
                         {
-                            name: "Punción seca",
+                            name: puncion,
                             id: "Punción seca",
                         },
                         {
-                            name: "Readaptación deportiva",
+                            name: rehabilitation,
                             id: "Readaptación deportiva",
                         },
                         {
-                            name: "Masaje terapéutico (masoterapia)",
+                            name: masotherapy,
                             id: "Masaje terapéutico (masoterapia)",
                         },
                         {
-                            name: "Vendaje Neuromuscular (Kinesiotaping)",
+                            name: kinesio,
                             id: "Vendaje Neuromuscular (Kinesiotaping)",
                         },
                     ],
@@ -298,11 +319,11 @@
         dp.init();
         //Get events
         dp.events.load("/api/events");
-    </script>
-    <script>
-        var pain = document.getElementById("pain").value;
-        var stress = document.getElementById("stress").value;
-        var fatigue = document.getElementById("fatigue").value;
+
+        //Typed words
+        var pain = getMessageByAjaxCall('label.pain');
+        var stress = getMessageByAjaxCall('label.stress');
+        var fatigue = getMessageByAjaxCall('label.fatigue');
         var typed = new Typed('.typed-words', {
         strings: [pain, stress, fatigue],
         typeSpeed: 80,

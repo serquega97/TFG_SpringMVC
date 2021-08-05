@@ -1,9 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Productos de ${newProduct.product_type}</title>
+    <title><spring:message code="label.productsof"/>${newProduct.product_type}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -65,7 +66,7 @@
             <div class="col-md-8" style="margin: 0 auto">
               <h2 style="margin-bottom: 2cm;">${newProduct.product_name}</h2>
               <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/images/${newProduct.url_photo}" alt="Image" class="img-fluid" style="display:block; margin-left: auto; margin-right: auto; width: 50%;" width="25" height="70"></p>
-              <p>Características más populares de ${newProduct.product_name}:</p>
+              <p><spring:message code="label.popular"/>${newProduct.product_name}:</p>
               <p style="margin-left: 100px;">- ${newProduct.product_desc1}</p>
               <p style="margin-left: 100px;">- ${newProduct.product_desc2}</p>
               <p style="margin-left: 100px;">- ${newProduct.product_desc3}</p>
@@ -73,14 +74,14 @@
               <p style="margin-left: 100px;">- ${newProduct.product_desc5}</p>
               <c:if test = "${newProduct.product_type == 'Servicio'}">
                 <div class="pt-5">
-                  <h3 class="mb-5">Duración: ${newProduct.product_duration} minutos</h3>
-                  <h3 class="mb-5">Precio: ${newProduct.product_price}€</h3>
+                  <h3 class="mb-5"><spring:message code="label.duration"/>${newProduct.product_duration} minutos</h3>
+                  <h3 class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
                 </div>
               </c:if>
               <c:if test = "${newProduct.product_type != 'Servicio'}">
                 <div class="pt-5">
-                  <h3 class="mb-5">Peso: ${newProduct.product_weight}kg</h3>
-                  <h3 id="pay" class="mb-5">Precio: ${newProduct.product_price}€</h3>
+                  <h3 class="mb-5"><spring:message code="label.weight"/>${newProduct.product_weight}kg</h3>
+                  <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
                   <div id="paypal-button-container"></div>
                 </div>
               </c:if>

@@ -49,12 +49,7 @@
               
               <div class="row justify-content-center mb-4">
                 <div class="col-md-10 text-center">
-                  <c:set var="pain"><spring:message code="label.pain"/></c:set>
-                  <input id="pain" type="hidden" value="${pain}">
-                  <c:set var="stress"><spring:message code="label.stress"/></c:set>
-                  <input id="stress" type="hidden" value="${stress}">
-                  <c:set var="fatigue"><spring:message code="label.fatigue"/></c:set>
-                  <input id="fatigue" type="hidden" value="${fatigue}">
+                  
                   <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
   
                   <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar?lang=${sessionScope.lang}" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
@@ -69,7 +64,7 @@
         <div class="container">
           <div class="row mb-5">
             <div class="col-md-12 text-center">
-              <h2 class="site-section-heading text-center font-secondary text-black"><spring:message code="label.nuestros"/></h2>
+              <h2 class="site-section-heading text-center font-secondary text-black"><spring:message code="label.nuestrospr"/></h2>
             </div>
           </div>
             <div class="row">
@@ -112,9 +107,21 @@
   
     <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
     <script>
-      var pain = document.getElementById("pain").value;
-      var stress = document.getElementById("stress").value;
-      var fatigue = document.getElementById("fatigue").value;
+      function getMessageByAjaxCall(label_code) {
+        var result = "";
+        $.ajax({
+          url: '/get/message?message='+label_code,
+          async: false,  
+          success: function(data) {
+            result = data; 
+          }
+        });
+  
+        return result;
+      }
+      var pain = getMessageByAjaxCall("label.pain");
+      var stress = getMessageByAjaxCall("label.stress");
+      var fatigue = getMessageByAjaxCall("label.fatigue");
       var typed = new Typed('.typed-words', {
         strings: [pain, stress, fatigue],
         typeSpeed: 80,

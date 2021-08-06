@@ -274,9 +274,10 @@
                                     method: "POST",
                                     data: params,
                                     success: function (ajax) {
-                                      const data = ajax.data;
-                                      dp.events.add(ajax.data);
-                                      dp.message("Cita creada correctamente");
+                                        var label_create = getMessageByAjaxCall('label.createmessage');
+                                        const data = ajax.data;
+                                        dp.events.add(ajax.data);
+                                        dp.message(label_create);
                                     }
                                 });
                             },

@@ -72,19 +72,11 @@
               <p style="margin-left: 100px;">- ${newProduct.product_desc3}</p>
               <p style="margin-left: 100px;">- ${newProduct.product_desc4}</p>
               <p style="margin-left: 100px;">- ${newProduct.product_desc5}</p>
-              <c:if test = "${newProduct.product_type == 'Servicio'}">
-                <div class="pt-5">
-                  <h3 class="mb-5"><spring:message code="label.duration"/>${newProduct.product_duration} minutos</h3>
-                  <h3 class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
-                </div>
-              </c:if>
-              <c:if test = "${newProduct.product_type != 'Servicio'}">
-                <div class="pt-5">
-                  <h3 class="mb-5"><spring:message code="label.weight"/>${newProduct.product_weight}kg</h3>
-                  <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
-                  <div id="paypal-button-container"></div>
-                </div>
-              </c:if>
+              <div class="pt-5">
+                <h3 class="mb-5"><spring:message code="label.weight"/>${newProduct.product_weight}kg</h3>
+                <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
+                <div id="paypal-button-container"></div>
+              </div>
             </div>
       <%@ include file = "footer.jsp" %>
     </div>

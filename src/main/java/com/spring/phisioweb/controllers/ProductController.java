@@ -40,10 +40,16 @@ public class ProductController {
     public ModelAndView getProduct(@PathVariable("id") Integer id) {
         ResponseEntity<Product> response = service.findProductById(id);
         if(response.getStatusCode() == HttpStatus.OK) {
-            ModelAndView model = new ModelAndView("single_product");
             Product newProduct = response.getBody();
-            model.addObject("newProduct", newProduct);
-            return model;
+            if(newProduct.getProduct_type().equalsIgnoreCase("Servicio")){
+                ModelAndView model = new ModelAndView("single_service");
+                model.addObject("newProduct", newProduct);
+                return model;
+            }else {
+                ModelAndView model = new ModelAndView("single_product");
+                model.addObject("newProduct", newProduct);
+                return model;
+            }
         }
         return new ModelAndView("navbar");
     }
@@ -67,7 +73,7 @@ public class ProductController {
     public ModelAndView getServiceByWebname(@PathVariable("product_webname") String product_webname) {
         ResponseEntity<Product> response = service.findProductByWebname(product_webname);
         if(response.getStatusCode() == HttpStatus.OK) {
-            ModelAndView model = new ModelAndView("single_product");
+            ModelAndView model = new ModelAndView("single_service");
             Product newProduct = response.getBody();
             model.addObject("newProduct", newProduct);
             return model;

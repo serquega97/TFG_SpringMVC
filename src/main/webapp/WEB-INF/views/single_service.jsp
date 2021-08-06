@@ -42,7 +42,7 @@
         <div class="site-mobile-menu-body"></div>
       </div>
       <%@ include file = "navbar.jsp" %>
-      <div class="site-blocks-cover overlay" style="background-image: url(${pageContext.request.contextPath}/resources/images/Portada.JPG);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover overlay" style="background-image: url(${pageContext.request.contextPath}/resources/images/Service.JPG);" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
 
@@ -50,8 +50,8 @@
               
               <div class="row justify-content-center mb-4">
                 <div class="col-md-10 text-center">
-                  <h1><spring:message code="label.naturals"/></h1>
-                  <p data-aos="fade-up" data-aos-delay="100"><spring:message code="label.oils"/> <span class="mx-3">&bullet;</span> <spring:message code="label.objects"/></p>
+                  <h1><spring:message code="label.servicetitle"/></h1>
+                  <p data-aos="fade-up" data-aos-delay="100"><spring:message code="label.clienttr"/> <span class="mx-3">&bullet;</span> <spring:message code="label.clienttr2"/></p>
                 </div>
               </div>
 
@@ -64,27 +64,18 @@
           <div class="row">
 
             <div class="col-md-8" style="margin: 0 auto">
-              <h2 style="margin-bottom: 2cm;">${newProduct.product_name}</h2>
-              <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/images/${newProduct.url_photo}" alt="Image" class="img-fluid" style="display:block; margin-left: auto; margin-right: auto; width: 50%;" width="25" height="70"></p>
-              <p><spring:message code="label.popular"/>${newProduct.product_name}:</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc1}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc2}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc3}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc4}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc5}</p>
-              <c:if test = "${newProduct.product_type == 'Servicio'}">
+                <h2 style="margin-bottom: 2cm;">${newProduct.product_name}</h2>
+                <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/images/${newProduct.url_photo}" alt="Image" class="img-fluid" style="display:block; margin-left: auto; margin-right: auto; width: 50%;" width="25" height="70"></p>
+                <p><spring:message code="label.popular"/>${newProduct.product_name}:</p>
+                <p style="margin-left: 100px;">- ${newProduct.product_desc1}</p>
+                <p style="margin-left: 100px;">- ${newProduct.product_desc2}</p>
+                <p style="margin-left: 100px;">- ${newProduct.product_desc3}</p>
+                <p style="margin-left: 100px;">- ${newProduct.product_desc4}</p>
+                <p style="margin-left: 100px;">- ${newProduct.product_desc5}</p>
                 <div class="pt-5">
-                  <h3 class="mb-5"><spring:message code="label.duration"/>${newProduct.product_duration} minutos</h3>
-                  <h3 class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
+                    <h3 class="mb-5"><spring:message code="label.duration"/>${newProduct.product_duration} minutos</h3>
+                    <h3 class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
                 </div>
-              </c:if>
-              <c:if test = "${newProduct.product_type != 'Servicio'}">
-                <div class="pt-5">
-                  <h3 class="mb-5"><spring:message code="label.weight"/>${newProduct.product_weight}kg</h3>
-                  <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
-                  <div id="paypal-button-container"></div>
-                </div>
-              </c:if>
             </div>
       <%@ include file = "footer.jsp" %>
     </div>
@@ -102,46 +93,6 @@
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/rangeslider.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
-    <script src="https://www.paypal.com/sdk/js?client-id=AY9KqyYgdsVGFZFdiBMtd5V9DFuuA5RHpQzRJq3utE4sSb3a564Z50jztvVZgc3hQdQhQTVS7wWOOyOE&currency=EUR"></script>
-    <script>
-      //Check user's locale in the URL-> lang=es or lang=en
-      var realFunds;
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      var funds = document.getElementById("pay").textContent;
-      if(urlParams.get('lang') === 'en') {
-        //Get price value: Price: 21,0€ ---> 21,0
-        realFunds = funds.substring(7, funds.length-1);
-      }else {
-        //Get price value: Precio: 21,0€ ---> 21,0
-        realFunds = funds.substring(8, funds.length-1);
-      }
-      paypal.Buttons({
-        style: {
-          layout: 'horizontal',
-          color: 'gold',
-          shape: 'pill'
-        },
-        createOrder: function(data, actions) {
-          // This function sets up the details of the transaction, including the amount and line item details
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: realFunds
-              }
-            }]
-          });
-        },
-        onApprove: function(data, actions) {
-          // This function captures the funds from the transaction
-          return actions.order.capture().then(function(details) {
-            // This function shows a transaction success message to your buyer
-            alert('Transaction completed by ' + details.payer.name.given_name);
-          });
-        }
-      }).render('#paypal-button-container');
-      //This function displays Smart Payment Buttons on your web page
-    </script>
+    <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
   </body>
 </html>

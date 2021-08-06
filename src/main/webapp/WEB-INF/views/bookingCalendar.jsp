@@ -51,7 +51,7 @@
             <div class="row justify-content-center mb-4">
               <div class="col-md-10 text-center">
                 <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
-                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar?lang=${sessionScope.lang}" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
               </div>
             </div>
 
@@ -60,12 +60,6 @@
       </div>
     </div> 
       <div class="row">
-        <c:set var="register"><spring:message code="label.register"/></c:set>
-        <input id="register" type="hidden" value="${register}">
-        <c:set var="introduce"><spring:message code="label.introduce"/></c:set>
-        <input id="introduce" type="hidden" value="${introduce}">
-        <c:set var="select"><spring:message code="label.select"/></c:set>
-        <input id="select" type="hidden" value="${select}">
         <div id="nav" style="margin-top: 5cm; margin-left: 3cm; float: left; width: 200px; height: 100px;"></div>
         <div id="dp" style="margin-top: 5cm; width: 900px; height: 120px;"></div>
     </div>
@@ -104,7 +98,6 @@
 
         function getWebnameByName(product_webname) {
             var selected_option;
-            var serviceDuration;
             switch(product_webname) {
                 case "Punción seca":
                     selected_option = "Puncion";
@@ -264,8 +257,8 @@
 
                     $(document).ready(function() {
                         $.ajax({
-                            type: 'GET',
-                            url: '/api/v1/products/services/name/'+webname,
+                            method: 'GET',
+                            url: '/api/v1/products/services/get/duration/'+webname,
                             success: function(data) {
                                 //Generate params for the request to the calendar API
                                 var params = {
@@ -275,16 +268,16 @@
                                     resource: args.resource,
                                     servDuration: data
                                 };
-
                                 //Save new event to DB and add it to the calendar
                                 DayPilot.Http.ajax({
-                                    url: '/api/events/create',
+                                    url: "/api/events/create",
+                                    method: "POST",
                                     data: params,
-                                    success: function(ajax) {
-                                        var data = ajax.data;
-                                        dp.events.add(data);
-                                        dp.message("Cita creada correctamente");
-                                    },
+                                    success: function (ajax) {
+                                      const data = ajax.data;
+                                      dp.events.add(ajax.data);
+                                      dp.message("Cita creada correctamente");
+                                    }
                                 });
                             },
                         });
@@ -293,11 +286,13 @@
             });
         };
 
+        var delet = getMessageByAjaxCall('label.delete');
+        var deleteMessage = getMessageByAjaxCall('label.deletemessage');
         //Insert option in the events and execute a job when option is clicked
         dp.contextMenu = new DayPilot.Menu({
             items: [
                 {
-                    text: "Delete",
+                    text: delet,
                     onClick: function(args) {
                         var e = args.source;
                         var params = {
@@ -308,7 +303,7 @@
                             data: params,
                             success: function(ajax) {
                                 dp.events.remove(e);
-                                dp.message("Cita borrada");
+                                dp.message(deleteMessage);
                             },
                         });
                     }
@@ -325,13 +320,13 @@
         var stress = getMessageByAjaxCall('label.stress');
         var fatigue = getMessageByAjaxCall('label.fatigue');
         var typed = new Typed('.typed-words', {
-        strings: [pain, stress, fatigue],
-        typeSpeed: 80,
-        backSpeed: 80,
-        backDelay: 4000,
-        startDelay: 1000,
-        loop: true,
-        showCursor: true
+            strings: [pain, stress, fatigue],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 4000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true
         });
     </script>
   </body>

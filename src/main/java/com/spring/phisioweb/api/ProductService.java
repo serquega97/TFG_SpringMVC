@@ -44,4 +44,9 @@ public class ProductService {
     public List<Product> findProductByType(String product_type) {
         return productRepository.findProductByType(product_type);
     }
+
+    //Return the duration of a service
+    public Product getServiceDuration(String product_webname) {
+        return productRepository.getServiceDuration(product_webname);
+    }
 }

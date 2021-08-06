@@ -43,4 +43,8 @@ public interface ProductRepository extends JpaRepository <Product, Integer> {
     //Returns a list of product ordered by name asc
     @Query(value = "SELECT p FROM Product p ORDER BY p.product_name ASC")
     public List<Product> filterByNameAsc();
+
+    //Returns the duration of a service
+    @Query(value = "SELECT p FROM Product p WHERE p.product_webname = ?1")
+    public Product getServiceDuration(String product_webname);
 }

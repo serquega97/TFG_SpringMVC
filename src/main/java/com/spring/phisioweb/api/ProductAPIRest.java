@@ -68,4 +68,10 @@ public class ProductAPIRest {
 
         return ResponseEntity.status(HttpStatus.OK).body(newProduct);
     }
+
+    @GetMapping("/products/services/get/duration/{product_webname}")
+    public Integer getServiceDuration(@PathVariable("product_webname") String product_webname) {
+        Product product = productService.getServiceDuration(product_webname);
+        return product.getProduct_duration();
+    }
 }

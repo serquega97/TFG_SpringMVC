@@ -48,10 +48,23 @@
   </footer>
   <script src = "https://smtpjs.com/v3/smtp.js"></script>
   <script type = "text/javascript">
+    function getMessageByAjaxCall(label_code) {
+      var result = "";
+      $.ajax({
+        url: '/get/message?message='+label_code,
+        async: false,  
+        success: function(data) {
+           result = data; 
+        }
+     });
+     return result;
+    }
+
     function sendEmail() {
       var emailSender = document.getElementById("sender").value;
       if(emailSender === "") {
-        alert("Has de insertar un email!");
+        var errorInsert = getMessageByAjaxCall('label.errorinsert');
+        alert(errorInsert);
       }else {
         Email.send({
           SecureToken: "31c6e800-482c-44cd-973a-aefed66ea35e",
@@ -60,8 +73,9 @@
           Subject: "Phisio web newsletter subscription!",
           Body: "Well that was easy!!",
         }).then(function (message) {
+            var confirmedLetter = getMessageByAjaxCall('label.confirmedLetter');
             document.getElementById("sender").value = "";
-            alert("Has sido suscrit@ a nuestra newsletter!");
+            alert(confirmedLetter);
           });
       } 
     }

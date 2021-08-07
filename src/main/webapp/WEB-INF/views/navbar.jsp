@@ -16,27 +16,27 @@
               <li class="has-children">
                 <a><span id="servicios"><spring:message code="label.service"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/products/service/Puncion"><spring:message code="label.puncion"/></a></li>
-                  <li><a href="/products/service/Readaptacion"><spring:message code="label.rehabilitation"/></a></li>
-                  <li><a href="/products/service/Electroterapia"><spring:message code="label.electrotherapy"/></a></li>
-                  <li><a href="/products/service/Masoterapia"><spring:message code="label.masotherapy"/></a></li>
-                  <li><a href="/products/service/Kinesio"><spring:message code="label.kinesio"/></a></li>
+                  <li><a href="/products/service/Puncion?lang=${sessionScope.lang}"><spring:message code="label.puncion"/></a></li>
+                  <li><a href="/products/service/Readaptacion?lang=${sessionScope.lang}"><spring:message code="label.rehabilitation"/></a></li>
+                  <li><a href="/products/service/Electroterapia?lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
+                  <li><a href="/products/service/Masoterapia?lang=${sessionScope.lang}"><spring:message code="label.masotherapy"/></a></li>
+                  <li><a href="/products/service/Kinesio?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
                 </ul>
               </li>
               <li class="has-children">
                   <a><span><spring:message code="label.products"/></span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="/products/all"><spring:message code="label.all"/></a></li>
-                    <li><a href="/products/type/Electroterapia"><spring:message code="label.electrotherapy"/></a></li>
-                    <li><a href="/products/type/Termoterapia"><spring:message code="label.thermotherapy"/></a></li>
-                    <li><a href="/products/type/Crioterapia"><spring:message code="label.cryotherapy"/></a></li>
-                    <li><a href="/products/type/Magnetoterapia"><spring:message code="label.magnetotherapy"/></a></li>
-                    <li><a href="/products/type/Aceite"><spring:message code="label.oils"/></a></li>
-                    <li><a href="/products/type/Kinesiotape"><spring:message code="label.kinesio"/></a></li>
-                    <li><a href="/products/type/Masaje"><spring:message code="label.massage"/></a></li>
+                    <li><a href="/products/all?lang=${sessionScope.lang}"><spring:message code="label.all"/></a></li>
+                    <li><a href="/products/type/Electroterapia?lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
+                    <li><a href="/products/type/Termoterapia?lang=${sessionScope.lang}"><spring:message code="label.thermotherapy"/></a></li>
+                    <li><a href="/products/type/Crioterapia?lang=${sessionScope.lang}"><spring:message code="label.cryotherapy"/></a></li>
+                    <li><a href="/products/type/Magnetoterapia?lang=${sessionScope.lang}"><spring:message code="label.magnetotherapy"/></a></li>
+                    <li><a href="/products/type/Aceite?lang=${sessionScope.lang}"><spring:message code="label.oils"/></a></li>
+                    <li><a href="/products/type/Kinesiotape?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
+                    <li><a href="/products/type/Masaje?lang=${sessionScope.lang}"><spring:message code="label.massage"/></a></li>
                   </ul>
                 </li>
-              <li><a href="blog.html"><span><spring:message code="label.us"/></span></a></li>
+              <li><a href=""><span><spring:message code="label.us"/></span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
               <li><a href="/book/calendar?lang=${sessionScope.lang}"><span><spring:message code="label.appointments"/></span></a></li>
             </ul>

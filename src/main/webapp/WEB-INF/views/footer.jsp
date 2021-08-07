@@ -8,19 +8,19 @@
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
               <h2 class="footer-heading mb-4"><spring:message code="label.shipments"/></h2>
               <ul class="list-unstyled">
-                <li><a href="/politics/shipment"><spring:message code="label.shipments"/></a></li>
+                <li><a href="/politics/shipment?lang=${sessionScope.lang}"><spring:message code="label.shipments"/></a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
               <h2 class="footer-heading mb-4"><spring:message code="label.terms"/></h2>
               <ul class="list-unstyled">
-                <li><a href="/politics/terms-service"><spring:message code="label.terms"/></a></li>
+                <li><a href="/politics/terms-service?lang=${sessionScope.lang}"><spring:message code="label.terms"/></a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
               <h2 class="footer-heading mb-4"><spring:message code="label.privacy"/></h2>
               <ul class="list-unstyled">
-                <li><a href="/politics/privacy-policy"><spring:message code="label.privacy"/></a></li>
+                <li><a href="/politics/privacy-policy?lang=${sessionScope.lang}"><spring:message code="label.privacy"/></a></li>
               </ul>
             </div>
             <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">

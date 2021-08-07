@@ -117,30 +117,30 @@
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <h3 class="mb-3"><spring:message code="label.offer"/></h3>
             <p><spring:message code="label.text1"/></p>
-            <p><a href="/products/service/all" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.allserv"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+            <p><a href="/products/service/all?lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.allserv"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
           </div>
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <div class="block-service-1-card">
-              <a href="/products/service/Puncion" class="thumbnail-link d-block mb-4"><img src="resources/images/PuncioSeca.JPG" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Puncion"><spring:message code="label.puncion"/></a></h3>
+              <a href="/products/service/Puncion?lang=${sessionScope.lang}" class="thumbnail-link d-block mb-4"><img src="resources/images/PuncioSeca.JPG" alt="Image" class="img-fluid"></a>
+              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Puncion?lang=${sessionScope.lang}"><spring:message code="label.puncion"/></a></h3>
               <div class="block-service-1-excerpt"><p><spring:message code="label.text2"/></p></div>
-              <p><a href="/products/service/Puncion" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+              <p><a href="/products/service/Puncion?lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <div class="block-service-1-card">
-              <a href="/products/service/Readaptacion" class="thumbnail-link d-block mb-4"><img src="resources/images/ReadaptacioEsportiva.JPG" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Readaptacion"><spring:message code="label.rehabilitation"/></a></h3>
+              <a href="/products/service/Readaptacion?lang=${sessionScope.lang}" class="thumbnail-link d-block mb-4"><img src="resources/images/ReadaptacioEsportiva.JPG" alt="Image" class="img-fluid"></a>
+              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Readaptacion?lang=${sessionScope.lang}"><spring:message code="label.rehabilitation"/></a></h3>
               <div class="block-service-1-excerpt"><p><spring:message code="label.text3"/></p></div>
-              <p><a href="/products/service/Readaptacion" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+              <p><a href="/products/service/Readaptacion?lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
           <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
             <div class="block-service-1-card">
-              <a href="/products/service/Kinesio" class="thumbnail-link d-block mb-4"><img src="resources/images/VendatgeNeuromuscular.JPG" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Kinesio"><spring:message code="label.kinesio"/></a></h3>
+              <a href="/products/service/Kinesio?lang=${sessionScope.lang}" class="thumbnail-link d-block mb-4"><img src="resources/images/VendatgeNeuromuscular.JPG" alt="Image" class="img-fluid"></a>
+              <h3 class="block-service-1-heading mb-3"><a href="/products/service/Kinesio?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></h3>
               <div class="block-service-1-excerpt"><p><spring:message code="label.text4"/></p></div>
-              <p><a href="/products/service/Kinesio" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+              <p><a href="/products/service/Kinesio?lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
             </div>
           </div>
         </div>

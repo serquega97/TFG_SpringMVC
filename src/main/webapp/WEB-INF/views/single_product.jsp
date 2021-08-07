@@ -64,14 +64,14 @@
           <div class="row">
 
             <div class="col-md-8" style="margin: 0 auto">
-              <h2 style="margin-bottom: 2cm;">${newProduct.product_name}</h2>
+              <h2 style="margin-bottom: 2cm; text-align: center;">${newProduct.product_name}</h2>
               <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/images/${newProduct.url_photo}" alt="Image" class="img-fluid" style="display:block; margin-left: auto; margin-right: auto; width: 50%;" width="25" height="70"></p>
               <p><spring:message code="label.popular"/>${newProduct.product_name}:</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc1}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc2}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc3}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc4}</p>
-              <p style="margin-left: 100px;">- ${newProduct.product_desc5}</p>
+              <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc1}</p>
+              <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc2}</p>
+              <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc3}</p>
+              <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc4}</p>
+              <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc5}</p>
               <div class="pt-5">
                 <h3 class="mb-5"><spring:message code="label.weight"/>${newProduct.product_weight}kg</h3>
                 <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>

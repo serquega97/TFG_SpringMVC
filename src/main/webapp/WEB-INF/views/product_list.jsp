@@ -99,26 +99,13 @@
     <script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
-  
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/rangeslider.min.js"></script>
-    
-  
     <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
     <script>
-      function getMessageByAjaxCall(label_code) {
-        var result = "";
-        $.ajax({
-          url: '/get/message?message='+label_code,
-          async: false,  
-          success: function(data) {
-            result = data; 
-          }
-        });
-  
-        return result;
-      }
       var pain = getMessageByAjaxCall("label.pain");
       var stress = getMessageByAjaxCall("label.stress");
       var fatigue = getMessageByAjaxCall("label.fatigue");
@@ -132,7 +119,5 @@
         showCursor: true
       });
     </script>
-  
-    <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-    </body>
-  </html>
+  </body>
+</html>

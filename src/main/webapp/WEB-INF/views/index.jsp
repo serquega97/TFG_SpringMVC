@@ -159,27 +159,13 @@
   <script src="resources/js/jquery.magnific-popup.min.js"></script>
   <script src="resources/js/jquery.animateNumber.min.js"></script>
   <script src="resources/js/jquery.waypoints.min.js"></script>
-
   <script src="resources/js/bootstrap-datepicker.min.js"></script>
   <script src="resources/js/aos.js"></script>
   <script src="resources/js/rangeslider.min.js"></script>
-  
-
+  <script src="resources/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
   <script src="resources/js/typed.js"></script>
-  <script>
-    function getMessageByAjaxCall(label_code) {
-      var result = "";
-      $.ajax({
-        url: '/get/message?message='+label_code,
-        async: false,  
-        success: function(data) {
-          result = data; 
-        }
-      });
-
-      return result;
-    }
-    
+  <script>    
     var pain = getMessageByAjaxCall('label.pain');
     var stress = getMessageByAjaxCall('label.stress');
     var fatigue = getMessageByAjaxCall('label.fatigue');
@@ -192,9 +178,6 @@
       loop: true,
       showCursor: true
     });
-    </script>
-
-  <script src="resources/js/main.js"></script>
-  
+    </script>  
   </body>
 </html>

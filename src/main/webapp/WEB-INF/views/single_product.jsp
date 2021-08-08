@@ -99,10 +99,8 @@
     <script>
       //Check user's locale in the URL-> lang=es or lang=en
       var realFunds;
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
       var funds = document.getElementById("pay").textContent;
-      if(urlParams.get('lang') === 'en') {
+      if(getURLLocale() === 'en-gb') {
         //Get price value: Price: 21,0€ ---> 21,0
         realFunds = funds.substring(7, funds.length-1);
       }else {

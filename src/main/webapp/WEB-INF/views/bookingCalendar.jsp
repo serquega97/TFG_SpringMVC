@@ -83,48 +83,8 @@
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
     <script src="${pageContext.request.contextPath}/resources/js/daypilot-all.min.js"></script> 
     <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
     <script>
-        function getMessageByAjaxCall(label_code) {
-            var result = "";
-            $.ajax({
-              url: '/get/message?message='+label_code,
-              async: false,  
-              success: function(data) {
-                 result = data; 
-              }
-           });
-           return result;
-        }
-
-        function getWebnameByName(product_webname) {
-            var selected_option;
-            switch(product_webname) {
-                case "Punción seca":
-                    selected_option = "Puncion";
-                    break;
-
-                case "Electroterapia":
-                    selected_option = "Electroterapia";
-                    break;
-
-                case "Readaptación deportiva":
-                    selected_option = "Readaptacion";
-                    break;
-
-                case "Masaje terapéutico (masoterapia)":
-                    selected_option = "Masoterapia";
-                    break;
-
-                case "Vendaje Neuromuscular (Kinesiotaping)":
-                    selected_option = "Kinesio";
-                    break;
-            }
-
-            return selected_option;
-        }
-        //Check user's locale in the URL-> lang=es or lang=en
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
         var lastDate = null;
         var nav = new DayPilot.Navigator("nav");
         nav.weekStarts = 1;             //Week starts on Monday
@@ -132,11 +92,8 @@
         nav.skipMonths = 3;
         nav.selectMode = "month";
         //Update navigator locale
-        if(urlParams.get('lang') === 'en') {
-            nav.locale = "en-gb";
-        }else {
-            nav.locale = "es-es";
-        }
+        nav.locale = getURLLocale();
+
         //Disable previous day than today and Sundays
         nav.onBeforeCellRender = function(args) {
             if(args.cell.day < DayPilot.Date.today() || args.cell.day.getDayOfWeek() === 0) {
@@ -170,11 +127,8 @@
         //Include calendar_traditonal css file for theme
         dp.theme = "calendar_traditional";
         //Update calendar locale
-        if(urlParams.get('lang') === 'en') {
-            dp.locale = "en-gb";
-        }else {
-            dp.locale = "es-es";
-        }
+        dp.locale = getURLLocale();
+
         //Disable non-working time ranges
         dp.onBeforeCellRender = function(args) {
             //From Monday to Friday

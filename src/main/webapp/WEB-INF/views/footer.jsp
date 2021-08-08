@@ -46,20 +46,9 @@
       </div>
     </div>
   </footer>
+  <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
   <script src = "https://smtpjs.com/v3/smtp.js"></script>
   <script type = "text/javascript">
-    function getMessageByAjaxCall(label_code) {
-      var result = "";
-      $.ajax({
-        url: '/get/message?message='+label_code,
-        async: false,  
-        success: function(data) {
-           result = data; 
-        }
-     });
-     return result;
-    }
-
     function sendEmail() {
       var emailSender = document.getElementById("sender").value;
       if(emailSender === "") {

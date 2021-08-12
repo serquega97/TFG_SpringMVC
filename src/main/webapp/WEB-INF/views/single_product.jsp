@@ -95,6 +95,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/rangeslider.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script> 
+    <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AY9KqyYgdsVGFZFdiBMtd5V9DFuuA5RHpQzRJq3utE4sSb3a564Z50jztvVZgc3hQdQhQTVS7wWOOyOE&currency=EUR"></script>
     <script>
       //Check user's locale in the URL-> lang=es or lang=en

@@ -34,7 +34,7 @@
         </div>
         <div class="col-lg-3">
           <h2 class="footer-heading mb-4"><spring:message code="label.newsletter"/></h2>
-          <p><spring:message code="label.newslettertext"/></p>
+          <p style="text-align: justify"><spring:message code="label.newslettertext"/></p>
           <form action="#" method="post" class="subscription">
             <div class="input-group mb-3  d-flex align-items-stretch">
               <c:set var="placeValue"><spring:message code="label.placeholder"/></c:set>

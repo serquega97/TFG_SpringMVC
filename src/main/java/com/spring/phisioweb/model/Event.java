@@ -21,7 +21,7 @@ public class Event {
 	String text;
 	LocalDateTime start;
 	LocalDateTime end;
-    String resource;
+    String color;
 
     /********************************Constructors */
     public Event() {
@@ -32,11 +32,11 @@ public class Event {
         this.id = id;
     }
 
-    public Event(Long id, String text, LocalDateTime start, LocalDateTime end, String resource) {
+    public Event(Long id, String text, LocalDateTime start, LocalDateTime end, String color) {
         this.id = id;
         this.text = text;
         this.start = start;
         this.end = end;
-        this.resource = resource;
+        this.color = color;
     }
 }

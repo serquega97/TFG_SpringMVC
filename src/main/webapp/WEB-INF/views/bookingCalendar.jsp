@@ -237,6 +237,9 @@
                             },
                         });
                     });
+                }else {
+                    var label_notcreate = getMessageByAjaxCall('label.notcreatemessage');
+                    dp.message(label_notcreate);
                 }
             });
         };

@@ -37,6 +37,7 @@ public class CalendarAPIRest {
         event.setStart(params.start);
         event.setEnd(params.start.plusMinutes(params.servDuration));
         event.setText(params.text);
+        event.setResource(params.resource);
         eventRepo.save(event);
         return event;
     }
@@ -56,6 +57,7 @@ public class CalendarAPIRest {
         public LocalDateTime start;
         public LocalDateTime end;
         public String text;
+        public String resource;
         public Integer servDuration;
     }
 

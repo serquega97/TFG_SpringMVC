@@ -22,6 +22,7 @@ public class Event {
 	LocalDateTime start;
 	LocalDateTime end;
     String resource;
+    Integer servDuration;
 
     /********************************Constructors */
     public Event() {
@@ -32,11 +33,12 @@ public class Event {
         this.id = id;
     }
 
-    public Event(Long id, String text, LocalDateTime start, LocalDateTime end, String resource) {
+    public Event(Long id, String text, LocalDateTime start, LocalDateTime end, String resource, Integer duration) {
         this.id = id;
         this.text = text;
         this.start = start;
         this.end = end;
         this.resource = resource;
+        this.servDuration = duration;
     }
 }

@@ -237,6 +237,9 @@
                             },
                         });
                     });
+                }else {
+                    var label_canceled = getMessageByAjaxCall('label.notcreatemessage');
+                    dp.message(label_canceled);
                 }
             });
         };

@@ -71,7 +71,21 @@ public class ProductAPIRest {
 
     @GetMapping("/products/services/get/duration/{product_webname}")
     public Integer getServiceDuration(@PathVariable("product_webname") String product_webname) {
+        ResponseEntity<Product> response = checkHTTPStatus(product_webname);
+        if(response.getStatusCode() == HttpStatus.OK) {
+            Product product = response.getBody();
+            return product.getProduct_duration();
+        }else {
+            return null;
+        }
+    }
+
+    public ResponseEntity<Product> checkHTTPStatus(String product_webname) {
         Product product = productService.getServiceDuration(product_webname);
-        return product.getProduct_duration();
+        if(product == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            return ResponseEntity.status(HttpStatus.OK).body(product);
+        }
     }
 }

@@ -95,7 +95,7 @@ public class CalendarAPIRest {
         if(event.getEnd() == null) return false;
         if(event.getText() == null) return false;
         if(event.getServDuration() == null) return false;
-
+        if(event.getBookingTime() == null) return false;
         return true;
     }
 

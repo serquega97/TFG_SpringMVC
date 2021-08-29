@@ -47,6 +47,7 @@ public class CalendarAPIRest {
         event.setText(params.text);
         event.setResource(params.resource);
         event.setServDuration(params.servDuration);
+        event.setBookingTime(LocalDateTime.now());              //Save booking time
         ResponseEntity<Boolean> response = checkEvent(event);
         if(response.getStatusCode() == HttpStatus.OK) {
             eventRepo.save(event);
@@ -74,7 +75,7 @@ public class CalendarAPIRest {
     public ResponseEntity<Iterable<Event>> loadEvents(LocalDateTime start, LocalDateTime end) {
         Iterable<Event> listEvents = eventRepo.findBetween(start, end);
         if(listEvents == null) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }else {
             return ResponseEntity.status(HttpStatus.OK).body(listEvents);
         }

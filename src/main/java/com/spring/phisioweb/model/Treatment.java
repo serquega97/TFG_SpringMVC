@@ -1,3 +1,4 @@
+package com.spring.phisioweb.model;
 /**
  * Java class to store the information about our Services
  * @author sergiquevedogarreta
@@ -16,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="Treatment")
-public class Treatment {
+public class Treatment implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
@@ -45,15 +46,15 @@ public class Treatment {
     private String service_webname;
 
     /*****************Class constructors*************/
-    public Service() {
+    public Treatment() {
 
     }
 
-    public Service(Integer id) {
+    public Treatment(Integer id) {
         this.id = id;
     }
 
-    public Service(String name, Float price, String desc1, String desc2, String desc3, String desc4, String desc5,
+    public Treatment(String name, Float price, String desc1, String desc2, String desc3, String desc4, String desc5,
         String photo, Integer duration, String webname) {
         this.service_name = name;
         this.service_price = price;

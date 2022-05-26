@@ -1,4 +1,4 @@
-package com.spring.phisioweb.api;
+package com.spring.phisioweb.api.product;
 
 import java.util.List;
 

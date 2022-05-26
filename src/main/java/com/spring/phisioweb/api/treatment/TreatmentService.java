@@ -1,4 +1,9 @@
+package com.spring.phisioweb.api.treatment;
 import com.spring.phisioweb.model.Treatment;
+
+import java.util.List;
+
+import com.spring.phisioweb.api.treatment.TreatmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

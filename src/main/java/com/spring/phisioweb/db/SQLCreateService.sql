@@ -1,5 +1,5 @@
 /*
-* File that will be executed after creating the database inserting initial values to Product table
+* File that will be executed after creating the database inserting initial values to Service table
 * Author:  sergiquevedogarreta
 */
 
@@ -7,7 +7,7 @@
 
 USE phisioweb;
 
-CREATE table Product
+CREATE table Service
 (
     id int (3) NOT NULL,
     product_name varchar (170) NOT NULL,
@@ -20,6 +20,7 @@ CREATE table Product
     product_desc4 longtext,
     product_desc5 longtext,
     url_photo varchar (100),
+    product_duration int(3),
     product_webname varchar(100),
     constraint id_pk PRIMARY KEY (id)
 )

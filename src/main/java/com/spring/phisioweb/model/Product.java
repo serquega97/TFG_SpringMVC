@@ -45,8 +45,6 @@ public class Product implements Serializable {
     private String product_desc5;
     @Column(nullable = false)
     private String url_photo;
-    @Column(nullable = false)
-    private String product_webname;
 
     /*****************Class constructors*************/
     public Product() {
@@ -58,18 +56,17 @@ public class Product implements Serializable {
     }
     
     public Product(String name, Float weight, Float price, String product_type, String desc1, 
-        String desc2, String desc3, String desc4, String desc5, String photo, String webname) {
+        String desc2, String desc3, String desc4, String desc5, String photo) {
         this.product_name = name;
         this.product_weight = weight;
         this.product_price = price;
+        this.product_type = product_type;
         this.product_desc1 = desc1;
         this.product_desc1 = desc2;
         this.product_desc1 = desc3;
         this.product_desc1 = desc4;
         this.product_desc1 = desc5;
         this.url_photo = photo;
-        this.product_type = product_type;
-        this.product_webname = webname;
     }
 
     /*****************Getter's & setter's*************/
@@ -159,21 +156,5 @@ public class Product implements Serializable {
 
     public void setUrl_photo(String url_photo) {
         this.url_photo = url_photo;
-    }
-
-    public Integer getProduct_duration() {
-        return this.product_duration;
-    }
-
-    public void setProduct_duration(Integer product_duration) {
-        this.product_duration = product_duration;
-    }
-
-    public String getProduct_webname() {
-        return this.product_webname;
-    }
-
-    public void setProduct_webname(String product_webname) {
-        this.product_webname = product_webname;
     }
 }

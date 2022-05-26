@@ -15,8 +15,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="Service")
-public class Service {
+@Table(name="Treatment")
+public class Treatment {
     
     private static final long serialVersionUID = 1L;
     

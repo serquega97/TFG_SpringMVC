@@ -2,7 +2,7 @@ package com.spring.phisioweb.controllers;
 
 import java.util.List;
 
-import com.spring.phisioweb.api.ProductAPIRest;
+import com.spring.phisioweb.api.product.ProductAPIRest;
 import com.spring.phisioweb.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,31 +66,5 @@ public class ProductController {
         }
         //Request returns error
         return new ModelAndView();
-    }
-
-    @RequestMapping(value = "/service/{product_webname}", method = RequestMethod.GET)
-    @ResponseBody
-    public ModelAndView getServiceByWebname(@PathVariable("product_webname") String product_webname) {
-        ResponseEntity<Product> response = service.findProductByWebname(product_webname);
-        if(response.getStatusCode() == HttpStatus.OK) {
-            ModelAndView model = new ModelAndView("single_service");
-            Product newProduct = response.getBody();
-            model.addObject("newProduct", newProduct);
-            return model;
-        }
-        return new ModelAndView("index");
-    }
-
-    @RequestMapping(value = "/service/all", method = RequestMethod.GET)
-    @ResponseBody
-    public ModelAndView getAllServices() {
-        ResponseEntity<List<Product>> response = service.findAllServices();
-        if(response.getStatusCode() == HttpStatus.OK) {
-            ModelAndView model = new ModelAndView("product_list");
-            List<Product> newList = response.getBody();
-            model.addObject("productList", newList);
-            return model;
-        }
-        return new ModelAndView("navbar");
     }
 }

@@ -21,17 +21,7 @@ public class ProductAPIRest {
 
     @GetMapping("/products/all")
     public ResponseEntity<List<Product>> findAllProducts() {
-        List<Product> newListProduct = productService.findAllProducts();
-        if(newListProduct.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(newListProduct);
-    }
-
-    @GetMapping("/products/services/all")
-    public ResponseEntity<List<Product>> findAllServices() {
-        List<Product> newListProduct = productService.findAllServices();
+        List<Product> newListProduct = productService.findAll();
         if(newListProduct.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
@@ -57,35 +47,5 @@ public class ProductAPIRest {
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(newListProductType);
-    }
-
-    @GetMapping("/products/services/webname/{product_webname}")
-    public ResponseEntity <Product> findProductByWebname(@PathVariable("product_webname") String product_webname) {
-        Product newProduct = productService.findServiceByWebname(product_webname);
-        if(newProduct == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(newProduct);
-    }
-
-    @GetMapping("/products/services/get/duration/{product_webname}")
-    public Integer getServiceDuration(@PathVariable("product_webname") String product_webname) {
-        ResponseEntity<Product> response = checkHTTPStatus(product_webname);
-        if(response.getStatusCode() == HttpStatus.OK) {
-            Product product = response.getBody();
-            return product.getProduct_duration();
-        }else {
-            return null;
-        }
-    }
-
-    public ResponseEntity<Product> checkHTTPStatus(String product_webname) {
-        Product product = productService.getServiceDuration(product_webname);
-        if(product == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }else {
-            return ResponseEntity.status(HttpStatus.OK).body(product);
-        }
     }
 }

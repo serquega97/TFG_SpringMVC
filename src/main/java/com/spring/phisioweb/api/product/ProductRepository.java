@@ -17,11 +17,11 @@ public interface ProductRepository extends JpaRepository <Product, Integer> {
 
     /******** Methods and querys to make the filtering *********/
     //Returns a list of product ordered by price desc
-    @Query(value = "SELECT p FROM Product p WHERE ORDER BY p.product_price DESC")
+    @Query(value = "SELECT p FROM Product p ORDER BY p.product_price DESC")
     public List<Product> filterByPriceDesc();
 
     //Returns a list of product ordered by price asc
-    @Query(value = "SELECT p FROM Product p WHERE ORDER BY p.product_price ASC")
+    @Query(value = "SELECT p FROM Product p ORDER BY p.product_price ASC")
     public List<Product> filterByPriceAsc();
 
     //Returns a list of products ordered by name desc

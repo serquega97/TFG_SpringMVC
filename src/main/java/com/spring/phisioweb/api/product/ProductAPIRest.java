@@ -21,31 +21,40 @@ public class ProductAPIRest {
 
     @GetMapping("/products/all")
     public ResponseEntity<List<Product>> findAllProducts() {
+        ResponseEntity<List<Product>> response;
         List<Product> newListProduct = productService.findAll();
         if(newListProduct.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }else {
+            response = ResponseEntity.status(HttpStatus.OK).body(newListProduct);
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(newListProduct);
+        return response;
     }
 
     @GetMapping("/products/id/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable("id") Integer id) {
+        ResponseEntity<Product> response;
         Product newProduct = productService.findProductById(id);
         if(newProduct == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            response = ResponseEntity.status(HttpStatus.OK).body(newProduct);
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(newProduct);
+        return response;
     }
 
     @GetMapping("/products/type/{product_type}")
     public ResponseEntity<List<Product>> findProductByType(@PathVariable("product_type") String product_type) {
+        ResponseEntity<List<Product>> response;
         List<Product> newListProductType = productService.findProductByType(product_type);
         if(newListProductType.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+            response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }else {
+            response = ResponseEntity.status(HttpStatus.OK).body(newListProductType);
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(newListProductType);
+        return response;
     }
 }

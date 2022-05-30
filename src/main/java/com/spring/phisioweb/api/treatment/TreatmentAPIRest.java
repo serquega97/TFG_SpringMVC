@@ -16,7 +16,7 @@ public class TreatmentAPIRest {
     @Autowired
     private TreatmentService treatService;
 
-    @GetMapping("/services/all")
+    @GetMapping("/treatments/all")
     public ResponseEntity<List<Treatment>> findAllServices() {
         ResponseEntity<List<Treatment>> response;
         List<Treatment> lstServices = treatService.findAllServices();
@@ -29,7 +29,7 @@ public class TreatmentAPIRest {
         return response;
     }
 
-    @GetMapping("/services/webname/{service_webname}")
+    @GetMapping("/treatment/webname/{service_webname}")
     public ResponseEntity<Treatment> findServiceByWebname(@PathVariable("service_webname") String service_webname) {
         ResponseEntity<Treatment> response;
         Treatment treatment = treatService.findServiceByWebname(service_webname);
@@ -40,5 +40,18 @@ public class TreatmentAPIRest {
         }
 
         return response;
+    }
+
+    @GetMapping("/treatment/get/duration/{service_webname}")
+    public Integer getTreatmentDuration(@PathVariable("service_webname") String service_webname) {
+        Integer durationToReturn;
+        Integer servDuration = treatService.getServiceDuration(service_webname);
+        if(servDuration == null || servDuration == 0) {
+            durationToReturn = null;
+        }else {
+            durationToReturn = servDuration;
+        }
+
+        return durationToReturn;
     }
 }

@@ -212,7 +212,7 @@
                     $(document).ready(function() {
                         $.ajax({
                             method: 'GET',
-                            url: '/api/v1/products/services/get/duration/'+webname,
+                            url: '/api/v1/treatment/get/duration/'+webname,
                             success: function(data) {
                                 //Generate params for the request to the calendar API
                                 var params = {

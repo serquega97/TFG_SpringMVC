@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
     
     @Autowired
-    private ProductRepository productRepository;
+    private ProductsRepository productRepository;
 
     //Returns a list of all products and services
     public List<Product> findAll() {

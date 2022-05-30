@@ -10,14 +10,16 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.data.relational.core.mapping.Table;
+
+
 @Data
 @Entity
-@Table(name = "Product")
+@Table
 public class Product implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -11,11 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/services")
+@RequestMapping("/treatments")
 public class TreatmentController {
     
     @Autowired
@@ -37,15 +38,15 @@ public class TreatmentController {
         return model;
     }
 
-    @RequestMapping(value = "/{service_webname}", method = RequestMethod.GET)
+    @RequestMapping(value = "/webname/{service_webname}", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView getAllServices(@PathVariable("service_webname") String service_webname) {
+    public ModelAndView getServiceByWebname(@PathVariable("service_webname") String service_webname) {
         ModelAndView model;
-        ResponseEntity<List<Treatment>> response = treatApi.findAllServices();
+        ResponseEntity<Treatment> response = treatApi.findServiceByWebname(service_webname);
         if(response.getStatusCode() == HttpStatus.OK) {
-            model = new ModelAndView("product_list");
-            List<Treatment> lstServices = response.getBody();
-            model.addObject("productList", lstServices);
+            model = new ModelAndView("single_service");
+            Treatment treatment = response.getBody();
+            model.addObject("treatment", treatment);
         }else {
             model = new ModelAndView();
         }

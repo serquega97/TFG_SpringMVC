@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalendarAPIRest {
     
     @Autowired
-    EventRepository eventRepo;
+    CalendarRepository eventRepo;
 
     @GetMapping("/api/events")
     @JsonSerialize(using = LocalDateTimeSerializer.class)

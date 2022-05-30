@@ -16,11 +16,11 @@
               <li class="has-children">
                 <a><span id="servicios"><spring:message code="label.service"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/services/Puncion?lang=${sessionScope.lang}"><spring:message code="label.puncion"/></a></li>
-                  <li><a href="/services/Readaptacion?lang=${sessionScope.lang}"><spring:message code="label.rehabilitation"/></a></li>
-                  <li><a href="/services/Electroterapia?lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
-                  <li><a href="/services/Masoterapia?lang=${sessionScope.lang}"><spring:message code="label.masotherapy"/></a></li>
-                  <li><a href="/services/Kinesio?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
+                  <li><a href="/treatments/webname/Puncion?lang=${sessionScope.lang}"><spring:message code="label.puncion"/></a></li>
+                  <li><a href="/treatments/webname/Readaptacion?lang=${sessionScope.lang}"><spring:message code="label.rehabilitation"/></a></li>
+                  <li><a href="/treatments/webname/Electroterapia?lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
+                  <li><a href="/treatments/webname/Masoterapia?lang=${sessionScope.lang}"><spring:message code="label.masotherapy"/></a></li>
+                  <li><a href="/treatments/webname/Kinesio?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
                 </ul>
               </li>
               <li class="has-children">

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><spring:message code="label.productsof"/>${newProduct.product_type}</title>
+    <title><spring:message code="label.productsof"/>${treatment.service_name}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
@@ -64,17 +64,17 @@
           <div class="row">
 
             <div class="col-md-8" style="margin: 0 auto">
-                <h2 style="margin-bottom: 2cm; text-align: center;">${newProduct.product_name}</h2>
-                <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/images/${newProduct.url_photo}" alt="Image" class="img-fluid" style="display:block; margin-left: auto; margin-right: auto; width: 50%;" width="25" height="70"></p>
-                <p style="text-align: center;"><spring:message code="label.popular"/>${newProduct.product_name}:</p>
-                <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc1}</p>
-                <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc2}</p>
-                <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc3}</p>
-                <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc4}</p>
-                <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc5}</p>
+                <h2 style="margin-bottom: 2cm; text-align: center;">${treatment.service_name}</h2>
+                <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/images/${treatment.url_photo}" alt="Image" class="img-fluid" style="display:block; margin-left: auto; margin-right: auto; width: 50%;" width="25" height="70"></p>
+                <p style="text-align: center;"><spring:message code="label.popular"/>${treatment.service_name}:</p>
+                <p style="margin-left: 100px; text-align: justify">- ${treatment.service_desc1}</p>
+                <p style="margin-left: 100px; text-align: justify">- ${treatment.service_desc2}</p>
+                <p style="margin-left: 100px; text-align: justify">- ${treatment.service_desc3}</p>
+                <p style="margin-left: 100px; text-align: justify">- ${treatment.service_desc4}</p>
+                <p style="margin-left: 100px; text-align: justify">- ${treatment.service_desc5}</p>
                 <div class="pt-5">
-                    <h3 class="mb-5"><spring:message code="label.duration"/>${newProduct.product_duration} minutos</h3>
-                    <h3 class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
+                    <h3 class="mb-5"><spring:message code="label.duration"/>${treatment.service_duration} minutos</h3>
+                    <h3 class="mb-5"><spring:message code="label.price"/>${treatment.service_price}€</h3>
                 </div>
             </div>
       <%@ include file = "footer.jsp" %>

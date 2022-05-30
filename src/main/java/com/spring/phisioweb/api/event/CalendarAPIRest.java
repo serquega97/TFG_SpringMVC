@@ -11,8 +11,6 @@ import com.spring.phisioweb.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,19 +26,15 @@ public class CalendarAPIRest {
     @GetMapping("/api/events")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     Iterable<Event> events(@RequestParam("start") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime start, @RequestParam("end") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime end) {
-        ResponseEntity<Iterable<Event>> response = loadEvents(start, end);
-        if(response.getStatusCode() == HttpStatus.OK) {
-            Iterable<Event> listEvent = response.getBody();
-            return listEvent;
-        }else {
-            return null;
-        }
+        Iterable<Event> listEvents = eventRepo.findBetween(start, end);
+        return listEvents;
     }
 
     @PostMapping("/api/events/create")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Transactional
     Event createEvent(@RequestBody EventCreateParams params) {
+        Event eventToReturn;
         Event event = new Event();
         event.setStart(params.start);
         event.setEnd(params.start.plusMinutes(params.servDuration));
@@ -48,64 +42,45 @@ public class CalendarAPIRest {
         event.setResource(params.resource);
         event.setServDuration(params.servDuration);
         event.setBookingTime(LocalDateTime.now());              //Save booking time
-        ResponseEntity<Boolean> response = checkEvent(event);
-        if(response.getStatusCode() == HttpStatus.OK) {
+        if(eventIsOK(event)) {
             eventRepo.save(event);
-            return event;
+            eventToReturn = event;
         }else {
-            return null;
+            eventToReturn = null;
         }
+
+        return eventToReturn;
     }
 
     @PostMapping("/api/events/delete")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @Transactional
     EventDeleteResponse deleteEvent(@RequestBody EventDeleteParams params) {
-        ResponseEntity<Boolean> response = eventExists(params.id);
-        if(response.getStatusCode() == HttpStatus.OK) {
+        EventDeleteResponse eventResponse;
+        //Check if event exist in the database
+        if(eventRepo.existsById(params.id)) {
             eventRepo.deleteById(params.id);
-            return new EventDeleteResponse() {{
+            eventResponse = new EventDeleteResponse() {{
                 message = "Event deleted";
             }};
         }else {
-            return null;
+            eventResponse = null;
         }
-    }
 
-    public ResponseEntity<Iterable<Event>> loadEvents(LocalDateTime start, LocalDateTime end) {
-        Iterable<Event> listEvents = eventRepo.findBetween(start, end);
-        if(listEvents == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }else {
-            return ResponseEntity.status(HttpStatus.OK).body(listEvents);
-        }
-    }
-
-    public ResponseEntity<Boolean> checkEvent(Event event) {
-        if(eventIsOK(event)) {
-            return ResponseEntity.status(HttpStatus.OK).body(true);
-        }else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+        return eventResponse;
     }
 
     //Method to check mandatory Event fields before saving to DB
     public Boolean eventIsOK(Event event) {
-        if(event.getStart() == null) return false;
-        if(event.getEnd() == null) return false;
-        if(event.getText() == null) return false;
-        if(event.getServDuration() == null) return false;
-        if(event.getBookingTime() == null) return false;
-        return true;
-    }
-
-    //Check if an event exist in the DB
-    public ResponseEntity<Boolean> eventExists(Long id) {
-        if(!eventRepo.existsById(id)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        Boolean eventOK = false;
+        if((event.getStart() == null) || (event.getEnd() == null) || (event.getText() == null) ||
+            (event.getServDuration() == null) || (event.getBookingTime() == null)) {
+            eventOK = false;
         }else {
-            return ResponseEntity.status(HttpStatus.OK).body(true);
+            eventOK = true;
         }
+
+        return eventOK;
     }
 
     public static class EventCreateParams {

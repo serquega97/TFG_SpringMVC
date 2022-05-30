@@ -6,6 +6,7 @@
         <div style="position: absolute; left: 10px; top: 5px; margin-left: 100px">
           <a href="/home?lang=en" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;"></a>
           <a href="/home?lang=es" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/es.jpg" class="rev-slidebg" alt="" height="12px;"></a>
+          <a href="/home?lang=fr" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/fr.png" class="rev-slidebg" alt="" height="12px;"></a>
         </div>
         <div class="col-11 col-xl-4">
         </div>

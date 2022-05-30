@@ -41,14 +41,16 @@ function getMessageByAjaxCall(label_code) {
 
 //Returns the current locale
 function getURLLocale() {
-    //Check user's locale in the URL-> lang=es or lang=en
+    //Check user's locale in the URL-> lang=es, lang=en, lang=fr
     var currentLocale;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     if(urlParams.get('lang') === 'en') {
         currentLocale = "en-gb";
-    }else {
+    }else if(urlParams.get('lang') === 'es') {
         currentLocale = "es-es";
+    }else if(urlParams.get('lang') === 'fr') {
+        currentLocale = "fr-fr";
     }
 
     return currentLocale;

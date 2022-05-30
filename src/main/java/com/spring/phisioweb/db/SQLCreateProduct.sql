@@ -20,6 +20,5 @@ CREATE table Product
     product_desc4 longtext,
     product_desc5 longtext,
     url_photo varchar (100),
-    product_webname varchar(100),
     constraint id_pk PRIMARY KEY (id)
 )

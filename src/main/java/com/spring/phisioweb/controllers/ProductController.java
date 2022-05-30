@@ -25,46 +25,49 @@ public class ProductController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView getAllProducts() {
+        ModelAndView model;
         ResponseEntity<List<Product>> response = service.findAllProducts();
         if(response.getStatusCode() == HttpStatus.OK) {
-            ModelAndView model = new ModelAndView("product_list");
             List<Product> newList = response.getBody();
+            model = new ModelAndView("product_list");
             model.addObject("productList", newList);
-            return model;
+        }else {
+            model = new ModelAndView();
         }
-        return new ModelAndView("navbar");
+
+        return model;
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView getProduct(@PathVariable("id") Integer id) {
+        ModelAndView model;
         ResponseEntity<Product> response = service.findProductById(id);
         if(response.getStatusCode() == HttpStatus.OK) {
             Product newProduct = response.getBody();
-            if(newProduct.getProduct_type().equalsIgnoreCase("Servicio")){
-                ModelAndView model = new ModelAndView("single_service");
-                model.addObject("newProduct", newProduct);
-                return model;
-            }else {
-                ModelAndView model = new ModelAndView("single_product");
-                model.addObject("newProduct", newProduct);
-                return model;
-            }
+            model = new ModelAndView("single_product");
+            model.addObject("newProduct", newProduct);
+        }else {
+            model = new ModelAndView();
         }
-        return new ModelAndView("navbar");
+
+        return model;
     }
 
     @RequestMapping(value = "/type/{product_type}", method = RequestMethod.GET)
     public ModelAndView getProductType(@PathVariable("product_type") String product_type) {
+        ModelAndView model;
         ResponseEntity<List<Product>> response = service.findProductByType(product_type);
         //Request is OK
         if(response.getStatusCode() == HttpStatus.OK) {
-            ModelAndView model = new ModelAndView("product_list");
             List<Product> newList = response.getBody();
+            model = new ModelAndView("product_list");
             model.addObject("productList", newList);
             return model;
+        }else {
+            model = new ModelAndView();
         }
-        //Request returns error
-        return new ModelAndView();
+
+        return model;
     }
 }

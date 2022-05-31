@@ -29,4 +29,9 @@ public class ProductService {
     public List<Product> findProductByType(String product_type) {
         return productRepository.findProductByType(product_type);
     }
+
+    //Method that retruns a list of products names for the autocompletion
+    public List<String> searchProducts(String keyword) {
+        return productRepository.searchProducts(keyword);
+    }
 }

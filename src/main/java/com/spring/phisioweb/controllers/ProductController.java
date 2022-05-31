@@ -3,6 +3,7 @@ package com.spring.phisioweb.controllers;
 import java.util.List;
 
 import com.spring.phisioweb.api.product.ProductAPIRest;
+import com.spring.phisioweb.api.product.ProductService;
 import com.spring.phisioweb.model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class ProductController {
     
     @Autowired
     ProductAPIRest service;
+
+    @Autowired
+    ProductService productService;
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
@@ -55,6 +59,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/type/{product_type}", method = RequestMethod.GET)
+    @ResponseBody
     public ModelAndView getProductType(@PathVariable("product_type") String product_type) {
         ModelAndView model;
         ResponseEntity<List<Product>> response = service.findProductByType(product_type);
@@ -69,5 +74,12 @@ public class ProductController {
         }
 
         return model;
+    }
+
+    //Method that retruns a list of products names for the autocompletion
+    @RequestMapping(value = "/search/products/{keyword}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> searchproducts(@PathVariable("keyword") String keyword) {
+        return productService.searchProducts(keyword);
     }
 }

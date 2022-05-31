@@ -6,27 +6,20 @@
     <title><spring:message code="label.main"/></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/magnific-popup.css">
     <link rel="stylesheet" href="resources/css/jquery-ui.css">
     <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
     <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-
     <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
-
     <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
-
     <link rel="stylesheet" href="resources/css/aos.css">
     <link rel="stylesheet" href="resources/css/rangeslider.css">
-
     <link rel="stylesheet" href="resources/css/style.css">
-    
+    <link rel="stylesheet" href="resources/css/custom.css">
   </head>
   <body>
   
@@ -61,9 +54,6 @@
         </div>
       </div>
     </div>  
-
-
-
     <div class="block-quick-info-2">
       <div class="container">
         <div class="block-quick-info-2-inner">

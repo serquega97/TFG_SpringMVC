@@ -34,4 +34,9 @@ public class ProductService {
     public List<String> searchProducts(String term) {
         return productRepository.searchProducts(term);
     }
+
+    //Method that retruns a product by its name
+    public Product getProductByName(String product_name) {
+        return productRepository.getProductByName(product_name);
+    }
 }

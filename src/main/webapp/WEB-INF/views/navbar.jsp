@@ -4,7 +4,7 @@
 <header class="site-navbar" role="banner">
     <div class="container">
       <div class="row align-items-center">
-        <div style="position: absolute; left: 10px; top: 5px; margin-left: 100px">
+        <div style="position: absolute; left: 10px; top: 15px; margin-left: 100px">
           <a href="/home?lang=en" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;"></a>
           <a href="/home?lang=es" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/es.jpg" class="rev-slidebg" alt="" height="12px;"></a>
           <a href="/home?lang=fr" class="site-navigation position-relative text-left"><img src="${pageContext.request.contextPath}/resources/flags/fr.png" class="rev-slidebg" alt="" height="12px;"></a>
@@ -13,9 +13,9 @@
       <div class="container" style="position: absolute;">
         <div class="col-12 col-md-8 d-none d-xl-block">
           <form class="form-inline d-flex justify-content-center active-pink active-pink-2 mt-2" style="margin-left: 60px; position: absolute;">
+            <c:set var="searchValue"><spring:message code="label.search"/></c:set>  
             <i class="fa fa-search" aria-hidden="true"></i>
-            <c:set var="searchValue"><spring:message code="label.search"/></c:set>
-            <input class="form-control form-control-sm ml-3 w-120 .active-pink-2" id="searchBox" name="searchBox" type="text" oninput="autocompleteProducts()" style="background: transparent; color:#f48fb1 !important;" placeholder="${searchValue}" aria-label="Search">
+            <input class="form-control form-control-sm ml-3 .active-pink-2" id="searchBox" name="searchBox" type="text" oninput="autocompleteProducts()" size="35" style="background: transparent; color:#f48fb1 !important;" placeholder="${searchValue}" aria-label="Search">
           </form>
         </div>
       </div>

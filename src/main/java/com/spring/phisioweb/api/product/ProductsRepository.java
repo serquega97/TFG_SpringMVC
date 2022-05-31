@@ -20,6 +20,10 @@ public interface ProductsRepository extends JpaRepository <Product, Integer> {
     @Query(value = "SELECT product_name FROM Product WHERE product_name LIKE %:term%")
     public List<String> searchProducts(@Param("term") String term);
 
+    //Method that retruns a product by its name
+    @Query(value = "SELECT p FROM Product p WHERE p.product_name = ?1")
+    public Product getProductByName(String product_name);
+
     /******** Methods and querys to make the filtering *********/
     //Returns a list of product ordered by price desc
     @Query(value = "SELECT p FROM Product p ORDER BY p.product_price DESC")

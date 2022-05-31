@@ -83,4 +83,23 @@ public class ProductController {
     public List<String> searchproducts(@RequestParam("term") String term) {
         return productService.searchProducts(term);
     }
+
+    //Method that retruns a product by its name
+    @RequestMapping(value = "/name/{product_name}", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView getProductByName(@PathVariable("product_name") String product_name) {
+        ModelAndView model;
+        ResponseEntity<Product> response = service.getProductByName(product_name);
+        //Request is OK
+        if(response.getStatusCode() == HttpStatus.OK) {
+            Product newProduct = response.getBody();
+            model = new ModelAndView("single_product");
+            model.addObject("newProduct", newProduct);
+            return model;
+        }else {
+            model = new ModelAndView();
+        }
+
+        return model;
+    }
 }

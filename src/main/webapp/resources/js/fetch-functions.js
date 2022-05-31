@@ -62,7 +62,16 @@ function autocompleteProducts() {
     //Do autocomplete
     $(document).ready(function() {
       $('#searchBox').autocomplete({
-        source : '/products/search/products/'
+        source: '/products/search/products/',
+        minLength: 1,
+        select: function(event, ui) {
+            $(document).ready(function() {
+                $.ajax({
+                    method: 'GET',
+                    url: '/products/name/' + ui.label
+                });
+            });
+        }
       });
     });
   }

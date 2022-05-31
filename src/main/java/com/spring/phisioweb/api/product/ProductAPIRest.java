@@ -57,4 +57,17 @@ public class ProductAPIRest {
 
         return response;
     }
+
+    @GetMapping("/products/name({product_name}")
+    public ResponseEntity<Product> getProductByName(@PathVariable("product_name") String product_name) {
+        ResponseEntity<Product> response;
+        Product newProduct = productService.getProductByName(product_name);
+        if(newProduct == null) {
+            response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }else {
+            response = ResponseEntity.status(HttpStatus.OK).body(newProduct);
+        }
+
+        return response;
+    }
 }

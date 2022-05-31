@@ -17,8 +17,8 @@ public interface ProductsRepository extends JpaRepository <Product, Integer> {
     public List<Product> findProductByType(String product_type);
 
     //Method that retruns a list of products names for the autocompletion
-    @Query(value = "SELECT product_name FROM Product WHERE product_name LIKE %:keyword%")
-    public List<String> searchProducts(@Param("keyword") String keyword);
+    @Query(value = "SELECT product_name FROM Product WHERE product_name LIKE %:term%")
+    public List<String> searchProducts(@Param("term") String term);
 
     /******** Methods and querys to make the filtering *********/
     //Returns a list of product ordered by price desc

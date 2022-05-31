@@ -55,3 +55,14 @@ function getURLLocale() {
 
     return currentLocale;
 }
+
+function autocompleteProducts() {
+    var searchValue = document.getElementById("searchBox").value;
+    console.log("Search box input value document: " + searchValue);
+    //Do autocomplete
+    $(document).ready(function() {
+      $('#searchBox').autocomplete({
+        source : '/products/search/products/'
+      });
+    });
+  }

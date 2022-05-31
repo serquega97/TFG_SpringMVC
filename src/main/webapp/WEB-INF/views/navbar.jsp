@@ -15,7 +15,7 @@
           <form class="form-inline d-flex justify-content-center active-pink active-pink-2 mt-2" style="margin-left: 60px; position: absolute;">
             <i class="fa fa-search" aria-hidden="true"></i>
             <c:set var="searchValue"><spring:message code="label.search"/></c:set>
-            <input class="form-control form-control-sm ml-3 w-120 .active-pink-2" id="searchBox" name="searchBox" type="text" style="background: transparent; color:#f48fb1 !important;" placeholder="${searchValue}" aria-label="Search">
+            <input class="form-control form-control-sm ml-3 w-120 .active-pink-2" id="searchBox" name="searchBox" type="text" oninput="autocompleteProducts()" style="background: transparent; color:#f48fb1 !important;" placeholder="${searchValue}" aria-label="Search">
           </form>
         </div>
       </div>
@@ -55,3 +55,4 @@
       <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
     </div>
   </header>
+  <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>

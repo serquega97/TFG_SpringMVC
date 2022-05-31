@@ -31,7 +31,7 @@ public class ProductService {
     }
 
     //Method that retruns a list of products names for the autocompletion
-    public List<String> searchProducts(String keyword) {
-        return productRepository.searchProducts(keyword);
+    public List<String> searchProducts(String term) {
+        return productRepository.searchProducts(term);
     }
 }

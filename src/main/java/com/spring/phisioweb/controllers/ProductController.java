@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -77,9 +78,9 @@ public class ProductController {
     }
 
     //Method that retruns a list of products names for the autocompletion
-    @RequestMapping(value = "/search/products/{keyword}", method = RequestMethod.GET)
+    @RequestMapping(value = "/search/products", method = RequestMethod.GET)
     @ResponseBody
-    public List<String> searchproducts(@PathVariable("keyword") String keyword) {
-        return productService.searchProducts(keyword);
+    public List<String> searchproducts(@RequestParam("term") String term) {
+        return productService.searchProducts(term);
     }
 }

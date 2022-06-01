@@ -69,7 +69,6 @@ public class ProductController {
             List<Product> newList = response.getBody();
             model = new ModelAndView("product_list");
             model.addObject("productList", newList);
-            return model;
         }else {
             model = new ModelAndView();
         }
@@ -95,7 +94,6 @@ public class ProductController {
             Product newProduct = response.getBody();
             model = new ModelAndView("single_product");
             model.addObject("newProduct", newProduct);
-            return model;
         }else {
             model = new ModelAndView();
         }

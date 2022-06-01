@@ -65,12 +65,8 @@ function autocompleteProducts() {
         source: '/products/search/products/',
         minLength: 1,
         select: function(event, ui) {
-            $(document).ready(function() {
-                $.ajax({
-                    method: 'GET',
-                    url: '/products/name/' + ui.label
-                });
-            });
+            console.log("Redirecting to product: " + ui.item.label);
+            window.location.href = '/products/name/' + ui.item.label;
         }
       });
     });

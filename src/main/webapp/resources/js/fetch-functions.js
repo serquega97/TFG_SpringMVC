@@ -56,18 +56,27 @@ function getURLLocale() {
     return currentLocale;
 }
 
+//Returns the language from the URL
+function getURLLanguage() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('lang');
+}
+
+//Method that executes the autocomplete logic for the search box
 function autocompleteProducts() {
+    const lang = getURLLanguage();
     var searchValue = document.getElementById("searchBox").value;
     console.log("Search box input value document: " + searchValue);
     //Do autocomplete
     $(document).ready(function() {
-      $('#searchBox').autocomplete({
-        source: '/products/search/products/',
-        minLength: 1,
-        select: function(event, ui) {
-            console.log("Redirecting to product: " + ui.item.label);
-            window.location.href = '/products/name/' + ui.item.label;
-        }
-      });
+        $('#searchBox').autocomplete({
+            source: '/products/search/products/',
+            minLength: 1,
+            select: function(event, ui) {
+                console.log("Redirecting to product: " + ui.item.label);
+                window.location.href = '/products/name/' + ui.item.label + '?lang=' + lang;
+            }
+        });
     });
-  }
+}

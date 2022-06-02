@@ -12,7 +12,7 @@
       </div>
       <div class="container" style="position: absolute;">
         <div class="col-12 col-md-8 d-none d-xl-block">
-          <form class="form-inline d-flex justify-content-center active-pink active-pink-2 mt-2" style="margin-left: 60px; position: absolute;">
+          <form class="form-inline d-flex justify-content-center active-pink active-pink-2 mt-2" action="/products/name?lang=${sessionScope.lang}" style="margin-left: 60px; position: absolute;">
             <c:set var="searchValue"><spring:message code="label.search"/></c:set>  
             <i class="fa fa-search" aria-hidden="true"></i>
             <input class="form-control form-control-sm ml-3 .active-pink-2" id="searchBox" name="searchBox" type="text" oninput="autocompleteProducts()" size="35" style="background: transparent; color:#f48fb1 !important;" placeholder="${searchValue}" aria-label="Search">

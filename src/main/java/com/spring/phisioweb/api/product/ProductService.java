@@ -39,4 +39,9 @@ public class ProductService {
     public Product getProductByName(String product_name) {
         return productRepository.getProductByName(product_name);
     }
+
+    //Method that retruns a list of products when users click enter
+    public List<Product> searchProductsIntro(String searchBox) {
+        return productRepository.searchProductsIntro(searchBox);
+    }
 }

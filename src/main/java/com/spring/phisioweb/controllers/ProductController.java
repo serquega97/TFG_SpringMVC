@@ -100,4 +100,22 @@ public class ProductController {
 
         return model;
     }
+
+    //Method that returns a product by its name
+    @RequestMapping(value = "/name", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView getProductIntro(@RequestParam("searchBox") String searchBox) {
+        ModelAndView model;
+        ResponseEntity<List<Product>> response = service.getProductByNameIntro(searchBox);
+        //Request is OK
+        if(response.getStatusCode() == HttpStatus.OK) {
+            List<Product> listProducts = response.getBody();
+            model = new ModelAndView("product_list");
+            model.addObject("productList", listProducts);
+        }else {
+            model = new ModelAndView();
+        }
+
+        return model;
+    }
 }

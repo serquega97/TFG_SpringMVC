@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -66,6 +67,19 @@ public class ProductAPIRest {
             response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }else {
             response = ResponseEntity.status(HttpStatus.OK).body(newProduct);
+        }
+
+        return response;
+    }
+
+    @GetMapping("/products/get/name")
+    public ResponseEntity<List<Product>> getProductByNameIntro(@RequestParam("searchBox") String searchBox) {
+        ResponseEntity<List<Product>> response;
+        List<Product> lstProducts = productService.searchProductsIntro(searchBox);
+        if(lstProducts.isEmpty()) {
+            response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }else {
+            response = ResponseEntity.status(HttpStatus.OK).body(lstProducts);
         }
 
         return response;

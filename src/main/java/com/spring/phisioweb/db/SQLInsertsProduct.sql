@@ -88,7 +88,7 @@ INSERT INTO Product (ID, PRODUCT_NAME, PRODUCT_WEIGHT, PRODUCT_PRICE, PRODUCT_TY
 #Termoterapia inserts
 INSERT INTO Product (ID, PRODUCT_NAME, PRODUCT_WEIGHT, PRODUCT_PRICE, PRODUCT_TYPE, PRODUCT_DESC1, PRODUCT_DESC2,
     PRODUCT_DESC3, PRODUCT_DESC4, PRODUCT_DESC5, URL_PHOTO) 
-    VALUES (9, 'Almohadilla Eléctrica de Calefacción MaxKare', 0.54, 25.99, 'Termoterapia', 
+    VALUES (9, 'Almohadilla Eléctrica de Calefacción MaxKare 2.0', 0.54, 25.99, 'Termoterapia', 
     'Calentamiento rápido.', 
     'Protección contra sobrecalentamiento.',
     '4 niveles de temperatura.',
@@ -129,7 +129,7 @@ INSERT INTO Product (ID, PRODUCT_NAME, PRODUCT_WEIGHT, PRODUCT_PRICE, PRODUCT_TY
 #Crioterapia inserts
 INSERT INTO Product (ID, PRODUCT_NAME, PRODUCT_WEIGHT, PRODUCT_PRICE, PRODUCT_TYPE, PRODUCT_DESC1, PRODUCT_DESC2,
     PRODUCT_DESC3, PRODUCT_DESC4, PRODUCT_DESC5, URL_PHOTO) 
-    VALUES (13, 'Almohadilla Eléctrica de Calefacción MaxKare', 0.07, 13.28, 'Crioterapia', 
+    VALUES (13, 'Almohadilla Eléctrica de Calefacción MaxKare 1.0', 0.07, 13.28, 'Crioterapia', 
     'Tiene más de 4700 valoraciones en Amazon, con una media de 4.5 de 5.', 
     'Debe introducir cubitos de hielo.',
     'Es flexible y se adapta a cualquier zona.',

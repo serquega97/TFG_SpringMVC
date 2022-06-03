@@ -75,7 +75,13 @@ function autocompleteProducts() {
             minLength: 1,
             select: function(event, ui) {
                 console.log("Redirecting to product: " + ui.item.label);
+                //Clean search box after pressed the option
+                document.getElementById("searchBox").value = "";
                 window.location.href = '/products/name/' + ui.item.label + '?lang=' + lang;
+            },
+            focus: function(event, ui) {
+                console.log("Focus on product " + ui.item.label);
+                document.getElementById("searchBox").value = ui.item.label;
             }
         });
     });

@@ -17,11 +17,11 @@ public interface ProductsRepository extends JpaRepository <Product, Integer> {
     public List<Product> findProductByType(String product_type);
 
     //Method that retruns a list of products names for the autocompletion
-    @Query(value = "SELECT product_name FROM Product WHERE product_name LIKE %:term%")
+    @Query(value = "SELECT product_name FROM Product WHERE product_name LIKE %:term% ORDER BY product_name ASC")
     public List<String> searchProducts(@Param("term") String term);
 
     //Method that retruns a list of products when users click enter
-    @Query(value = "SELECT p FROM Product p WHERE p.product_name LIKE %:searchBox%")
+    @Query(value = "SELECT p FROM Product p WHERE p.product_name LIKE %:searchBox% ORDER BY product_name ASC")
     public List<Product> searchProductsIntro(@Param("searchBox") String searchBox);
 
     //Method that retruns a product by its name

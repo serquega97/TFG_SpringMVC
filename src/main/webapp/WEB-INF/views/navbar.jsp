@@ -10,7 +10,7 @@
     <body>
       <header class="site-navbar" role="banner">
         <nav class="site-navigation" role="navigation">
-          <div class="container" style="position: absolute; top: 15px; margin-left: 1px">
+          <div class="container" style="position: relative; top: 15px; margin-left: 1px">
             <ul class="site-menu">
               <li class="has-children">
                 <a><span><i class="fa fa-language" style="margin-right: 6px;"></i><spring:message code="label.language"/></span></a>
@@ -41,7 +41,7 @@
           </div>
           <div class="container" style="position: absolute; top: 15px; margin-left: 660px;">
             <ul class="site-menu">
-              <li class="active"><a href="/home?lang=${sessionScope.lang}"><span><spring:message code="label.home"/></span></a></li>
+              <li class="active"><a href="/home?curr=eur&lang=${sessionScope.lang}"><span><spring:message code="label.home"/></span></a></li>
               <li class="has-children">
                 <a><span id="servicios"><spring:message code="label.service"/></span></a>
                 <ul class="dropdown arrow-top">

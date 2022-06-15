@@ -51,7 +51,7 @@
                   
                   <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
   
-                  <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar?lang=${sessionScope.lang}" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
+                  <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
                 </div>
               </div>
   
@@ -70,10 +70,10 @@
                 <c:forEach items="${productList}" var="product">
                     <div class="col-sm-4">
                         <div class="block-service-1-card">
-                            <a href="/products/id/${product.id}?lang=${sessionScope.lang}" class="thumbnail-link d-block mb-4"><img src="${pageContext.request.contextPath}/resources/images/${product.url_photo}" alt="Image" class="img-fluid" height="300px" width="100px"></a>
+                            <a href="/products/id/${product.id}?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="thumbnail-link d-block mb-4"><img src="${pageContext.request.contextPath}/resources/images/${product.url_photo}" alt="Image" class="img-fluid" height="300px" width="100px"></a>
                             <h3 class="block-service-1-heading mb-3"><a>${product.product_name}</a></h3>
                             <div class="block-service-1-excerpt"><p>${product.product_desc2}</p></div>
-                            <p><a href="/products/id/${product.id}?lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+                            <p><a href="/products/id/${product.id}?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="d-inline-flex align-items-center block-service-1-more"><span><spring:message code="label.more"/></span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
                         </div>
                     </div>
                 </c:forEach>

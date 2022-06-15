@@ -15,17 +15,17 @@
               <li class="has-children">
                 <a><span><i class="fa fa-language" style="margin-right: 6px;"></i><spring:message code="label.language"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/home?lang=en" class="dropdown-item"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;" style="margin-right: 6px;"><spring:message code="label.english"/></a></li>
-                  <li><a href="/home?lang=es" class="dropdown-item"><img src="${pageContext.request.contextPath}/resources/flags/es.png" class="rev-slidebg" alt="" height="12px;" style="margin-right: 6px;"><spring:message code="label.spanish"/></a></li>
-                  <li><a href="/home?lang=fr" class="dropdown-item"><img src="${pageContext.request.contextPath}/resources/flags/fr.png" class="rev-slidebg" alt="" height="12px;" style="margin-right: 6px;"><spring:message code="label.french"/></a></li>
+                  <li><a href="/home?curr=${sessionScope.curr}&lang=en" class="dropdown-item"><img src="${pageContext.request.contextPath}/resources/flags/en.png" class="rev-slidebg" alt="" height="12px;" style="margin-right: 6px;"><spring:message code="label.english"/></a></li>
+                  <li><a href="/home?curr=${sessionScope.curr}&lang=es" class="dropdown-item"><img src="${pageContext.request.contextPath}/resources/flags/es.png" class="rev-slidebg" alt="" height="12px;" style="margin-right: 6px;"><spring:message code="label.spanish"/></a></li>
+                  <li><a href="/home?curr=${sessionScope.curr}&lang=fr" class="dropdown-item"><img src="${pageContext.request.contextPath}/resources/flags/fr.png" class="rev-slidebg" alt="" height="12px;" style="margin-right: 6px;"><spring:message code="label.french"/></a></li>
                 </ul>
               </li>
               <li class="has-children">
                 <a><span><i class="fa fa-money" style="margin-right: 6px;"></i><spring:message code="label.currency"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="" class="dropdown-item"><i class="fa fa-euro" style="margin-right: 6px;"></i>Euro</a></li>
-                  <li><a href="" class="dropdown-item"><i class="fa fa-dollar" style="margin-right: 6px;"></i>Dollars</a></li>
-                  <li><a href="" class="dropdown-item"><i class="fa fa-gbp" style="margin-right: 6px;"></i>Pounds</a></li>
+                  <li><a href="/home?curr=eur&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-euro" style="margin-right: 6px;"></i>Euro</a></li>
+                  <li><a href="/home?curr=dol&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-dollar" style="margin-right: 6px;"></i>Dollars</a></li>
+                  <li><a href="/home?curr=pud&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-gbp" style="margin-right: 6px;"></i>Pounds</a></li>
                 </ul>
               </li>
             </ul>
@@ -41,33 +41,33 @@
           </div>
           <div class="container" style="position: absolute; top: 15px; margin-left: 660px;">
             <ul class="site-menu">
-              <li class="active"><a href="/home?curr=eur&lang=${sessionScope.lang}"><span><spring:message code="label.home"/></span></a></li>
+              <li class="active"><a href="/home?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><span><spring:message code="label.home"/></span></a></li>
               <li class="has-children">
                 <a><span id="servicios"><spring:message code="label.service"/></span></a>
                 <ul class="dropdown arrow-top">
-                  <li><a href="/treatments/webname/Puncion?lang=${sessionScope.lang}"><spring:message code="label.puncion"/></a></li>
-                  <li><a href="/treatments/webname/Readaptacion?lang=${sessionScope.lang}"><spring:message code="label.rehabilitation"/></a></li>
-                  <li><a href="/treatments/webname/Electroterapia?lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
-                  <li><a href="/treatments/webname/Masoterapia?lang=${sessionScope.lang}"><spring:message code="label.masotherapy"/></a></li>
-                  <li><a href="/treatments/webname/Kinesio?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
+                  <li><a href="/treatments/webname/Puncion?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.puncion"/></a></li>
+                  <li><a href="/treatments/webname/Readaptacion?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.rehabilitation"/></a></li>
+                  <li><a href="/treatments/webname/Electroterapia?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
+                  <li><a href="/treatments/webname/Masoterapia?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.masotherapy"/></a></li>
+                  <li><a href="/treatments/webname/Kinesio?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
                 </ul>
               </li>
               <li class="has-children">
                   <a><span><spring:message code="label.products"/></span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="/products/all?lang=${sessionScope.lang}"><spring:message code="label.all"/></a></li>
-                    <li><a href="/products/type/Electroterapia?lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
-                    <li><a href="/products/type/Termoterapia?lang=${sessionScope.lang}"><spring:message code="label.thermotherapy"/></a></li>
-                    <li><a href="/products/type/Crioterapia?lang=${sessionScope.lang}"><spring:message code="label.cryotherapy"/></a></li>
-                    <li><a href="/products/type/Magnetoterapia?lang=${sessionScope.lang}"><spring:message code="label.magnetotherapy"/></a></li>
-                    <li><a href="/products/type/Aceite?lang=${sessionScope.lang}"><spring:message code="label.oils"/></a></li>
-                    <li><a href="/products/type/Kinesiotape?lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
-                    <li><a href="/products/type/Masaje?lang=${sessionScope.lang}"><spring:message code="label.massage"/></a></li>
+                    <li><a href="/products/all?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.all"/></a></li>
+                    <li><a href="/products/type/Electroterapia?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.electrotherapy"/></a></li>
+                    <li><a href="/products/type/Termoterapia?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.thermotherapy"/></a></li>
+                    <li><a href="/products/type/Crioterapia?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.cryotherapy"/></a></li>
+                    <li><a href="/products/type/Magnetoterapia?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.magnetotherapy"/></a></li>
+                    <li><a href="/products/type/Aceite?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.oils"/></a></li>
+                    <li><a href="/products/type/Kinesiotape?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.kinesio"/></a></li>
+                    <li><a href="/products/type/Masaje?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.massage"/></a></li>
                   </ul>
                 </li>
               <li><a href=""><span><spring:message code="label.us"/></span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
-              <li><a href="/book/calendar?lang=${sessionScope.lang}"><span><spring:message code="label.appointments"/></span></a></li>
+              <li><a href="/book/calendar?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><span><spring:message code="label.appointments"/></span></a></li>
             </ul>
           </div>
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>

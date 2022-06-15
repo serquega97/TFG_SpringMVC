@@ -30,7 +30,20 @@ function getWebnameByName(product_webname) {
 function getMessageByAjaxCall(label_code) {
     var result = "";
     $.ajax({
-      url: '/get/message?message='+label_code,
+      url: '/get/message?message=' + label_code,
+      async: false,  
+      success: function(data) {
+         result = data; 
+      }
+   });
+   return result;
+}
+
+//Returns the value of a session attribute passed by parameter
+function getSessionAttribute(session_attr) {
+    var result = "";
+    $.ajax({
+      url: '/get/session/attribute?session_attr=' + session_attr,
       async: false,  
       success: function(data) {
          result = data; 
@@ -56,16 +69,10 @@ function getURLLocale() {
     return currentLocale;
 }
 
-//Returns the language from the URL
-function getURLLanguage() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    return urlParams.get('lang');
-}
-
 //Method that executes the autocomplete logic for the search box
 function autocompleteProducts() {
-    const lang = getURLLanguage();
+    const curr = getSessionAttribute("curr");
+    const lang = getSessionAttribute("lang");
     var searchValue = document.getElementById("searchBox").value;
     console.log("Search box input value document: " + searchValue);
     //Do autocomplete
@@ -78,11 +85,10 @@ function autocompleteProducts() {
                 this.blur();
                 //Clean search box after pressed the option
                 document.getElementById("searchBox").value = "";
-                window.location.href = '/products/name/' + ui.item.label + '?lang=' + lang;
+                window.location.href = '/products/name/' + ui.item.label + '?curr=' + curr + '&lang=' + lang;
             },
             focus: function(event, ui) {
                 console.log("Focus on product " + ui.item.label);
-                console.log("Event type" + event.type);
                 document.getElementById("searchBox").value = ui.item.label;
             }
         });

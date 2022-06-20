@@ -22,16 +22,20 @@ public class HomeController {
     @RequestMapping("/home")
     public ModelAndView mainPage(@RequestParam Map<String, String> requestParams, HttpServletRequest request) {
         ModelAndView model = new ModelAndView("index");
-        String curr = requestParams.get("curr");
-        String lang = requestParams.get("lang");
-        HttpSession newSession = request.getSession();
+        String curCurr = requestParams.get("curr");
+        String curLang = requestParams.get("lang");
+        HttpSession session = request.getSession();
+        String prevCurr = (String) session.getAttribute("curr");
+        String prevLang = (String) session.getAttribute("lang");
 
-        if(curr != null && !curr.isEmpty()) {
-            newSession.setAttribute("curr", curr);
+        //Set currency attribute only when the value changes
+        if(curCurr != null && !curCurr.isEmpty() && curCurr != prevCurr) {
+            session.setAttribute("curr", curCurr);
         }
 
-        if(lang != null && !lang.isEmpty()) {
-            newSession.setAttribute("lang", lang);
+        //Set language attribute only when the value changes
+        if(curLang != null && !curLang.isEmpty() && curLang != prevLang) {
+            session.setAttribute("lang", curLang);
         }
 
         return model;

@@ -2,6 +2,9 @@ package com.spring.phisioweb.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.spring.phisioweb.api.product.ProductAPIRest;
 import com.spring.phisioweb.api.product.ProductService;
 import com.spring.phisioweb.model.Product;
@@ -45,11 +48,13 @@ public class ProductController {
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView getProduct(@PathVariable("id") Integer id) {
+    public ModelAndView getProduct(@PathVariable("id") Integer id, HttpServletRequest request) {
         ModelAndView model;
         ResponseEntity<Product> response = service.findProductById(id);
         if(response.getStatusCode() == HttpStatus.OK) {
             Product newProduct = response.getBody();
+            Float convertedPrice = getPriceByCurrency(request, newProduct.getProduct_price());
+            newProduct.setProduct_price(convertedPrice);
             model = new ModelAndView("single_product");
             model.addObject("newProduct", newProduct);
         }else {
@@ -86,12 +91,14 @@ public class ProductController {
     //Method that retruns a product by its name
     @RequestMapping(value = "/name/{product_name}", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView getProductByName(@PathVariable("product_name") String product_name) {
+    public ModelAndView getProductByName(@PathVariable("product_name") String product_name, HttpServletRequest request) {
         ModelAndView model;
         ResponseEntity<Product> response = service.getProductByName(product_name);
         //Request is OK
         if(response.getStatusCode() == HttpStatus.OK) {
             Product newProduct = response.getBody();
+            Float convertedPrice = getPriceByCurrency(request, newProduct.getProduct_price());
+            newProduct.setProduct_price(convertedPrice);
             model = new ModelAndView("single_product");
             model.addObject("newProduct", newProduct);
         }else {
@@ -117,5 +124,22 @@ public class ProductController {
         }
 
         return model;
+    }
+
+    public Float getPriceByCurrency(HttpServletRequest request, Float product_price) {
+        HttpSession session = request.getSession();
+        Float convertedPrice = null;
+        Double doublePrice;
+        String curr = (String) session.getAttribute("curr");
+
+        if(curr != null && !curr.isEmpty() && curr.equals("dol")) {
+            doublePrice = product_price * 1.05;
+            convertedPrice = doublePrice.floatValue();
+        }else if(curr != null && !curr.isEmpty() && curr.equals("gbp")) {
+            doublePrice = product_price * 0.86;
+            convertedPrice = doublePrice.floatValue();
+        }
+
+        return convertedPrice;
     }
 }

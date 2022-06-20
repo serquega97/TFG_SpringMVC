@@ -25,7 +25,7 @@
                 <ul class="dropdown arrow-top">
                   <li><a href="/home?curr=eur&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-euro" style="margin-right: 6px;"></i>Euro</a></li>
                   <li><a href="/home?curr=dol&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-dollar" style="margin-right: 6px;"></i>Dollars</a></li>
-                  <li><a href="/home?curr=pud&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-gbp" style="margin-right: 6px;"></i>Pounds</a></li>
+                  <li><a href="/home?curr=gbp&lang=${sessionScope.lang}" class="dropdown-item"><i class="fa fa-gbp" style="margin-right: 6px;"></i>Pounds</a></li>
                 </ul>
               </li>
             </ul>

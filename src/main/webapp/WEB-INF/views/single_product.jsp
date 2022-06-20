@@ -74,7 +74,15 @@
               <p style="margin-left: 100px; text-align: justify">- ${newProduct.product_desc5}</p>
               <div class="pt-5">
                 <h3 class="mb-5"><spring:message code="label.weight"/>${newProduct.product_weight}kg</h3>
-                <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
+                <c:if test = "${sessionScope.curr eq 'eur'}">
+                  <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}€</h3>
+                </c:if>
+                <c:if test = "${sessionScope.curr eq 'dol'}">
+                  <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price}$</h3>
+                </c:if>
+                <c:if test = "${sessionScope.curr eq 'gbp'}">
+                  <h3 id="pay" class="mb-5"><spring:message code="label.price"/>${newProduct.product_price} GBP</h3>
+                </c:if>
                 <div id="paypal-button-container"></div>
               </div>
             </div>

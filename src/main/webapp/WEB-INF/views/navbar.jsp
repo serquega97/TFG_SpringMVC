@@ -65,14 +65,55 @@
                     <li><a href="/products/type/Masaje?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><spring:message code="label.massage"/></a></li>
                   </ul>
                 </li>
-              <li><a href=""><span><spring:message code="label.us"/></span></a></li>
               <li><a href="https://www.qcuidate.com" target = "_blank"><span>Blog</span></a></li>
               <li><a href="/book/calendar?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><span><spring:message code="label.appointments"/></span></a></li>
+              <li><a href="#basicExampleModal" id="modalHover" data-toggle="modal" onmousemove="showModal()"><span><spring:message code="label.login"/></span></a></li>
+              <!-- Modal -->
+              <div class="modal fade bd-example-modal-lg" id="basicExampleModal" onmouseleave="hideModal()" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"><spring:message code="label.modaltitle"/></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="mx-1 mx-md-4" action="#">
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary"><spring:message code="label.login"/></button>
+                        </div>
+                      </form>
+                    </div>
+                    <p class="text-center text-muted mb5"><spring:message code="label.donthaveaccount"/>
+                      <a href="/users/login/signup/registration.html" class="fw-bold text-body"><u><spring:message code="label.signup"/></u></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </ul>
           </div>
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
         </nav>
       </header>
-      <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
+      <script src="resources/js/jquery-3.3.1.min.js"></script>
+      <script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
+      <script src="resources/js/jquery-ui.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+      <script src="resources/js/popper.min.js"></script>
+      <script src="resources/js/bootstrap.min.js"></script>
+      <script src="resources/js/owl.carousel.min.js"></script>
+      <script src="resources/js/jquery.stellar.min.js"></script>
+      <script src="resources/js/jquery.countdown.min.js"></script>
+      <script src="resources/js/jquery.magnific-popup.min.js"></script>
+      <script src="resources/js/jquery.animateNumber.min.js"></script>
+      <script src="resources/js/jquery.waypoints.min.js"></script>
+      <script src="resources/js/bootstrap-datepicker.min.js"></script>
+      <script src="resources/js/aos.js"></script>
+      <script src="resources/js/rangeslider.min.js"></script>
+      <script src="resources/js/main.js"></script>
+      <script src="resources/js/fetch-functions.js"></script>
+      <script src="resources/js/typed.js"></script>
     </body>
 </html>

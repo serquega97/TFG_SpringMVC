@@ -10,7 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     
     @RequestMapping(value = "/login/signup/registration.html", method = RequestMethod.GET)
-    public static ModelAndView createNewuser() {
+    public static ModelAndView createNewuserForm() {
         return new ModelAndView("registrationForm");
+    }
+
+    public static ModelAndView checkUserLogin() {
+        return null;
+    }
+
+    public static ModelAndView createNewuserRepository() {
+        return null;
     }
 }

@@ -5,7 +5,21 @@
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/custom.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css">
+      <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
+      <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+      <link rel="stylesheet" href="resources/css/magnific-popup.css">
+      <link rel="stylesheet" href="resources/css/jquery-ui.css">
+      <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
+      <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+      <link rel="stylesheet" href="resources/css/aos.css">
+      <link rel="stylesheet" href="resources/css/rangeslider.css">
+      <link rel="stylesheet" href="resources/css/style.css">
+      <link rel="stylesheet" href="resources/css/custom.css">
     </head>
     <body>
       <header class="site-navbar" role="banner">
@@ -69,8 +83,8 @@
               <li><a href="/book/calendar?curr=${sessionScope.curr}&lang=${sessionScope.lang}"><span><spring:message code="label.appointments"/></span></a></li>
               <li><a href="#basicExampleModal" id="modalHover" data-toggle="modal" onmousemove="showModal()"><span><spring:message code="label.login"/></span></a></li>
               <!-- Modal -->
-              <div class="modal fade bd-example-modal-lg" id="basicExampleModal" onmouseleave="hideModal()" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+              <div class="modal fade" id="basicExampleModal" onmouseleave="hideModal()" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel"><spring:message code="label.modaltitle"/></h5>
@@ -80,14 +94,27 @@
                     </div>
                     <div class="modal-body">
                       <form class="mx-1 mx-md-4" action="#">
-
-                        <div class="modal-footer">
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fa fa-user fa-lg me-7 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <c:set var="username"><spring:message code="label.username"/></c:set>
+                            <input type="text" id="form3Example1c" class="form-control" placeholder="${username}"/>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <c:set var="password"><spring:message code="label.password"/></c:set>
+                            <input type="password" id="form3Example4c" class="form-control" placeholder="${password}"/>
+                          </div>
+                        </div>
+                        <div class="modal-footer" style="justify-content: center;">
                           <button type="button" class="btn btn-primary"><spring:message code="label.login"/></button>
                         </div>
                       </form>
                     </div>
                     <p class="text-center text-muted mb5"><spring:message code="label.donthaveaccount"/>
-                      <a href="/users/login/signup/registration.html" class="fw-bold text-body"><u><spring:message code="label.signup"/></u></a>
+                      <a href="/users/login/signup/registration.html?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="fw-bold text-body"><u><spring:message code="label.signup"/></u></a>
                     </p>
                   </div>
                 </div>

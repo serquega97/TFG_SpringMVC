@@ -1,5 +1,7 @@
 package com.spring.phisioweb.model;
 
+import java.util.Date;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +17,9 @@ public class User {
     String surname1;
     String surname2;
     String email;
-    Integer age;
+    Integer phoneNumber;
+    String gender;
+    Date birthdate;
 
     /******************Class constructors**************/
     public User() {
@@ -26,7 +30,8 @@ public class User {
         this.id = id;
     }
 
-    public User(Long id, String username, String password, String name, String surname1, String surname2, String email, Integer age) {
+    public User(Long id, String username, String password, String name, String surname1, String surname2, String email, Integer phoneNumber,
+        String gender, Date birthdate) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -34,7 +39,9 @@ public class User {
         this.surname1 = surname1;
         this.surname2 = surname2;
         this.email = email;
-        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.birthdate = birthdate;
     }
 
     /*****************Getter's & setter's*************/
@@ -94,11 +101,11 @@ public class User {
         this.email = email;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }    
 }

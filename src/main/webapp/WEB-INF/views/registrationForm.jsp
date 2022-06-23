@@ -62,7 +62,7 @@
                           <div class="col-md-6 mb-4">
                             <div class="form-outline">
                                 <label class="form-label" for="firstName"><spring:message code="label.name"/></label>
-                                <input type="text" id="firstName" class="form-control form-control-lg" />
+                                <input type="text" id="firstName"name="firstName" class="form-control form-control-lg" />
                             </div>
                           </div>
                           <div class="col-md-6 mb-4">
@@ -90,25 +90,25 @@
                           <div class="col-md-6 mb-4 d-flex align-items-center">
                             <div class="form-outline w-100">
                                 <label for="birthdayDate" class="form-label"><spring:message code="label.birthdate"/></label>
-                                <input type="date" class="form-control form-control-lg" id="birthdayDate" />
+                                <input type="date" class="form-control form-control-lg" id="birthdayDate" name="birthDate"/>
                             </div>
                           </div>
                           <div class="col-md-6 mb-4">
-                            <h6 class="mb-2 pb-1">Gender: </h6>
+                            <h6 class="mb-2 pb-1"><spring:message code="label.gender"/></h6>
                             <div class="form-check form-check-inline">
                               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
                                 value="option1" checked />
-                              <label class="form-check-label" for="femaleGender">Female</label>
+                              <label class="form-check-label" for="femaleGender"><spring:message code="label.genderfemale"/></label>
                             </div>
                             <div class="form-check form-check-inline">
                               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
                                 value="option2" />
-                              <label class="form-check-label" for="maleGender">Male</label>
+                              <label class="form-check-label" for="maleGender"><spring:message code="label.gendermale"/></label>
                             </div>
                             <div class="form-check form-check-inline">
                               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
                                 value="option3" />
-                              <label class="form-check-label" for="otherGender">Other</label>
+                              <label class="form-check-label" for="otherGender"><spring:message code="label.genderother"/></label>
                             </div>
                           </div>
                         </div>

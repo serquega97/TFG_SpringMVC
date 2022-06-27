@@ -24,9 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-  
     <div class="site-wrap">
-
       <div class="site-mobile-menu">
         <div class="site-mobile-menu-header">
           <div class="site-mobile-menu-close mt-3">
@@ -57,32 +55,32 @@
                   <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                       <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><spring:message code="label.registrationform"/></h3>
-                      <form>
+                      <form action="/users/create/user">
                         <div class="row">
                           <div class="col-md-6 mb-4">
                             <div class="form-outline">
                                 <label class="form-label" for="firstName"><spring:message code="label.name"/></label>
-                                <input type="text" id="firstName"name="firstName" class="form-control form-control-lg" />
+                                <input type="text" id="firstName" name="firstName" class="form-control form-control-lg" />
                             </div>
                           </div>
                           <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <label class="form-label" for="lastName"><spring:message code="label.lastname1"/></label>
-                                <input type="text" id="lastName" class="form-control form-control-lg" />
+                                <label class="form-label" for="lastName1"><spring:message code="label.lastname1"/></label>
+                                <input type="text" id="lastName1" name="lastName1" class="form-control form-control-lg" />
                             </div>
                           </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-4">
                               <div class="form-outline">
-                                  <label class="form-label" for="firstName"><spring:message code="label.lastname2"/></label>
-                                  <input type="text" id="firstName" class="form-control form-control-lg" />
+                                  <label class="form-label" for="lastName2"><spring:message code="label.lastname2"/></label>
+                                  <input type="text" id="lastName2" name="lastName2" class="form-control form-control-lg" />
                               </div>
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
                                 <div class="form-outline">
                                     <label class="form-label" for="phone"><spring:message code="label.phone"/></label>
-                                    <input type="phone" id="phone" class="form-control form-control-lg" />
+                                    <input type="phone" id="phone" name="phone" class="form-control form-control-lg" />
                                 </div>
                             </div>
                         </div>
@@ -90,13 +88,13 @@
                             <div class="col-md-6 mb-4 pb-2">
                               <div class="form-outline">
                                   <label class="form-label" for="username"><spring:message code="label.username"/></label>
-                                  <input type="text" id="username" class="form-control form-control-lg" />
+                                  <input type="text" id="username" name="username" class="form-control form-control-lg" />
                               </div>
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
                               <div class="form-outline">
                                   <label class="form-label" for="password"><spring:message code="label.password"/></label>
-                                  <input type="password" id="password" class="form-control form-control-lg" />
+                                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
                               </div>
                             </div>
                         </div>
@@ -104,7 +102,7 @@
                             <div class="col-md-6 mb-4 pb-2">
                               <div class="form-outline">
                                 <label class="form-label" for="emailAddress"><spring:message code="label.email"/></label>
-                                <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                                <input type="email" id="emailAddress" name="email" class="form-control form-control-lg" />
                               </div>
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
@@ -124,18 +122,15 @@
                           <div class="col-md-6 mb-4">
                             <h6 class="mb-2 pb-1"><spring:message code="label.gender"/></h6>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="gender" id="femaleGender"
-                                value="option1" checked />
+                              <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="option1" checked/>
                               <label class="form-check-label" for="femaleGender"><spring:message code="label.genderfemale"/></label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="gender" id="maleGender"
-                                value="option2" />
+                              <input class="form-check-input" type="radio" name="gender" id="maleGender" value="option2"/>
                               <label class="form-check-label" for="maleGender"><spring:message code="label.gendermale"/></label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="gender" id="otherGender"
-                                value="option3" />
+                              <input class="form-check-input" type="radio" name="gender" id="otherGender" value="option3"/>
                               <label class="form-check-label" for="otherGender"><spring:message code="label.genderother"/></label>
                             </div>
                           </div>

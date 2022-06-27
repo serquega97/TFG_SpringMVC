@@ -81,9 +81,37 @@
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
                                 <div class="form-outline">
-                                    <label class="form-label" for="emailAddress"><spring:message code="label.email"/></label>
-                                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                                    <label class="form-label" for="phone"><spring:message code="label.phone"/></label>
+                                    <input type="phone" id="phone" class="form-control form-control-lg" />
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4 pb-2">
+                              <div class="form-outline">
+                                  <label class="form-label" for="username"><spring:message code="label.username"/></label>
+                                  <input type="text" id="username" class="form-control form-control-lg" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4 pb-2">
+                              <div class="form-outline">
+                                  <label class="form-label" for="password"><spring:message code="label.password"/></label>
+                                  <input type="password" id="password" class="form-control form-control-lg" />
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4 pb-2">
+                              <div class="form-outline">
+                                <label class="form-label" for="emailAddress"><spring:message code="label.email"/></label>
+                                <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4 pb-2">
+                              <div class="form-outline">
+                                <label class="form-label" for="password1"><spring:message code="label.emailconfirm"/></label>
+                                <input type="password" id="password1" class="form-control form-control-lg" />
+                              </div>
                             </div>
                         </div>
                         <div class="row">
@@ -96,33 +124,19 @@
                           <div class="col-md-6 mb-4">
                             <h6 class="mb-2 pb-1"><spring:message code="label.gender"/></h6>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                              <input class="form-check-input" type="radio" name="gender" id="femaleGender"
                                 value="option1" checked />
                               <label class="form-check-label" for="femaleGender"><spring:message code="label.genderfemale"/></label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                              <input class="form-check-input" type="radio" name="gender" id="maleGender"
                                 value="option2" />
                               <label class="form-check-label" for="maleGender"><spring:message code="label.gendermale"/></label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                              <input class="form-check-input" type="radio" name="gender" id="otherGender"
                                 value="option3" />
                               <label class="form-check-label" for="otherGender"><spring:message code="label.genderother"/></label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6 mb-4 pb-2">
-                            <div class="form-outline">
-                                <label class="form-label" for="emailAddress">Email</label>
-                                <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                            </div>
-                          </div>
-                          <div class="col-md-6 mb-4 pb-2">
-                            <div class="form-outline">
-                                <label class="form-label" for="phoneNumber">Phone Number</label>
-                                <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
                             </div>
                           </div>
                         </div>

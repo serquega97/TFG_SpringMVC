@@ -114,7 +114,7 @@
                       </form>
                     </div>
                     <p class="text-center text-muted mb5"><spring:message code="label.donthaveaccount"/>
-                      <a href="/users/login/signup/registration.html?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="fw-bold text-body"><u><spring:message code="label.signup"/></u></a>
+                      <a href="/users/signup.html?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="fw-bold text-body"><u><spring:message code="label.signup"/></u></a>
                     </p>
                   </div>
                 </div>

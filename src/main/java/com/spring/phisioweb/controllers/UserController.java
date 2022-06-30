@@ -36,7 +36,7 @@ public class UserController {
     private static SecretKeySpec secretKey;
     private static byte[] key;
 
-    @RequestMapping(value = "/login/signup/registration.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/signup.html", method = RequestMethod.GET)
     public static ModelAndView createNewuserForm() {
         return new ModelAndView("registrationForm");
     }
@@ -45,10 +45,10 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping(value = "/create/user", method = RequestMethod.POST)
+    @RequestMapping(value = "/signin.html", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView createNewuserRepository(@RequestParam Map<String, String> requestParams) {
-        ModelAndView model = new ModelAndView("index");
+        ModelAndView model = new ModelAndView("login");
         User user = new User();
 
         String firstName = requestParams.get("firstName");

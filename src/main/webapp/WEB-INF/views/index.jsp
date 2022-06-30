@@ -34,19 +34,14 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
     <%@ include file = "navbar.jsp" %>
-
     <div class="site-blocks-cover overlay" style="background-image: url(${pageContext.request.contextPath}/resources/images/Portada.JPG);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
-
           <div class="col-md-10">
-            
             <div class="row justify-content-center mb-4">
               <div class="col-md-10 text-center">
                 <h1 data-aos="fade-up" class="mb-5"><spring:message code="label.solution"/><span class="typed-words"></span></h1>
-
                 <p data-aos="fade-up" data-aos-delay="100"><a href="/book/calendar?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="btn btn-primary btn-pill"><spring:message code="label.appointment"/></a></p>
               </div>
             </div>
@@ -170,6 +165,6 @@
       loop: true,
       showCursor: true
     });
-    </script>  
+  </script>  
   </body>
 </html>

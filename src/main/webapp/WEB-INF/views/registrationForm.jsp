@@ -6,9 +6,10 @@
     <title><spring:message code="label.register"/></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/icomoon/style.css">
-    <link rel="stylesheet"  href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.css">
@@ -21,7 +22,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/rangeslider.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/custom.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="site-wrap">
@@ -60,7 +60,7 @@
                           <div class="col-md-6 mb-4">
                             <div class="form-outline">
                                 <label class="form-label" for="firstName"><spring:message code="label.name"/></label>
-                                <input type="text" id="firstName" name="firstName" class="form-control form-control-lg" />
+                                <input type="text" id="firstNameR" name="firstName" class="form-control form-control-lg" oninput="checkName()"/>
                             </div>
                           </div>
                           <div class="col-md-6 mb-4">
@@ -165,5 +165,6 @@
     <script src="${pageContext.request.contextPath}/resources/js/rangeslider.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
   </body>
 </html>

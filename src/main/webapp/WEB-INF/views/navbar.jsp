@@ -8,18 +8,18 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,700">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css">
-      <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
-      <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-      <link rel="stylesheet" href="resources/css/magnific-popup.css">
-      <link rel="stylesheet" href="resources/css/jquery-ui.css">
-      <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
-      <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-      <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
-      <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
-      <link rel="stylesheet" href="resources/css/aos.css">
-      <link rel="stylesheet" href="resources/css/rangeslider.css">
-      <link rel="stylesheet" href="resources/css/style.css">
-      <link rel="stylesheet" href="resources/css/custom.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/icomoon/style.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-datepicker.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/flaticon/font/flaticon.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/aos.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/rangeslider.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/custom.css">
     </head>
     <body>
       <header class="site-navbar" role="banner">
@@ -124,23 +124,23 @@
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
         </nav>
       </header>
-      <script src="resources/js/jquery-3.3.1.min.js"></script>
-      <script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
-      <script src="resources/js/jquery-ui.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
       <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
-      <script src="resources/js/popper.min.js"></script>
-      <script src="resources/js/bootstrap.min.js"></script>
-      <script src="resources/js/owl.carousel.min.js"></script>
-      <script src="resources/js/jquery.stellar.min.js"></script>
-      <script src="resources/js/jquery.countdown.min.js"></script>
-      <script src="resources/js/jquery.magnific-popup.min.js"></script>
-      <script src="resources/js/jquery.animateNumber.min.js"></script>
-      <script src="resources/js/jquery.waypoints.min.js"></script>
-      <script src="resources/js/bootstrap-datepicker.min.js"></script>
-      <script src="resources/js/aos.js"></script>
-      <script src="resources/js/rangeslider.min.js"></script>
-      <script src="resources/js/main.js"></script>
-      <script src="resources/js/fetch-functions.js"></script>
-      <script src="resources/js/typed.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery.countdown.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/aos.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/rangeslider.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
     </body>
 </html>

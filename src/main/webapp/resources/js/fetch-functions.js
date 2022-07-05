@@ -102,10 +102,3 @@ function showModal() {
 function hideModal() {
     $('.modal').modal('hide');
 }
-
-function checkName() {
-    var inputName = document.getElementById('firstNameR').value;
-    if(inputName.includes("%")) {
-        document.getElementById('firstNameR').classList.add('is-invalid');
-    }
-}

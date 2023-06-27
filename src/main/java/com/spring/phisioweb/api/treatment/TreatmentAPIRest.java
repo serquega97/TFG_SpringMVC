@@ -30,7 +30,7 @@ public class TreatmentAPIRest {
     }
 
     @GetMapping("/treatment/webname/{service_webname}")
-    public ResponseEntity<Treatment> findServiceByWebname(@PathVariable("service_webname") String service_webname) {
+    public ResponseEntity<Treatment> findServiceByWebname(@PathVariable String service_webname) {
         ResponseEntity<Treatment> response;
         Treatment treatment = treatService.findServiceByWebname(service_webname);
         if(treatment == null) {
@@ -43,7 +43,7 @@ public class TreatmentAPIRest {
     }
 
     @GetMapping("/treatment/get/duration/{service_webname}")
-    public Integer getTreatmentDuration(@PathVariable("service_webname") String service_webname) {
+    public Integer getTreatmentDuration(@PathVariable String service_webname) {
         Integer durationToReturn;
         Integer servDuration = treatService.getServiceDuration(service_webname);
         if(servDuration == null || servDuration == 0) {

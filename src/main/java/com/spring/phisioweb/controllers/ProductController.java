@@ -13,11 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -30,7 +26,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping("/all")
     @ResponseBody
     public ModelAndView getAllProducts() {
         ModelAndView model;
@@ -46,9 +42,9 @@ public class ProductController {
         return model;
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+    @GetMapping("/id/{id}")
     @ResponseBody
-    public ModelAndView getProduct(@PathVariable("id") Integer id, HttpServletRequest request) {
+    public ModelAndView getProduct(@PathVariable Integer id, HttpServletRequest request) {
         ModelAndView model;
         ResponseEntity<Product> response = service.findProductById(id);
         if(response.getStatusCode() == HttpStatus.OK) {
@@ -64,9 +60,9 @@ public class ProductController {
         return model;
     }
 
-    @RequestMapping(value = "/type/{product_type}", method = RequestMethod.GET)
+    @GetMapping("/type/{product_type}")
     @ResponseBody
-    public ModelAndView getProductType(@PathVariable("product_type") String product_type) {
+    public ModelAndView getProductType(@PathVariable String product_type) {
         ModelAndView model;
         ResponseEntity<List<Product>> response = service.findProductByType(product_type);
         //Request is OK
@@ -82,16 +78,16 @@ public class ProductController {
     }
 
     //Method that retruns a list of products names for the autocompletion
-    @RequestMapping(value = "/search/products", method = RequestMethod.GET)
+    @GetMapping("/search/products")
     @ResponseBody
-    public List<String> searchproducts(@RequestParam("term") String term) {
+    public List<String> searchproducts(@RequestParam String term) {
         return productService.searchProducts(term);
     }
 
     //Method that retruns a product by its name
-    @RequestMapping(value = "/name/{product_name}", method = RequestMethod.GET)
+    @GetMapping("/name/{product_name}")
     @ResponseBody
-    public ModelAndView getProductByName(@PathVariable("product_name") String product_name, HttpServletRequest request) {
+    public ModelAndView getProductByName(@PathVariable String product_name, HttpServletRequest request) {
         ModelAndView model;
         ResponseEntity<Product> response = service.getProductByName(product_name);
         //Request is OK
@@ -109,9 +105,9 @@ public class ProductController {
     }
 
     //Method that returns a product by its name
-    @RequestMapping(value = "/name", method = RequestMethod.GET)
+    @GetMapping("/name")
     @ResponseBody
-    public ModelAndView getProductIntro(@RequestParam("searchBox") String searchBox) {
+    public ModelAndView getProductIntro(@RequestParam String searchBox) {
         ModelAndView model;
         ResponseEntity<List<Product>> response = service.getProductByNameIntro(searchBox);
         //Request is OK

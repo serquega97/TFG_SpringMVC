@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +21,7 @@ public class TreatmentController {
     @Autowired
     TreatmentAPIRest treatApi;
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping("/all")
     @ResponseBody
     public ModelAndView getAllServices() {
         ModelAndView model;
@@ -37,9 +37,9 @@ public class TreatmentController {
         return model;
     }
 
-    @RequestMapping(value = "/webname/{service_webname}", method = RequestMethod.GET)
+    @GetMapping("/webname/{service_webname}")
     @ResponseBody
-    public ModelAndView getServiceByWebname(@PathVariable("service_webname") String service_webname) {
+    public ModelAndView getServiceByWebname(@PathVariable String service_webname) {
         ModelAndView model;
         ResponseEntity<Treatment> response = treatApi.findServiceByWebname(service_webname);
         if(response.getStatusCode() == HttpStatus.OK) {

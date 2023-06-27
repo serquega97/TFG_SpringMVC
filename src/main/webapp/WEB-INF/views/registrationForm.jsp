@@ -59,7 +59,7 @@
                       <form class="needs-validation" action="/users/signin.html" method="post" novalidate>
                         <div class="row">
                           <div class="col-md-6 mb-4">
-                            <div class="form-outline" id="fn">
+                            <div class="form-outline">
                                 <label class="form-label" for="firstNameR"><spring:message code="label.name"/></label>
                                 <input type="text" id="firstNameR" name="firstNameR" class="form-control form-control-lg" required/>
                                 <div class="valid-feedback">Valid.</div>

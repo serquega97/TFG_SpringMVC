@@ -18,10 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -36,7 +33,7 @@ public class UserController {
     private static SecretKeySpec secretKey;
     private static byte[] key;
 
-    @RequestMapping(value = "/signup.html", method = RequestMethod.GET)
+    @GetMapping("/signup.html")
     public static ModelAndView createNewuserForm() {
         return new ModelAndView("registrationForm");
     }
@@ -45,7 +42,7 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping(value = "/signin.html", method = RequestMethod.POST)
+    @PostMapping("/signin.html")
     @ResponseBody
     public ModelAndView createNewuserRepository(@RequestParam Map<String, String> requestParams) {
         ModelAndView model = new ModelAndView("login");

@@ -34,7 +34,7 @@ public class ProductAPIRest {
     }
 
     @GetMapping("/products/id/{id}")
-    public ResponseEntity<Product> findProductById(@PathVariable("id") Integer id) {
+    public ResponseEntity<Product> findProductById(@PathVariable Integer id) {
         ResponseEntity<Product> response;
         Product newProduct = productService.findProductById(id);
         if(newProduct == null) {
@@ -47,7 +47,7 @@ public class ProductAPIRest {
     }
 
     @GetMapping("/products/type/{product_type}")
-    public ResponseEntity<List<Product>> findProductByType(@PathVariable("product_type") String product_type) {
+    public ResponseEntity<List<Product>> findProductByType(@PathVariable String product_type) {
         ResponseEntity<List<Product>> response;
         List<Product> newListProductType = productService.findProductByType(product_type);
         if(newListProductType.isEmpty()) {
@@ -60,7 +60,7 @@ public class ProductAPIRest {
     }
 
     @GetMapping("/products/name({product_name}")
-    public ResponseEntity<Product> getProductByName(@PathVariable("product_name") String product_name) {
+    public ResponseEntity<Product> getProductByName(@PathVariable String product_name) {
         ResponseEntity<Product> response;
         Product newProduct = productService.getProductByName(product_name);
         if(newProduct == null) {
@@ -73,7 +73,7 @@ public class ProductAPIRest {
     }
 
     @GetMapping("/products/get/name")
-    public ResponseEntity<List<Product>> getProductByNameIntro(@RequestParam("searchBox") String searchBox) {
+    public ResponseEntity<List<Product>> getProductByNameIntro(@RequestParam String searchBox) {
         ResponseEntity<List<Product>> response;
         List<Product> lstProducts = productService.searchProductsIntro(searchBox);
         if(lstProducts.isEmpty()) {

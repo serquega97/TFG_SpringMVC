@@ -25,7 +25,7 @@ public class CalendarAPIRest {
 
     @GetMapping("/api/events")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    Iterable<Event> events(@RequestParam("start") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime start, @RequestParam("end") @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime end) {
+    Iterable<Event> events(@RequestParam @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime start, @RequestParam @DateTimeFormat(iso = ISO.DATE_TIME) LocalDateTime end) {
         Iterable<Event> listEvents = eventRepo.findBetween(start, end);
         return listEvents;
     }

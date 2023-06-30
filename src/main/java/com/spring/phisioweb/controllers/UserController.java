@@ -33,16 +33,12 @@ public class UserController {
     private static SecretKeySpec secretKey;
     private static byte[] key;
 
-    @GetMapping("/signup.html")
+    @GetMapping("/signup/form.html")
     public static ModelAndView createNewuserForm() {
         return new ModelAndView("registrationForm");
     }
 
-    public static ModelAndView checkUserLogin() {
-        return null;
-    }
-
-    @PostMapping("/signin.html")
+    @PostMapping("/signup/data.html")
     @ResponseBody
     public ModelAndView createNewuserRepository(@RequestParam Map<String, String> requestParams) {
         ModelAndView model = new ModelAndView("login");
@@ -86,7 +82,7 @@ public class UserController {
         try {
             String strBirthDate = requestParams.get("birthDate");
             if(strBirthDate != null && !strBirthDate.isBlank()) {
-                user.setBirthdate(new SimpleDateFormat("dd/mm/yyy").parse(strBirthDate));
+                user.setBirthdate(new SimpleDateFormat("dd/mm/yyyy").parse(strBirthDate));
             }
         }catch(Exception e) {
             e.printStackTrace();

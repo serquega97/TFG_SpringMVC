@@ -45,14 +45,16 @@ public class ProductController {
     @GetMapping("/id/{id}")
     @ResponseBody
     public ModelAndView getProduct(@PathVariable Integer id, HttpServletRequest request) {
-        ModelAndView model;
+        ModelAndView model = null;
         ResponseEntity<Product> response = service.findProductById(id);
         if(response.getStatusCode() == HttpStatus.OK) {
             Product newProduct = response.getBody();
-            Float convertedPrice = getPriceByCurrency(request, newProduct.getProduct_price());
-            newProduct.setProduct_price(convertedPrice);
-            model = new ModelAndView("single_product");
-            model.addObject("newProduct", newProduct);
+            if(newProduct != null) {
+                Float convertedPrice = getPriceByCurrency(request, newProduct.getProduct_price());
+                newProduct.setProduct_price(convertedPrice);
+                model = new ModelAndView("single_product");
+                model.addObject("newProduct", newProduct);
+            }
         }else {
             model = new ModelAndView();
         }
@@ -88,15 +90,17 @@ public class ProductController {
     @GetMapping("/name/{product_name}")
     @ResponseBody
     public ModelAndView getProductByName(@PathVariable String product_name, HttpServletRequest request) {
-        ModelAndView model;
+        ModelAndView model = null;
         ResponseEntity<Product> response = service.getProductByName(product_name);
         //Request is OK
         if(response.getStatusCode() == HttpStatus.OK) {
             Product newProduct = response.getBody();
-            Float convertedPrice = getPriceByCurrency(request, newProduct.getProduct_price());
-            newProduct.setProduct_price(convertedPrice);
-            model = new ModelAndView("single_product");
-            model.addObject("newProduct", newProduct);
+            if(newProduct != null) {
+                Float convertedPrice = getPriceByCurrency(request, newProduct.getProduct_price());
+                newProduct.setProduct_price(convertedPrice);
+                model = new ModelAndView("single_product");
+                model.addObject("newProduct", newProduct);
+            }
         }else {
             model = new ModelAndView();
         }

@@ -160,16 +160,10 @@ function validateForm(event) {
     if(password === undefined || password === null || password === '') {
         applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_required");
     }else {
-        console.log('SQG entro != undefined');
-        console.log('SQG !hasNumber(password) = ' + !hasNumber(password));
-        console.log('SQG !hasUppercaseLetter(password) = ' + !hasUppercaseLetter(password));
-        console.log('SQG !hasDowncaseLetter(password) = ' + !hasDowncaseLetter(password));
         if(!hasNumber(password) || !hasUppercaseLetter(password) || !hasDowncaseLetter(password) || password.length < 8 ||
             (!password.includes('!') || !password.includes('$') || !password.includes('%') || !password.includes('&') || !password.includes('='))) {
-                console.log('SQG entro != match');
                 applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_format_incorrect");
         }else {
-            console.log('SQG entro == match');
             passwordOK = true;
             removeCssValidationClass("passwordId", "password", "hidden", "cssError", "inputValidation");
         }

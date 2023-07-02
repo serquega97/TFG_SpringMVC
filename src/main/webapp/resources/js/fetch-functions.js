@@ -193,8 +193,12 @@ function validateForm(event) {
     if(confirmEmail === undefined || confirmEmail === null || confirmEmail === '') {
         applyCssValidationClass("confirmEmailId", "confirmEmail", "visible", "cssError", "inputValidation", "label.confirmemail_required");
     }else {
-        confirmEmailOK = true;
-        removeCssValidationClass("confirmEmailId", "confirmEmail", "hidden", "cssError", "inputValidation");
+        if(confirmEmail !== emailAddress) {
+            applyCssValidationClass("confirmEmailId", "confirmEmail", "visible", "cssError", "inputValidation", "label.emailsdiferent");
+        }else {
+            confirmEmailOK = true;
+            removeCssValidationClass("confirmEmailId", "confirmEmail", "hidden", "cssError", "inputValidation");
+        }
     }
 
     //If birth date is blank don't submit form

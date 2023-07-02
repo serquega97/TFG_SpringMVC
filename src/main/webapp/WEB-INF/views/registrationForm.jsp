@@ -115,7 +115,7 @@
                             <div class="col-md-6 mb-4 pb-2">
                               <div class="form-outline">
                                 <label class="form-label" for="confirmEmail"><spring:message code="label.emailconfirm"/><b class="redAsterisk"> *</b></label>
-                                <input type="email" id="confirmEmail" name="confirmEmail" class="form-control form-control-lg" onkeypress="onKeyPressCheckParams()"/>
+                                <input type="email" id="confirmEmail" name="confirmEmail" class="form-control form-control-lg" onpaste="return false;"/>
                                 <div id="confirmEmailId" style="visibility: hidden;"></div>
                               </div>
                             </div>
@@ -173,6 +173,8 @@
     <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/typed.js"></script>
     <script>
+      //Set calendar max date to today
+      document.getElementById("birthdayDate").max = new Date().toISOString().split("T")[0];
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
         'use strict';

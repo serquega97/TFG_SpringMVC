@@ -103,15 +103,18 @@ function hideModal() {
     $('.modal').modal('hide');
 }
 
-function onKeyPressCheckParams() {
-    console.log('SQG onKeyPressCheckParams');
-    var registrationForm = document.getElementById("formId");
-    registrationForm && registrationForm.addEventListener('submit', checkFormData);
+function hasNumber(str) {
+    return /\d/.test(str);
 }
 
-function checkFormData(event) {
-    console.log('SQG checkFormData ');
+function hasUppercaseLetter(str) {
+    return /[A-Z]/.test(str);
 }
+
+function hasDowncaseLetter(str) {
+    return /[a-z]/.test(str);
+}
+
 
 function validateForm(event) {
     var nameOK = false, lastnameOK = false, phoneOK = false, usernameOK = false, passwordOK = false, emailOK = false;
@@ -157,8 +160,19 @@ function validateForm(event) {
     if(password === undefined || password === null || password === '') {
         applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_required");
     }else {
-        passwordOK = true;
-        removeCssValidationClass("passwordId", "password", "hidden", "cssError", "inputValidation");
+        console.log('SQG entro != undefined');
+        console.log('SQG !hasNumber(password) = ' + !hasNumber(password));
+        console.log('SQG !hasUppercaseLetter(password) = ' + !hasUppercaseLetter(password));
+        console.log('SQG !hasDowncaseLetter(password) = ' + !hasDowncaseLetter(password));
+        if(!hasNumber(password) || !hasUppercaseLetter(password) || !hasDowncaseLetter(password) || password.length < 8 ||
+            (!password.includes('!') || !password.includes('$') || !password.includes('%') || !password.includes('&') || !password.includes('='))) {
+                console.log('SQG entro != match');
+                applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_format_incorrect");
+        }else {
+            console.log('SQG entro == match');
+            passwordOK = true;
+            removeCssValidationClass("passwordId", "password", "hidden", "cssError", "inputValidation");
+        }
     }
 
     //If email is blank don't submit form
@@ -166,8 +180,12 @@ function validateForm(event) {
     if(emailAddress === undefined || emailAddress === null || emailAddress === '') {
         applyCssValidationClass("emailId", "emailAddress", "visible", "cssError", "inputValidation", "label.email_required");
     }else {
-        emailOK = true;
-        removeCssValidationClass("emailId", "emailAddress", "hidden", "cssError", "inputValidation");
+        if(!emailAddress.includes('@') && !emailAddress.includes('.')) {
+            applyCssValidationClass("emailId", "emailAddress", "visible", "cssError", "inputValidation", "label.email_incorrect_format");
+        }else {
+            emailOK = true;
+            removeCssValidationClass("emailId", "emailAddress", "hidden", "cssError", "inputValidation");
+        }
     }
 
     //If confirm email is blank don't submit form

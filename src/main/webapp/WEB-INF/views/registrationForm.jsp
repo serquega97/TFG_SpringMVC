@@ -59,84 +59,71 @@
                       <form id="formId" action="/users/signup/data.html" method="POST" novalidate>
                         <div class="row">
                           <div class="col-md-6 mb-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="firstNameR"><spring:message code="label.name"/><b class="redAsterisk"> *</b></label>
-                                <input type="text" id="firstNameR" name="firstNameR" class="form-control form-control-lg" onkeypress="onKeyPressCheckParams()"/>
-                                <div id="nameId" style="visibility: hidden;"></div>
-                            </div>
+                              <label class="form-label" for="firstNameR"><spring:message code="label.name"/><b class="redAsterisk"> *</b></label>
+                              <input type="text" id="firstNameR" name="firstNameR" class="form-control form-control-lg"/>
+                              <div class="hide-error" id="nameId"></div>
                           </div>
                           <div class="col-md-6 mb-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="lastName1"><spring:message code="label.lastname1"/><b class="redAsterisk"> *</b></label>
-                                <input type="text" id="lastName1" name="lastName1" class="form-control form-control-lg"/>
-                                <div id="lastNameId" style="visibility: hidden;"></div>
-                            </div>
+                              <label class="form-label" for="lastName1"><spring:message code="label.lastname1"/><b class="redAsterisk"> *</b></label>
+                              <input type="text" id="lastName1" name="lastName1" class="form-control form-control-lg"/>
+                              <div class="hide-error"  id="lastNameId"></div>
                           </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                              <div class="form-outline">
-                                  <label class="form-label" for="lastName2"><spring:message code="label.lastname2"/></label>
-                                  <input type="text" id="lastName2" name="lastName2" class="form-control form-control-lg"/>
-                              </div>
+                                <label class="form-label" for="lastName2"><spring:message code="label.lastname2"/></label>
+                                <input type="text" id="lastName2" name="lastName2" class="form-control form-control-lg"/>
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
-                                    <label class="form-label" for="phone"><spring:message code="label.phone"/><b class="redAsterisk"> *</b></label>
-                                    <input type="phone" id="phone" name="phone" class="form-control form-control-lg"/>
-                                    <div id="phoneId" style="visibility: hidden;"></div>
-                                </div>
+                                <label class="form-label" for="phone"><spring:message code="label.phone"/><b class="redAsterisk"> *</b></label>
+                                <input type="phone" id="phone" name="phone" class="form-control form-control-lg"/>
+                                <div class="hide-error" id="phoneId"></div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-4 pb-2">
-                              <div class="form-outline">
-                                  <label class="form-label" for="username"><spring:message code="label.username"/><b class="redAsterisk"> *</b></label>
-                                  <input type="text" id="username" name="username" class="form-control form-control-lg"/>
-                                  <div id="usernameId" style="visibility: hidden;"></div>
-                              </div>
+                                <label class="form-label" for="username"><spring:message code="label.username"/><b class="redAsterisk"> *</b></label>
+                                <input type="text" id="username" name="username" class="form-control form-control-lg"/>
+                                <div class="hide-error" id="usernameId"></div>
                             </div>
-                            <div class="col-md-6 mb-4 pb-2">
-                              <div class="form-outline">
-                                  <label class="form-label" for="password"><spring:message code="label.password"/><b class="redAsterisk"> *</b></label>
-                                  <input type="password" id="password" name="password" class="form-control form-control-lg"/>
-                                  <div id="passwordId" style="visibility: hidden;"></div>
-                              </div>
+                            <div class="col-md-5 mb-4 pb-2">
+                                <label class="form-label" for="password"><spring:message code="label.password"/><b class="redAsterisk"> *</b></label>
+                                <input type="password" id="password" name="password" class="form-control"/>
+                                <div class="hide-error" id="passwordId"></div>
+                            </div>
+                            <div class="btn-center col-md-1">
+                                <a class="btn-visibility" name="btnVisb" id="btnVisb" onclick="handlePasswordVisibility()"><i class="fa fa-eye" id="iconEyeId"></i></a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-4 pb-2">
-                              <div class="form-outline">
                                 <label class="form-label" for="emailAddress"><spring:message code="label.email"/><b class="redAsterisk"> *</b></label>
                                 <input type="email" id="emailAddress" name="email" class="form-control form-control-lg"/>
-                                <div id="emailId" style="visibility: hidden;"></div>
-                              </div>
+                                <div class="hide-error" id="emailId"></div>
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
-                              <div class="form-outline">
                                 <label class="form-label" for="confirmEmail"><spring:message code="label.emailconfirm"/><b class="redAsterisk"> *</b></label>
                                 <input type="email" id="confirmEmail" name="confirmEmail" class="form-control form-control-lg" onpaste="return false;"/>
-                                <div id="confirmEmailId" style="visibility: hidden;"></div>
-                              </div>
+                                <div class="hide-error" id="confirmEmailId"></div>
                             </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6 mb-4 d-flex align-items-center">
-                            <div class="form-outline w-100">
+                            <div class="w-100">
                                 <label for="birthdayDate" class="form-label"><spring:message code="label.birthdate"/><b class="redAsterisk"> *</b></label>
                                 <input type="date" class="form-control form-control-lg" id="birthdayDate" name="birthDate"/>
-                                <div id="birthdayDateId" style="visibility: hidden;"></div>
+                                <div class="hide-error" id="birthdayDateId"></div>
                             </div>
                           </div>
                           <div class="col-md-6 mb-4 d-flex align-items-center">
-                              <div class="form-outline w-100">
+                              <div class="w-100">
                                 <label for="gender" class="form-label"><spring:message code="label.gender"/><b class="redAsterisk"> *</b></label>
                                 <select class="form-select" name="genderSelect" id="genderSelect" aria-label="Default select example">
                                   <option value="default" selected disabled><spring:message code="label.choosegender"/></option>
                                   <option value="female"><spring:message code="label.genderfemale"/></option>
                                   <option value="male"><spring:message code="label.gendermale"/></option>
                                 </select>
-                                <div id="genderSelectId" style="visibility: hidden;"></div>
+                                <div class="hide-error" id="genderSelectId"></div>
                               </div>
                           </div>
                         </div>
@@ -182,7 +169,7 @@
           // Fetch all the forms we want to apply custom Bootstrap validation styles to
           var registrationForm = document.getElementById("formId");
           registrationForm.addEventListener('submit', function(event) {
-            validateForm(event);
+              validateForm(event);
           }, false);
         }, false);
       })();

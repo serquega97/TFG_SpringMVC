@@ -232,3 +232,20 @@ function removeCssValidationClass(divElementId, inputElementId, visibHidden, css
     document.getElementById(divElementId).innerHTML = "";
     document.getElementById(inputElementId).classList.remove(cssInputValidation);
 }
+
+//Handle password visibility when user clicks on the eye icon (show or hide password)
+function handlePasswordVisibility() {
+    var password = document.getElementById("password");
+    if(password !== undefined && password !== null && password !== '') {
+        var iconEyeId = document.getElementById("iconEyeId");
+        if(password.type === "password") {
+            iconEyeId.classList.remove('fa-eye');
+            iconEyeId.classList.add('fa-eye-slash');
+            password.type = "text";
+        }else {
+            iconEyeId.classList.remove('fa-eye-slash');
+            iconEyeId.classList.add('fa-eye');
+            password.type = "password";
+        }
+    }
+}

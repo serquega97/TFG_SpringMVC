@@ -65,3 +65,17 @@
 .redAsterisk {
   color: red;
 }
+
+.btn-visibility {
+  background-color: white;
+  border-color:white;
+  cursor: pointer;
+}
+
+.btn-center {
+  margin-top: 40px;
+}
+
+.hide-error {
+  visibility: hidden;
+}

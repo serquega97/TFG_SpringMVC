@@ -115,6 +115,9 @@ function hasDowncaseLetter(str) {
     return /[a-z]/.test(str);
 }
 
+function containsOnlyNumbers(str) {
+    return /^\d+$/.test(str);
+  }
 
 function validateForm(event) {
     var nameOK = false, lastnameOK = false, phoneOK = false, usernameOK = false, passwordOK = false, emailOK = false;
@@ -142,8 +145,12 @@ function validateForm(event) {
     if(phone === undefined || phone === null || phone === '') {
         applyCssValidationClass("phoneId", "phone", "visible", "cssError", "inputValidation", "label.phone_required");
     }else {
-        phoneOK = true;
-        removeCssValidationClass("phoneId", "phone", "hidden", "cssError", "inputValidation");
+        if(!containsOnlyNumbers(phone)) {
+            applyCssValidationClass("phoneId", "phone", "visible", "cssError", "inputValidation", "label.phone_incorrect_format");
+        }else {
+            phoneOK = true;
+            removeCssValidationClass("phoneId", "phone", "hidden", "cssError", "inputValidation");
+        }
     }
 
     //If username is blank don't submit form

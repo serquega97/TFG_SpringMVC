@@ -104,7 +104,7 @@ function hideModal() {
 }
 
 function hasNumber(str) {
-    return /\d/.test(str);
+    return /[0-9]/.test(str);
 }
 
 function hasUppercaseLetter(str) {
@@ -160,12 +160,13 @@ function validateForm(event) {
     if(password === undefined || password === null || password === '') {
         applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_required");
     }else {
-        if(!hasNumber(password) || !hasUppercaseLetter(password) || !hasDowncaseLetter(password) || password.length < 8 ||
-            (!password.includes('!') || !password.includes('$') || !password.includes('%') || !password.includes('&') || !password.includes('='))) {
-                applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_format_incorrect");
+        if((password.includes('!') || password.includes('$') || password.includes('%') || password.includes('&') ||
+            password.includes('=')) && hasNumber(password) && hasUppercaseLetter(password) && hasDowncaseLetter(password) &&
+            password.length >= 8) {
+                passwordOK = true;
+                removeCssValidationClass("passwordId", "password", "hidden", "cssError", "inputValidation");
         }else {
-            passwordOK = true;
-            removeCssValidationClass("passwordId", "password", "hidden", "cssError", "inputValidation");
+            applyCssValidationClass("passwordId", "password", "visible", "cssError", "inputValidation", "label.password_format_incorrect");
         }
     }
 

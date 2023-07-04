@@ -111,7 +111,7 @@
                           <div class="col-md-6 mb-4 d-flex align-items-center">
                             <div class="w-100">
                                 <label for="birthdayDate" class="form-label"><spring:message code="label.birthdate"/><b class="redAsterisk"> *</b></label>
-                                <input type="date" class="form-control form-control-lg" id="birthdayDate" name="birthDate"/>
+                                <input type="date" class="form-control form-control-lg" id="birthdayDate" name="birthdayDate"/>
                                 <div class="hide-error" id="birthdayDateId"></div>
                             </div>
                           </div>

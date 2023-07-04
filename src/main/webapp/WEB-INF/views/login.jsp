@@ -38,15 +38,23 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
               <c:if test="${createUserSuccess == true}">
-                <div class="row alert alert-success align-items-center alert-dismissible fade show col-md-4 col-md-offset-4" role="alert" id="success-alert">
-                  <spring:message code="label.usercreated"/>
-                  <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
+                  <h4 class="alert-heading"><spring:message code="label.usercreated_title"/></h4>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  <p style="color: #03682C;"><spring:message code="label.usercreated"/></p>
+                  <hr>
+                  <p class="mb-0" style="color: #03682C;"><spring:message code="label.usercreated_footer"/></p>
                 </div>
             </c:if>
             <c:if test="${createUserSuccess == false}">
-              <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert" id="danger-alert">
-                <spring:message code="label.usernotcreated"/>
-                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert" id="danger-alert">
+                <h4 class="alert-heading"><spring:message code="label.usernotcreated_title"/></h4>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <p style="color: #6E022A;"><spring:message code="label.usernotcreated"/></p>
               </div>
             </c:if>  
             <div class="col-md-10">
@@ -115,8 +123,14 @@
     <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/fetch-functions.js"></script>
     <script>
-        $("#success-alert").fadeTo(2000, 1000).slideUp(1000, function(){
-            $("#success-alert").slideUp(1000);
+        //Success alert auto fade
+        $("#success-alert").fadeTo(2000, 3000).slideUp(2000, function(){
+            $("#success-alert").slideUp(2000);
+        });
+
+        //Danger alert auto fade
+        $("#danger-alert").fadeTo(2000, 3000).slideUp(2000, function(){
+          $("#danger-alert").slideUp(2000);
         });
     </script>
   </body>

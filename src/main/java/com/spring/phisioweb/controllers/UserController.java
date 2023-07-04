@@ -44,7 +44,7 @@ public class UserController {
         ModelAndView model = new ModelAndView("login");
         User user = new User();
 
-        String firstName = requestParams.get("firstName");
+        String firstName = requestParams.get("firstNameR");
         if(firstName != null && !firstName.isBlank()) {
             user.setName(firstName);
         }
@@ -80,15 +80,15 @@ public class UserController {
         }
 
         try {
-            String strBirthDate = requestParams.get("birthDate");
+            String strBirthDate = requestParams.get("birthdayDate");
             if(strBirthDate != null && !strBirthDate.isBlank()) {
-                user.setBirthdate(new SimpleDateFormat("dd/mm/yyyy").parse(strBirthDate));
+                user.setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(strBirthDate));
             }
         }catch(Exception e) {
             e.printStackTrace();
         }
 
-        String gender = requestParams.get("gender");
+        String gender = requestParams.get("genderSelect");
         if(gender != null && !gender.isBlank()) {
             user.setGender(gender);
         }

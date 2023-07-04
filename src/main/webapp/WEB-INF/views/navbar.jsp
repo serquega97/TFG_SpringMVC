@@ -95,7 +95,7 @@
                     <div class="modal-body">
                       <form class="mx-1 mx-md-4" action="#">
                         <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fa fa-user fa-lg me-7 fa-fw"></i>
+                          <i class="fa fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <c:set var="username"><spring:message code="label.username"/></c:set>
                             <input type="text" id="form3Example1c" class="form-control" placeholder="${username}"/>
@@ -114,7 +114,7 @@
                       </form>
                     </div>
                     <p class="text-center text-muted mb5"><spring:message code="label.donthaveaccount"/>
-                      <a href="/users/signup/form.html?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="fw-bold text-body"><u><spring:message code="label.signup"/></u></a>
+                      <a href="/users/signup/form.html?curr=${sessionScope.curr}&lang=${sessionScope.lang}" class="text-body"><u><spring:message code="label.signup"/></u></a>
                     </p>
                   </div>
                 </div>

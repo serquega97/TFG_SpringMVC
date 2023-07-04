@@ -44,7 +44,7 @@
               </li>
             </ul>
           </div>
-          <div class="container" style="position: absolute; top: 15px; margin-left: 240px;">
+          <div class="container" style="position: absolute; top: 15px; margin-left: 280px;">
             <div class="form-group col-12 col-md-8 d-none d-xl-block">
               <form class="form-inline d-flex justify-content-center active-pink active-pink-2 mt-2" action="/products/name?lang=${sessionScope.lang}" style="margin-left: 60px; position: absolute;">
                 <c:set var="searchValue"><spring:message code="label.search"/></c:set>  

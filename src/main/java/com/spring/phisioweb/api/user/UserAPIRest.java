@@ -37,14 +37,11 @@ public class UserAPIRest {
     @GetMapping("/users/get/email/{paramEmail}")
     public Boolean checkUserEmailExists(@PathVariable String paramEmail) {
         List<String> listUsersEmail= userService.getUsersEmails();
-        System.out.println("SQG paramEmail = " + paramEmail);
-        System.out.println("SQG listUsersEmail = " + listUsersEmail);
         Boolean emailFound = false;
         String listEmail;
         Integer i = 0;
         while(i < listUsersEmail.size() && !emailFound) {
             listEmail = Encryptor_Decryptor.decryptData(listUsersEmail.get(i));
-            System.out.println("SQG " + i + " listUsersEmail = " + listEmail);
             if(listEmail.equals(paramEmail)) {
                 emailFound = true;
             }

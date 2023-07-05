@@ -1,18 +1,11 @@
 package com.spring.phisioweb.controllers;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Base64;
 import java.util.Map;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 
 import com.spring.phisioweb.api.user.UserAPIRest;
 import com.spring.phisioweb.model.User;
+import com.spring.phisioweb.util.Encryptor_Decryptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,10 +21,6 @@ public class UserController {
     
     @Autowired
     UserAPIRest userAPI;
-
-    public static final String myKey = "TFG_EncryptSecret";
-    private static SecretKeySpec secretKey;
-    private static byte[] key;
 
     @GetMapping("/signup/form.html")
     public static ModelAndView createNewuserForm() {
@@ -66,17 +55,17 @@ public class UserController {
 
         String username = requestParams.get("username");
         if(username != null && !username.isBlank()) {
-            user.setUsername(encryptData(username));
+            user.setUsername(Encryptor_Decryptor.encryptData(username));
         }
 
         String password = requestParams.get("password");
         if(password != null && !password.isBlank()) {
-            user.setPassword(encryptData(password));
+            user.setPassword(Encryptor_Decryptor.encryptData(password));
         }
 
         String email = requestParams.get("email");
         if(email != null && !email.isBlank()) {
-            user.setEmail(encryptData(email));
+            user.setEmail(Encryptor_Decryptor.encryptData(email));
         }
 
         try {
@@ -100,51 +89,5 @@ public class UserController {
             model.addObject("createUserSuccess", false);
         }
         return model;
-    }
-
-    //Method used to set a key secret for encrypting and decrypting
-    public static void setKeySecretCripto() {
-        MessageDigest sha = null;
-        try {
-            key = myKey.getBytes("UTF-8");
-            sha = MessageDigest.getInstance("SHA-1");
-            key = sha.digest(key);
-            key = Arrays.copyOf(key, 16);
-            secretKey = new SecretKeySpec(key, "AES");
-        }catch(NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //Method used to encrypt a plain text
-    public static String encryptData(final String strToEncrypt) {
-        String encryptedData;
-        try {
-            setKeySecretCripto();
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-            encryptedData = Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
-        }catch(Exception e) {
-            e.printStackTrace();
-            encryptedData = null;
-        }
-
-        return encryptedData;
-    }
-
-    //Method used to decrypt a plain text
-    public static String decryptData(final String strToDecrypt) {
-        String decryptedData;
-        try {
-            setKeySecretCripto();
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            decryptedData = new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
-        }catch(Exception e) {
-            e.printStackTrace();
-            decryptedData = null;
-        }
-
-        return decryptedData;
     }
 }

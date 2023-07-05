@@ -1,10 +1,15 @@
 package com.spring.phisioweb.api.user;
 
 import com.spring.phisioweb.model.User;
+import com.spring.phisioweb.util.Encryptor_Decryptor;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,4 +34,22 @@ public class UserAPIRest {
         return response;
     }
     
+    @GetMapping("/users/get/email/{paramEmail}")
+    public Boolean checkUserEmailExists(@PathVariable String paramEmail) {
+        List<String> listUsersEmail= userService.getUsersEmails();
+        System.out.println("SQG paramEmail = " + paramEmail);
+        System.out.println("SQG listUsersEmail = " + listUsersEmail);
+        Boolean emailFound = false;
+        String listEmail;
+        Integer i = 0;
+        while(i < listUsersEmail.size() && !emailFound) {
+            listEmail = Encryptor_Decryptor.decryptData(listUsersEmail.get(i));
+            System.out.println("SQG " + i + " listUsersEmail = " + listEmail);
+            if(listEmail.equals(paramEmail)) {
+                emailFound = true;
+            }
+            i++;
+        }
+        return emailFound;
+    }
 }

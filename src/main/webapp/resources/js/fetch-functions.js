@@ -117,7 +117,21 @@ function hasDowncaseLetter(str) {
 
 function containsOnlyNumbers(str) {
     return /^\d+$/.test(str);
-  }
+}
+
+//Returns true if user email exists and false if not
+function checkEmailUserExists(email) {
+    var result = false;
+    $.ajax({
+      method: 'GET',
+      url: '/api/v1/users/get/email/' + email,
+      async: false,  
+      success: function(data) {
+         result = data; 
+      }
+   });
+   return result;
+}
 
 function validateForm(event) {
     var nameOK = false, lastnameOK = false, phoneOK = false, usernameOK = false, passwordOK = false, emailOK = false;
@@ -182,7 +196,10 @@ function validateForm(event) {
     if(emailAddress === undefined || emailAddress === null || emailAddress === '') {
         applyCssValidationClass("emailId", "emailAddress", "visible", "cssError", "inputValidation", "label.email_required");
     }else {
-        if(!emailAddress.includes('@') && !emailAddress.includes('.')) {
+        //If user's email exists in the database
+        if(checkEmailUserExists(emailAddress)) {
+            applyCssValidationClass("emailId", "emailAddress", "visible", "cssError", "inputValidation", "label.email_exists");
+        }else if(!emailAddress.includes('@') && !emailAddress.includes('.')) {
             applyCssValidationClass("emailId", "emailAddress", "visible", "cssError", "inputValidation", "label.email_incorrect_format");
         }else {
             emailOK = true;
